@@ -8,7 +8,7 @@
 <form method="POST" action="kadai1-1.php">
 
 <?php
-  echo $_POST["onamae"] .;
+  echo $_POST["onamae"] ."さんのメールアドレスはです。";
 ?>
 
 <label>　</label>
