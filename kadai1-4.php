@@ -13,7 +13,7 @@
 <input type="submit" value="送信" />
 <?php
 // ファイルを開く
-$fp = fopen("sample.txt", "w");
+$fp = fopen("file-sample.txt", "w");
  
 // ファイルへ書き込み
 fwrite($fp, "==== ==== ==== ==== ====\n");
