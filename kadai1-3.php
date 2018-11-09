@@ -7,9 +7,6 @@
 <body>
 <form method="POST" action="kadai1-3.php">
 
-<?php
-echo $_POST["onamae"] ."";
-?>
 
 <br />
 <label>•¶Žš—ñ‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢F</label>
