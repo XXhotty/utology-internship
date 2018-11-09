@@ -5,7 +5,7 @@
 <title>フォームからPOSTで送信されたデータを表示 数字限定</title>
 </head>
 <body>
-<form method="POST" action="kadai1-1.php">
+<form method="POST" action="kadai1-2.php">
 
 <?php
 if (ctype_digit($onemae)) {
@@ -14,7 +14,7 @@ if (ctype_digit($onemae)) {
 ?>
 
 <br />
-<label>文字を入力してください：</label>
+<label>数字を入力してください：</label>
 <input type="text" name="onamae" /><br />
 <input type="submit" value="送信" />
 </form>
