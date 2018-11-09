@@ -8,9 +8,7 @@
 <form method="POST" action="kadai1-3.php">
 
 <?php
-if (strpos($onamae,'php') !== false) {
-	 echo $_POST["onamae"] ."";
-    }
+echo $_POST["onamae"] ."";
 ?>
 
 <br />
