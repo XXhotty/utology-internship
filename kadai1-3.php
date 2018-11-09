@@ -2,11 +2,16 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>フォームからPOSTで送信されたデータを表示 php検索</title>
+<title>フォームからPOSTで送信されたデータを表示 検索</title>
 </head>
 <body>
 <form method="POST" action="kadai1-3.php">
 
+<?php
+if (strpos($onamae,'php') !== false) {
+	 echo $_POST["onamae"] ."";
+    }
+?>
 
 <br />
 <label>文字列を入力してください：</label>
