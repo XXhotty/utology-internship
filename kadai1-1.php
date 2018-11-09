@@ -8,14 +8,12 @@
 <form method="POST" action="kadai1-1.php">
 
 <?php
-  echo $_POST["onamae"] ."さんのメールアドレスは". $_POST["mail"] ."です。";
+  echo $_POST["onamae"] .;
 ?>
 
-<label></label>
+<label>　</label>
 <label>文字を入力してください：</label>
 <input type="text" name="onamae" /><br />
-<label>メールアドレスを入力してください：</label>
-<input type="text" name="mail" />
 <input type="submit" value="送信" />
 </form>
 </body>
