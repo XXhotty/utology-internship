@@ -1,14 +1,23 @@
-<!DOCTYPE html>
-<html lang = “ja”>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 <head>
-<meta charset = “UFT-8”>
-<title>文字を入力して送信ボタンを押すとその文字が上部に表示されるページ</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>PHPテスト</title>
 </head>
 <body>
-<h1>入力してください</h1>
-<form action = “index.php” method = “get”>
-<input type = “text” name =“comment/“><br/>
-<input type = “submit” value =“送信/“>
-</form>
+
+<p>PHPのテストです。</p>
+
+<p>
+<?php
+$name = '加藤';
+print $name.'<br />';
+
+$num = 20;
+print $num * 9;
+?>
+</p>
+
 </body>
 </html>
