@@ -8,7 +8,7 @@
 <form method="POST" action="kadai1-2.php">
 
 <?php
-if (ctype_digit($onemae)) {
+if (ctype_digit($onamae)) {
 	 echo $_POST["onamae"] ."";
     }
 ?>
