@@ -8,7 +8,7 @@
 <form method="POST" action="kadai1-1.php">
 
 <?php
-  echo $_POST["onamae"] ."です。";
+  echo $_POST["onamae"] ."";
 ?>
 
 <br />
