@@ -11,7 +11,8 @@
   echo $_POST["onamae"] ."さんのメールアドレスは". $_POST["mail"] ."です。";
 ?>
 
-<label>名前を入力してください：</label>
+<label></label>
+<label>文字を入力してください：</label>
 <input type="text" name="onamae" /><br />
 <label>メールアドレスを入力してください：</label>
 <input type="text" name="mail" />
