@@ -5,7 +5,7 @@
 <title>フォームからPOSTで送信されたデータを表示 - サンプル1 - PHP入門</title>
 </head>
 <body>
-<form method="POST" action="kadai1-1.php">
+<form method="POST" action="kadai1-2.php">
 
 <?php
   echo $_POST["onamae"] ."";
