@@ -1,22 +1,22 @@
-<?php
+ï»¿<?php
 //var_dump($_POST);
-//Å‰‚É•Ï”‚ð’è‹`‚µ‚Ä‚¨‚©‚È‚¢‚ÆƒGƒ‰[‚É‚È‚é
+//æœ€åˆã«å¤‰æ•°ã‚’å®šç¾©ã—ã¦ãŠã‹ãªã„ã¨ã‚¨ãƒ©ãƒ¼ã«ãªã‚‹
 $err_msg1 = "";
 $err_msg2 = "";
 $message ="";
 $name = ( isset( $_POST["name"] ) === true ) ?$_POST["name"]: "";
 $comment  = ( isset( $_POST["comment"] )  === true ) ?  trim($_POST["comment"])  : "";
  
-//“Še‚ª‚ ‚éê‡‚Ì‚Ýˆ—‚ðs‚¤
+//æŠ•ç¨¿ãŒã‚ã‚‹å ´åˆã®ã¿å‡¦ç†ã‚’è¡Œã†
 if (  isset($_POST["send"] ) ===  true ) {
-    if ( $name   === "" ) $err_msg1 = "–¼‘O‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢"; 
+    if ( $name   === "" ) $err_msg1 = "åå‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„"; 
  
-    if ( $comment  === "" )  $err_msg2 = "ƒRƒƒ“ƒg‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢";
+    if ( $comment  === "" )  $err_msg2 = "ã‚³ãƒ¡ãƒ³ãƒˆã‚’å…¥åŠ›ã—ã¦ãã ã•ã„";
  
     if( $err_msg1 === "" && $err_msg2 ==="" ){
         $fp = fopen( "data.txt" ,"a" );
         fwrite( $fp ,  $name."\t".$comment."\n");
-        $message ="‘‚«ž‚Ý‚É¬Œ÷‚µ‚Ü‚µ‚½B";
+        $message ="æ›¸ãè¾¼ã¿ã«æˆåŠŸã—ã¾ã—ãŸã€‚";
     }
  
 }
@@ -39,22 +39,22 @@ while( $res = fgets( $fp)){
 <html lang="ja">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>ŒfŽ¦”Â</title>
+        <title>æŽ²ç¤ºæ¿</title>
     </head>
     <body>
         <?php echo $message; ?>
         <form method="post" action="">
-        –¼‘OF<input type="text" name="name" value="<?php echo $name; ?>" >
+        åå‰ï¼š<input type="text" name="name" value="<?php echo $name; ?>" >
             <?php echo $err_msg1; ?><br>
-            ƒRƒƒ“ƒgF<textarea  name="comment" rows="4" cols="40"><?php echo $comment; ?></textarea>
+            ã‚³ãƒ¡ãƒ³ãƒˆï¼š<textarea  name="comment" rows="4" cols="40"><?php echo $comment; ?></textarea>
             <?php echo $err_msg2; ?><br>
 <br>
-          <input type="submit" name="send" value="ƒNƒŠƒbƒN" >
+          <input type="submit" name="send" value="ã‚¯ãƒªãƒƒã‚¯" >
         </form>
         <dl>
-         @@<?php foreach( $dataArr as $data ):?>
-         @@@@<p><span><?php echo $data["name"]; ?></span>:<span><?php echo $data["comment"]; ?></span></p>
-        @@ <?php endforeach;?>
-@@@@@</dl>
+         ã€€ã€€<?php foreach( $dataArr as $data ):?>
+         ã€€ã€€ã€€ã€€<p><span><?php echo $data["name"]; ?></span>:<span><?php echo $data["comment"]; ?></span></p>
+        ã€€ã€€ <?php endforeach;?>
+ã€€ã€€ã€€ã€€ã€€</dl>
     </body>
 </html>
