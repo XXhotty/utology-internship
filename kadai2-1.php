@@ -52,9 +52,9 @@ while( $res = fgets( $fp)){
           <input type="submit" name="send" value="クリック" >
         </form>
         <dl>
-         <?php foreach( $dataArr as $data ):?>
-         <p><span><?php echo $data["name"]; ?></span>:<span><?php echo $data["comment"]; ?></span></p>
-        <?php endforeach;?>
-</dl>
+         　　<?php foreach( $dataArr as $data ):?>
+         　　　　<p><span><?php echo $data["name"]; ?></span>:<span><?php echo $data["comment"]; ?></span></p>
+        　　 <?php endforeach;?>
+　　　　　</dl>
     </body>
 </html>
