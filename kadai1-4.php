@@ -5,7 +5,7 @@
 <title>ファイルから書き込み</title>
 </head>
 <body>
-<form method="POST" action="kadai1-4-2.php">
+<form method="POST" action="">
 
 <br />
 <label>文字を入力してください：</label>
