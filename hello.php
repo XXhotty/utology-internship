@@ -11,3 +11,4 @@
  $name = '“c’†';
  $smarty->assign('name', $name);
  $smarty->display('hello.tpl');
+?>
