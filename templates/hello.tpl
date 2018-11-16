@@ -1,6 +1,6 @@
-<html>
+ï»¿<html>
   <head></head>
   <body>
-  	<div>‚±‚ñ‚É‚¿‚Í {$name} ‚³‚ñ</div>
+  	<div>ã“ã‚“ã«ã¡ã¯ {$name} ã•ã‚“</div>
   </body>
   </html>
