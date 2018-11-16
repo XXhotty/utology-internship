@@ -11,3 +11,4 @@
  $name = '田中';
  $smarty->assign('name', $name);
  $smarty->display('hello.tpl');
+?>
