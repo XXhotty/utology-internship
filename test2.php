@@ -1,8 +1,8 @@
- <html>
+ï»¿ <html>
  <head></head>
  <body>
  	<div><?php
-  		$fruit = '‚è‚ñ‚²';
+  		$fruit = 'ã‚Šã‚“ã”';
     		echo $fruit;
   	?></div>
  </body>
