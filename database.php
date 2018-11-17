@@ -1,6 +1,6 @@
- $DBSERVER = 'localhost';
+ï»¿ $DBSERVER = 'localhost';
  $DBNAME = 'board';
- $DBUSER = 'board'; //ì¬‚µ‚½ƒ†[ƒU[–¼
- $DBPASSWD = 'pw'; //ì¬‚µ‚½ƒ†[ƒU[‚ÌƒpƒXƒ[ƒh
+ $DBUSER = 'hotty'; //ä½œæˆã—ãŸãƒ¦ãƒ¼ã‚¶ãƒ¼å
+ $DBPASSWD = 'hotta'; //ä½œæˆã—ãŸãƒ¦ãƒ¼ã‚¶ãƒ¼ã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
  $dsn = "mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8';
  $pdo = new \PDO($dsn, $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
