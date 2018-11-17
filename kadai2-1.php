@@ -6,32 +6,27 @@ $err_msg2 = "";
 $message ="";
 $name = ( isset( $_POST["name"] ) === true ) ?$_POST["name"]: "";
 $comment  = ( isset( $_POST["comment"] )  === true ) ?  trim($_POST["comment"])  : "";
- 
+
+ $DBSERVER = 'localhost';
+ $DBNAME = 'board';
+ $DBUSER = 'board'; //作成したユーザー名
+ $DBPASSWD = 'pw'; //作成したユーザーのパスワード
+ $dsn = "mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8';
+ $pdo = new \PDO($dsn, $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
+
 //投稿がある場合のみ処理を行う
 if (  isset($_POST["send"] ) ===  true ) {
-    if ( $name   === "" ) $err_msg1 = "名前を入力してください"; 
- 
-    if ( $comment  === "" )  $err_msg2 = "コメントを入力してください";
- 
-    if( $err_msg1 === "" && $err_msg2 ==="" ){
-        $fp = fopen( "data.txt" ,"a" );
-        fwrite( $fp ,  $name."\t".$comment."\n");
-        $message ="書き込みに成功しました。";
-    }
- 
+    $sql = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :name, :comment, NOW())';
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
+    $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
+    $stmt->execute();
 }
- 
-$fp = fopen("data.txt","r");
- 
-$dataArr= array();
-while( $res = fgets( $fp)){
-    $tmp = explode("\t",$res);
-    $arr = array(
-        "name"=>$tmp[0],
-        "comment"=>$tmp[1]
-    );
-    $dataArr[]= $arr;
-} 
+
+$sql = 'SELECT * FROM `board`';
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$messages = $stmt->fetchAll();
  
  
 ?>
