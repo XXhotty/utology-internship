@@ -23,18 +23,19 @@ if (  isset($_POST["send"] ) ===  true ) {
     }
 
 }
+ $sql = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :name, :comment, NOW())';
+ $stmt = $pdo->prepare($sql);
+ $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
+ $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
+ $stmt->execute();
 
-$fp = fopen("data.txt","r");
-
-$dataArr= array();
-while( $res = fgets( $fp)){
-    $tmp = explode("\t",$res);
-    $arr = array(
-        "name"=>$tmp[0],
-        "comment"=>$tmp[1]
-    );
-    $dataArr[]= $arr;
-}
+読み込みはこうです
+code: select.php
+ $sql = 'SELECT * FROM `board`';
+ $stmt = $pdo->prepare($sql);
+ $stmt->execute();
+ $messages = $stmt->fetchAll();
+ 
  
  
 ?>
