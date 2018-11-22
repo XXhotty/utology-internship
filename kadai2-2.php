@@ -1,62 +1,77 @@
 ﻿<?php
-//var_dump($_POST);
-//最初に変数を定義しておかないとエラーになる
-$err_msg1 = "";
-$err_msg2 = "";
-$message ="";
-$name = ( isset( $_POST["name"] ) === true ) ?$_POST["name"]: "";
-$comment  = ( isset( $_POST["comment"] )  === true ) ?  trim($_POST["comment"])  : "";
 
-$DBSERVER = 'localhost';
-$DBNAME = 'board';
-$DBUSER = 'hotty'; //作成したユーザー名
-$DBPASSWD = 'hotta'; //作成したユーザーのパスワード
-$dsn = "mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8';
-$pdo = new \PDO($dsn, $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
+$db_host = 'localhost';
+$db_name = 'board';
+$db_user = 'hotty';
+$db_pass = 'hotta';
 
-//投稿がある場合のみ処理を行う
-if (  isset($_POST["send"] ) ===  true ) {
-    if ( $name   === "" ) $err_msg1 = "名前を入力してください";
+// データベースへ接続する
+$link = mysqli_connect( $db_host, $db_user, $db_pass, $db_name );
+if ( $link !== false ) {
 
-    if ( $comment  === "" )  $err_msg2 = "コメントを入力してください";
+    $msg     = '';
+    $err_msg = '';
 
-    if( $err_msg1 === "" && $err_msg2 ==="" ){
-        $sql = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :name, :comment, NOW())';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
-        $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
-        $stmt->execute();
-        $message ="書き込みに成功しました。";
+    if ( isset( $_POST['send'] ) === true ) {
+
+        $name     = $_POST['name']   ;
+        $comment = $_POST['comment'];
+
+        if ( $name !== '' && $comment !== '' ) {
+
+            $query = " INSERT INTO board ( "
+                . "    name , "
+                . "    comment "
+                . " ) VALUES ( "
+                . "'" . mysqli_real_escape_string( $link, $name ) ."', "
+                . "'" . mysqli_real_escape_string( $link, $comment ) . "'"
+                ." ) ";
+
+            $res   = mysqli_query( $link, $query );
+
+            if ( $res !== false ) {
+                $msg = '書き込みに成功しました';
+            }else{
+                $err_msg = '書き込みに失敗しました';
+            }
+        }else{
+            $err_msg = '名前とコメントを記入してください';
+        }
     }
 
+    $query  = "SELECT id, name, comment FROM board";
+    $res    = mysqli_query( $link,$query );
+    $data = array();
+    while( $row = mysqli_fetch_assoc( $res ) ) {
+        array_push( $data, $row);
+    }
+    arsort( $data );
+
+} else {
+    echo "データベースの接続に失敗しました";
 }
 
- $sql = 'SELECT * FROM `board`';
- $stmt = $pdo->prepare($sql);
- $stmt->execute();
- $messages = $stmt->fetchAll();
-
+// データベースへの接続を閉じる
+mysqli_close( $link );
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="ja">
+
+<html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>掲示板</title>
 </head>
 <body>
-<?php echo $message; ?>
 <form method="post" action="">
-    名前：<input type="text" name="name" value="<?php echo $name; ?>" >
-    <?php echo $err_msg1; ?><br>
-    コメント：<textarea  name="comment" rows="4" cols="40"><?php echo $comment; ?></textarea>
-    <?php echo $err_msg2; ?><br>
-    <br>
-    <input type="submit" name="send" value="クリック" >
+    名前<input type="text" name="name" value="" />
+    コメント<textarea name="comment" rows="4" cols="20"></textarea>
+    <input type="submit" name="send" value="書き込む" />
 </form>
-<dl>
-    　　<?php foreach( $dataArr as $data ):?>
-        　　　　<p><span><?php echo $data["name"]; ?></span>:<span><?php echo $data["comment"]; ?></span></p>
-        　　 <?php endforeach;?>
-    　　　　　</dl>
+<!-- ここに、書き込まれたデータを表示する -->
+<?php
+if ( $msg     !== '' ) echo '<p>' . $msg . '</p>';
+if ( $err_msg !== '' ) echo '<p style="color:#f00;">' . $err_msg . '</p>';
+foreach( $data as $key => $val ){
+    echo $val['name'] . ' ' . $val['comment'] . '<br>';
+}
+?>
 </body>
 </html>
