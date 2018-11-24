@@ -1,66 +1,49 @@
 ﻿<?php
 
-$db_host = 'localhost';
-$db_name = 'board';
-$db_user = 'hotty';
-$db_pass = 'hotta';
+$DBSERVER = 'localhost';
+$DBNAME = 'board';
+$DBUSER = 'board'; //作成したユーザー名
+$DBPASSWD = 'pw'; //作成したユーザーのパスワード
+$dsn = "mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8';
+$pdo = new \PDO($dsn, $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
 
-// データベースへ接続する
-$link = mysqli_connect( $db_host, $db_user, $db_pass, $db_name );
-if ( $link !== false ) {
+if ( $pdo !== null ) {
 
     $msg     = '';
     $err_msg = '';
 
-    if ( isset( $_POST['send'] ) == true ) {
+    if ( isset( $_POST['send'] ) === true ) {
 
         $name     = $_POST['name']   ;
         $comment = $_POST['comment'];
 
         if ( $name !== '' && $comment !== '' ) {
 
-            $query = " INSERT INTO board ( "
-                . "    name , "
-                . "    comment "
-                . " ) VALUES ( "
-                . "'" . mysqli_real_escape_string( $link, $name ) ."', "
-                . "'" . mysqli_real_escape_string( $link, $comment ) . "'"
-                ." ) ";
+            $sql = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :name, :comment, NOW())';
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
+            $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
+            $stmt->execute();
 
-            $res   = mysqli_query( $link, $query );
-
-            if ( $res !== false ) {
-                $msg = '書き込みに成功しました';
-            }else{
-                $err_msg = '書き込みに失敗しました';
-            }
         }else{
             $err_msg = '名前とコメントを記入してください';
         }
     }
 
-    $query  = "SELECT id, name, comment FROM board";
-    $res    = mysqli_query( $link,$query );
-    $data = array();
-    while( $row = mysqli_fetch_assoc( $res ) ) {
-        array_push( $data, $row);
-    }
-    arsort( $data );
+    $sql = 'SELECT * FROM `board`';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $msg = $stmt->fetchAll();
 
 } else {
     echo "データベースの接続に失敗しました";
 }
-
-// データベースへの接続を閉じる
-mysqli_close( $link );
-?>
 
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 </head>
 <body>
-<form method="post" action="">
     名前<input type="text" name="name" value="" />
     コメント<textarea name="comment" rows="4" cols="20"></textarea>
     <input type="submit" name="send" value="書き込む" />
