@@ -12,7 +12,7 @@ if ( $link !== false ) {
     $msg     = '';
     $err_msg = '';
 
-    if ( isset( $_POST['send'] ) === true ) {
+    if ( isset( $_POST['send'] ) == true ) {
 
         $name     = $_POST['name']   ;
         $comment = $_POST['comment'];
