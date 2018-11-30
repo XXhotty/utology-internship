@@ -4,7 +4,7 @@ $DBSERVER = 'localhost';
 $DBNAME = 'board';
 $DBUSER = 'board'; //作成したユーザー名
 $DBPASSWD = 'pw'; //作成したユーザーのパスワード
-$dsn = "mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8";
+$dsn = 'mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8';
 $pdo = new \PDO($dsn, $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
 
 if ( $pdo !== false ) {
@@ -19,7 +19,7 @@ if ( $pdo !== false ) {
 
         if ( $name !== '' && $comment !== '' ) {
 
-            $sql = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :name, :comment, NOW())';
+            $sql = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :comment, NOW())';
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
             $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
@@ -38,7 +38,7 @@ if ( $pdo !== false ) {
 } else {
     echo "データベースの接続に失敗しました";
 }
-
+?>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
