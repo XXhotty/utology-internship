@@ -7,44 +7,51 @@ $DBPASSWD = 'pw'; //作成したユーザーのパスワード
 $dsn = 'mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8';
 $pdo = new \PDO($dsn, $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
 
-if ( $pdo !== false ) {
 
-    $msg     = '';
-    $err_msg = '';
 
-    if ( isset( $_POST['send'] ) === true ) {
+$msg     = '';
+$err_msg = '';
 
-        $name     = $_POST['name']   ;
-        $comment = $_POST['comment'];
+if ( isset( $_POST['send'] ) === true ) {
 
-        if ( $name !== '' && $comment !== '' ) {
+    $name     = $_POST['name']   ;
+    $comment = $_POST['comment'];
 
-            $sql = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :comment, NOW())';
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
-            $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
-            $stmt->execute();
+    if ( $name !== '' && $comment !== '' ) {
 
-        }else{
-            $err_msg = '名前とコメントを記入してください';
-        }
+        $sql = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :comment, NOW())';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
+        $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
+        $stmt->execute();
+
+    }else{
+        $err_msg = '名前とコメントを記入してください';
     }
-
-    $sql = 'SELECT * FROM `board`';
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $msg = $stmt->fetchAll();
-
-} else {
-    echo "データベースの接続に失敗しました";
 }
-// smarty のライブラリを読み込みます
-include_once __DIR__ . '/libs/smarty.class.php';
 
-// smartyを宣言して設定を書き加えます
-$smarty = new Smarty();
-$smarty->escape_html = true;
-$smarty->template_dir = __DIR__ . '/templates';
-$smarty->compile_dir = __DIR__ . '/templates_c';
+$sql = 'SELECT * FROM `board`';
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$messages = $stmt->fetchAll();
 
-$smarty->display('kadai2-2.tpl');
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>掲示板</title>
+</head>
+<body>
+<?php echo $message; ?>
+<form method="post" action="">
+    名前：<input type="text" name="name" value="<?php echo $name; ?>" >
+    <?php echo $err_msg1; ?><br>
+    コメント：<textarea  name="comment" rows="4" cols="40"><?php echo $comment; ?></textarea>
+    <?php echo $err_msg2; ?><br>
+    <br>
+    <input type="submit" name="send" value="クリック" >
+</form>
+
+</body>
+</html>
