@@ -36,22 +36,23 @@ $stmt->execute();
 $messages = $stmt->fetchAll();
 
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="ja">
+<html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>掲示板</title>
 </head>
 <body>
-<?php echo $message; ?>
 <form method="post" action="">
-    名前：<input type="text" name="name" value="<?php echo $name; ?>" >
-    <?php echo $err_msg1; ?><br>
-    コメント：<textarea  name="comment" rows="4" cols="40"><?php echo $comment; ?></textarea>
-    <?php echo $err_msg2; ?><br>
-    <br>
-    <input type="submit" name="send" value="クリック" >
+    名前<input type="text" name="name" value="" />
+    コメント<textarea name="comment" rows="4" cols="20"></textarea>
+    <input type="submit" name="send" value="書き込む" />
 </form>
-
+<!-- ここに、書き込まれたデータを表示する -->
+<?php
+if ( $msg     !== '' ) echo '<p>' . $msg . '</p>';
+if ( $err_msg !== '' ) echo '<p style="color:#f00;">' . $err_msg . '</p>';
+foreach( $massages as $key => $val ){
+    echo $val['name'] . ' ' . $val['comment'] . '<br>';
+}
+?>
 </body>
 </html>
