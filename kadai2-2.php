@@ -48,10 +48,8 @@ $messages = $stmt->fetchAll();
 </form>
 <!-- ここに、書き込まれたデータを表示する -->
 <?php
-if ( $msg     !== '' ) echo '<p>' . $msg . '</p>';
+if ( $messages     !== '' ) echo '<p>' . $messages . '</p>';
 if ( $err_msg !== '' ) echo '<p style="color:#f00;">' . $err_msg . '</p>';
-foreach( $messages as $key => $val ){
-    echo $val['name'] . ' ' . $val['comment'] . '<br>';
 }
 ?>
 </body>
