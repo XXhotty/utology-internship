@@ -48,8 +48,9 @@ $messages = $stmt->fetchAll();
 </form>
 <!-- ここに、書き込まれたデータを表示する -->
 <?php
-if ( $messages     !== '' ) echo '<p>' . $messages . '</p>';
+if ( $msg     !== '' ) echo '<p>' . $msg . '</p>';
 if ( $err_msg !== '' ) echo '<p style="color:#f00;">' . $err_msg . '</p>';
+if ( $messages     !== '' ) echo '<p>' . $messages . '</p>';
 }
 ?>
 </body>
