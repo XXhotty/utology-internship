@@ -50,9 +50,6 @@ $messages = $stmt->fetchAll();
 <?php
 if ( $msg     !== '' ) echo '<p>' . $msg . '</p>';
 if ( $err_msg !== '' ) echo '<p style="color:#f00;">' . $err_msg . '</p>';
-foreach( $massages as $key => $val ){
-    echo $val['name'] . ' ' . $val['comment'] . '<br>';
-}
+
 ?>
 </body>
-</html>
