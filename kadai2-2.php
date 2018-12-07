@@ -9,23 +9,6 @@ $pdo = new \PDO($dsn, $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => f
 
 $err_msg = 's';
 
-if ( isset( $_POST['send'] ) === true ) {
-
-    $name     = $_POST['name']   ;
-    $comment = $_POST['comment'];
-
-    if ( $name !== '' && $comment !== '' ) {
-
-        $sql = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :comment, NOW())';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
-        $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
-        $stmt->execute();
-
-    }else{
-        $err_msg = '名前とコメントを記入してください';
-    }
-}
 
 ?>
 <html>
