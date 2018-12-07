@@ -1,37 +1,7 @@
 ﻿<?php
-
-$DBSERVER = 'localhost';
-$DBNAME = 'board';
-$DBUSER = 'hotty'; //作成したユーザー名
-$DBPASSWD = 'hotta'; //作成したユーザーのパスワード
-$dsn = 'mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8';
-$pdo = new \PDO($dsn, $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
-
-$err_msg = '';
-
-if ( isset( $_POST['send'] ) === true ) {
-
-    $name     = $_POST['name']   ;
-    $comment = $_POST['comment'];
-
-    if ( $name !== '' && $comment !== '' ) {
-
-        $sql = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :comment, NOW())';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
-        $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
-        $stmt->execute();
-
-    }else{
-        $err_msg = '名前とコメントを記入してください';
-    }
-}
-
-$sql = 'SELECT * FROM `board`';
-$stmt = $pdo->prepare($sql);
-$stmt->execute();
-$messages = $stmt->fetchAll();
-
+$msg = "a";
+$err_msg = "b";
+$messages = "c";
 ?>
 <html>
 <head>
@@ -45,6 +15,7 @@ $messages = $stmt->fetchAll();
 </form>
 <!-- ここに、書き込まれたデータを表示する -->
 <?php
+if ( $msg     !== '' ) echo '<p>' . $msg . '</p>';
 if ( $err_msg !== '' ) echo '<p>' . $err_msg . '</p>';
 if ( $messages     !== '' ) echo '<p>' . $messages . '</p>';
 
