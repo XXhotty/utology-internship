@@ -7,8 +7,11 @@ $DBPASSWD = 'hotta'; //作成したユーザーのパスワード
 $dsn = 'mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8';
 $pdo = new \PDO($dsn, $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
 
-$err_msg = 'b';
-
+$err_msg = '';
+?>
+<?php
+if ( $err_msg !== '' ) echo '<p>' . $err_msg . '</p>';
+?>
 if ( isset( $_POST['send'] ) === true ) {
 
     $name     = $_POST['name']   ;
@@ -46,5 +49,6 @@ $messages = $stmt->fetchAll();
 <!-- ここに、書き込まれたデータを表示する -->
 <?php
 if ( $err_msg !== '' ) echo '<p>' . $err_msg . '</p>';
+if ( $messages     !== '' ) echo '<p>' . $messages . '</p>';
 ?>
 </body>
