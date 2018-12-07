@@ -1,5 +1,5 @@
 ﻿<?php
-$msg = "a";
+
 $err_msg = "b";
 $messages = "c";
 ?>
@@ -15,7 +15,6 @@ $messages = "c";
 </form>
 <!-- ここに、書き込まれたデータを表示する -->
 <?php
-if ( $msg     !== '' ) echo '<p>' . $msg . '</p>';
 if ( $err_msg !== '' ) echo '<p>' . $err_msg . '</p>';
 if ( $messages     !== '' ) echo '<p>' . $messages . '</p>';
 
