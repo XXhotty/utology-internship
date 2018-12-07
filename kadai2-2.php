@@ -8,10 +8,7 @@ $dsn = 'mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8';
 $pdo = new \PDO($dsn, $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
 
 $err_msg = '';
-?>
-<?php
-if ( $err_msg !== '' ) echo '<p>' . $err_msg . '</p>';
-?>
+
 if ( isset( $_POST['send'] ) === true ) {
 
     $name     = $_POST['name']   ;
@@ -33,7 +30,7 @@ if ( isset( $_POST['send'] ) === true ) {
 $sql = 'SELECT * FROM `board`';
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
-$messages = $stmt->fetchAll();
+$messages = "c";
 
 ?>
 <html>
@@ -50,5 +47,6 @@ $messages = $stmt->fetchAll();
 <?php
 if ( $err_msg !== '' ) echo '<p>' . $err_msg . '</p>';
 if ( $messages     !== '' ) echo '<p>' . $messages . '</p>';
+
 ?>
 </body>
