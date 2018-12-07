@@ -30,7 +30,7 @@ if ( isset( $_POST['send'] ) === true ) {
 $sql = 'SELECT * FROM `board`';
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
-$messages = "c";
+$messages = $stmt->fetchAll();
 
 ?>
 <html>
