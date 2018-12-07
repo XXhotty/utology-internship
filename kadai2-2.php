@@ -5,14 +5,9 @@ $DBNAME = 'board';
 $DBUSER = 'hotty'; //作成したユーザー名
 $DBPASSWD = 'hotta'; //作成したユーザーのパスワード
 $dsn = 'mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8';
+$pdo = new \PDO($dsn, $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
 
-$err_msg = '';
-try{
-    $pdo = new \PDO($dsn, $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
-    }catch(PDOException $Exception){
-    $err_msg = "接続できませんでした";
-}
-
+$err_msg = 's';
 
 if ( isset( $_POST['send'] ) === true ) {
 
@@ -51,7 +46,6 @@ $messages = $stmt->fetchAll();
 <!-- ここに、書き込まれたデータを表示する -->
 <?php
 if ( $err_msg !== '' ) echo '<p>' . $err_msg . '</p>';
-if ( $messages     !== '' ) echo '<p>' . $messages . '</p>';
 
 ?>
 </body>
