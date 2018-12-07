@@ -4,7 +4,7 @@ $DBSERVER = 'localhost';
 $DBNAME = 'board';
 $DBUSER = 'hotty'; //作成したユーザー名
 $DBPASSWD = 'hotta'; //作成したユーザーのパスワード
-
+$dsn = 'mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8';
 
 $err_msg = 's';
 
