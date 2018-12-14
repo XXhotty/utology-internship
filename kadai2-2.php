@@ -10,7 +10,7 @@ if (!$dsn)
     exit('dsn');
 }
 
-$pdo = new \PDO($dsn, $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
+$pdo = new \PDO('mysql:host=localhost;dbname=board', $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
 if (!$pdo)
 {
     exit('データベースと接続できませんでした。');
