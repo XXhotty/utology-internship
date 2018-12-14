@@ -5,11 +5,6 @@ $DBNAME = 'board';
 $DBUSER = 'hotty'; //作成したユーザー名
 $DBPASSWD = 'hotta'; //作成したユーザーのパスワード
 $dsn = 'mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8';
-if (!$dsn)
-{
-    exit('dsn');
-}
-
 $pdo = new \PDO('mysql:host=localhost;dbname=board', $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
 if (!$pdo)
 {
@@ -17,7 +12,7 @@ if (!$pdo)
 }
 
 
-$err_msg = '';
+$err_msg = 'a';
 
 if ( isset( $_POST['send'] ) === true ) {
 
