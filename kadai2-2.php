@@ -12,7 +12,7 @@ if (!$pdo)
 }
 
 
-$err_msg = 'a';
+$err_msg = '';
 
 if ( isset( $_POST['send'] ) === true ) {
 
