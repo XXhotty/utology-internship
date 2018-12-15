@@ -3,17 +3,18 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 </head>
 <body>
+<form method="post" action="">
     名前<input type="text" name="name" value="" />
     コメント<textarea name="comment" rows="4" cols="20"></textarea>
     <input type="submit" name="send" value="書き込む" />
 </form>
 <!-- ここに、書き込まれたデータを表示する -->
 <?php
-if ( $msg     !== '' ) echo '<p>' . $msg . '</p>';
-if ( $err_msg !== '' ) echo '<p style="color:#f00;">' . $err_msg . '</p>';
-foreach( $data as $key => $val ){
-    echo $val['name'] . ' ' . $val['comment'] . '<br>';
+if ( $err_msg !== '' ) echo '<p>' . $err_msg . '</p>';
+foreach ($messages as &$message) {
+    echo "名前:".$message['name']." ";
+    echo "コメント:".$message['comment']." ";
+    echo "時間:".$message['created'].'</br>';
 }
 ?>
 </body>
-</html>
