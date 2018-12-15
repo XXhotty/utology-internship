@@ -1,82 +1,82 @@
 <?php
-require 'password.php';   // password_hash()‚Íphp 5.5.0ˆÈ~‚ÌŠÖ”‚Ì‚½‚ßAƒo[ƒWƒ‡ƒ“‚ªŒÃ‚­‚ÄŽg‚¦‚È‚¢ê‡‚ÉŽg—p
-// ƒZƒbƒVƒ‡ƒ“ŠJŽn
+require 'password.php';   // password_hash()ã¯php 5.5.0ä»¥é™ã®é–¢æ•°ã®ãŸã‚ã€ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãŒå¤ãã¦ä½¿ãˆãªã„å ´åˆã«ä½¿ç”¨
+// ã‚»ãƒƒã‚·ãƒ§ãƒ³é–‹å§‹
 session_start();
 
-$db['host'] = "localhost";  // DBƒT[ƒo‚ÌURL
-$db['user'] = "hogeUser";  // ƒ†[ƒU[–¼
-$db['pass'] = "hogehoge";  // ƒ†[ƒU[–¼‚ÌƒpƒXƒ[ƒh
-$db['dbname'] = "loginManagement";  // ƒf[ƒ^ƒx[ƒX–¼
+$db['host'] = "localhost";  // DBã‚µãƒ¼ãƒã®URL
+$db['user'] = "hogeUser";  // ãƒ¦ãƒ¼ã‚¶ãƒ¼å
+$db['pass'] = "hogehoge";  // ãƒ¦ãƒ¼ã‚¶ãƒ¼åã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
+$db['dbname'] = "loginManagement";  // ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹å
 
-// ƒGƒ‰[ƒƒbƒZ[ƒWA“o˜^Š®—¹ƒƒbƒZ[ƒW‚Ì‰Šú‰»
+// ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€ç™»éŒ²å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®åˆæœŸåŒ–
 $errorMessage = "";
 $signUpMessage = "";
 
-// ƒƒOƒCƒ“ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½ê‡
+// ãƒ­ã‚°ã‚¤ãƒ³ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸå ´åˆ
 if (isset($_POST["signUp"])) {
-    // 1. ƒ†[ƒUID‚Ì“ü—Íƒ`ƒFƒbƒN
-    if (empty($_POST["username"])) {  // ’l‚ª‹ó‚Ì‚Æ‚«
-        $errorMessage = 'ƒ†[ƒU[ID‚ª–¢“ü—Í‚Å‚·B';
+    // 1. ãƒ¦ãƒ¼ã‚¶IDã®å…¥åŠ›ãƒã‚§ãƒƒã‚¯
+    if (empty($_POST["username"])) {  // å€¤ãŒç©ºã®ã¨ã
+        $errorMessage = 'ãƒ¦ãƒ¼ã‚¶ãƒ¼IDãŒæœªå…¥åŠ›ã§ã™ã€‚';
     } else if (empty($_POST["password"])) {
-        $errorMessage = 'ƒpƒXƒ[ƒh‚ª–¢“ü—Í‚Å‚·B';
+        $errorMessage = 'ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒæœªå…¥åŠ›ã§ã™ã€‚';
     } else if (empty($_POST["password2"])) {
-        $errorMessage = 'ƒpƒXƒ[ƒh‚ª–¢“ü—Í‚Å‚·B';
+        $errorMessage = 'ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒæœªå…¥åŠ›ã§ã™ã€‚';
     }
 
     if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["password2"]) && $_POST["password"] === $_POST["password2"]) {
-        // “ü—Í‚µ‚½ƒ†[ƒUID‚ÆƒpƒXƒ[ƒh‚ðŠi”[
+        // å…¥åŠ›ã—ãŸãƒ¦ãƒ¼ã‚¶IDã¨ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’æ ¼ç´
         $username = $_POST["username"];
         $password = $_POST["password"];
 
-        // 2. ƒ†[ƒUID‚ÆƒpƒXƒ[ƒh‚ª“ü—Í‚³‚ê‚Ä‚¢‚½‚ç”FØ‚·‚é
+        // 2. ãƒ¦ãƒ¼ã‚¶IDã¨ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒå…¥åŠ›ã•ã‚Œã¦ã„ãŸã‚‰èªè¨¼ã™ã‚‹
         $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
 
-        // 3. ƒGƒ‰[ˆ—
+        // 3. ã‚¨ãƒ©ãƒ¼å‡¦ç†
         try {
             $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 
             $stmt = $pdo->prepare("INSERT INTO userData(name, password) VALUES (?, ?)");
 
-            $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT)));  // ƒpƒXƒ[ƒh‚ÌƒnƒbƒVƒ…‰»‚ðs‚¤i¡‰ñ‚Í•¶Žš—ñ‚Ì‚Ý‚È‚Ì‚ÅbindValue(•Ï”‚Ì“à—e‚ª•Ï‚í‚ç‚È‚¢)‚ðŽg—p‚¹‚¸A’¼Úexcute‚É“n‚µ‚Ä‚à–â‘è‚È‚¢j
-            $userid = $pdo->lastinsertid();  // “o˜^‚µ‚½(DB‘¤‚Åauto_increment‚µ‚½)ID‚ð$userid‚É“ü‚ê‚é
+            $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT)));  // ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã®ãƒãƒƒã‚·ãƒ¥åŒ–ã‚’è¡Œã†ï¼ˆä»Šå›žã¯æ–‡å­—åˆ—ã®ã¿ãªã®ã§bindValue(å¤‰æ•°ã®å†…å®¹ãŒå¤‰ã‚ã‚‰ãªã„)ã‚’ä½¿ç”¨ã›ãšã€ç›´æŽ¥excuteã«æ¸¡ã—ã¦ã‚‚å•é¡Œãªã„ï¼‰
+            $userid = $pdo->lastinsertid();  // ç™»éŒ²ã—ãŸ(DBå´ã§auto_incrementã—ãŸ)IDã‚’$useridã«å…¥ã‚Œã‚‹
 
-            $signUpMessage = '“o˜^‚ªŠ®—¹‚µ‚Ü‚µ‚½B‚ ‚È‚½‚Ì“o˜^ID‚Í '. $userid. ' ‚Å‚·BƒpƒXƒ[ƒh‚Í '. $password. ' ‚Å‚·B';  // ƒƒOƒCƒ“Žž‚ÉŽg—p‚·‚éID‚ÆƒpƒXƒ[ƒh
+            $signUpMessage = 'ç™»éŒ²ãŒå®Œäº†ã—ã¾ã—ãŸã€‚ã‚ãªãŸã®ç™»éŒ²IDã¯ '. $userid. ' ã§ã™ã€‚ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯ '. $password. ' ã§ã™ã€‚';  // ãƒ­ã‚°ã‚¤ãƒ³æ™‚ã«ä½¿ç”¨ã™ã‚‹IDã¨ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
         } catch (PDOException $e) {
-            $errorMessage = 'ƒf[ƒ^ƒx[ƒXƒGƒ‰[';
-            // $e->getMessage() ‚ÅƒGƒ‰[“à—e‚ðŽQÆ‰Â”\iƒfƒoƒbƒOŽž‚Ì‚Ý•\Ž¦j
+            $errorMessage = 'ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚¨ãƒ©ãƒ¼';
+            // $e->getMessage() ã§ã‚¨ãƒ©ãƒ¼å†…å®¹ã‚’å‚ç…§å¯èƒ½ï¼ˆãƒ‡ãƒãƒƒã‚°æ™‚ã®ã¿è¡¨ç¤ºï¼‰
             // echo $e->getMessage();
         }
     } else if($_POST["password"] != $_POST["password2"]) {
-        $errorMessage = 'ƒpƒXƒ[ƒh‚ÉŒë‚è‚ª‚ ‚è‚Ü‚·B';
+        $errorMessage = 'ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã«èª¤ã‚ŠãŒã‚ã‚Šã¾ã™ã€‚';
     }
 }
 ?>
 
 <!doctype html>
 <html>
-    <head>
-            <meta charset="UTF-8">
-            <title>V‹K“o˜^</title>
-    </head>
-    <body>
-        <h1>V‹K“o˜^‰æ–Ê</h1>
-        <form id="loginForm" name="loginForm" action="" method="POST">
-            <fieldset>
-                <legend>V‹K“o˜^ƒtƒH[ƒ€</legend>
-                <div><font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font></div>
-                <div><font color="#0000ff"><?php echo htmlspecialchars($signUpMessage, ENT_QUOTES); ?></font></div>
-                <label for="username">ƒ†[ƒU[–¼</label><input type="text" id="username" name="username" placeholder="ƒ†[ƒU[–¼‚ð“ü—Í" value="<?php if (!empty($_POST["username"])) {echo htmlspecialchars($_POST["username"], ENT_QUOTES);} ?>">
-                <br>
-                <label for="password">ƒpƒXƒ[ƒh</label><input type="password" id="password" name="password" value="" placeholder="ƒpƒXƒ[ƒh‚ð“ü—Í">
-                <br>
-                <label for="password2">ƒpƒXƒ[ƒh(Šm”F—p)</label><input type="password" id="password2" name="password2" value="" placeholder="Ä“xƒpƒXƒ[ƒh‚ð“ü—Í">
-                <br>
-                <input type="submit" id="signUp" name="signUp" value="V‹K“o˜^">
-            </fieldset>
-        </form>
+<head>
+    <meta charset="UTF-8">
+    <title>æ–°è¦ç™»éŒ²</title>
+</head>
+<body>
+<h1>æ–°è¦ç™»éŒ²ç”»é¢</h1>
+<form id="loginForm" name="loginForm" action="" method="POST">
+    <fieldset>
+        <legend>æ–°è¦ç™»éŒ²ãƒ•ã‚©ãƒ¼ãƒ </legend>
+        <div><font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font></div>
+        <div><font color="#0000ff"><?php echo htmlspecialchars($signUpMessage, ENT_QUOTES); ?></font></div>
+        <label for="username">ãƒ¦ãƒ¼ã‚¶ãƒ¼å</label><input type="text" id="username" name="username" placeholder="ãƒ¦ãƒ¼ã‚¶ãƒ¼åã‚’å…¥åŠ›" value="<?php if (!empty($_POST["username"])) {echo htmlspecialchars($_POST["username"], ENT_QUOTES);} ?>">
         <br>
-        <form action="Login.php">
-            <input type="submit" value="–ß‚é">
-        </form>
-    </body>
+        <label for="password">ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰</label><input type="password" id="password" name="password" value="" placeholder="ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å…¥åŠ›">
+        <br>
+        <label for="password2">ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰(ç¢ºèªç”¨)</label><input type="password" id="password2" name="password2" value="" placeholder="å†åº¦ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å…¥åŠ›">
+        <br>
+        <input type="submit" id="signUp" name="signUp" value="æ–°è¦ç™»éŒ²">
+    </fieldset>
+</form>
+<br>
+<form action="Login.php">
+    <input type="submit" value="æˆ»ã‚‹">
+</form>
+</body>
 </html>
