@@ -51,6 +51,8 @@ $messages = $stmt->fetchAll();
 <!-- ここに、書き込まれたデータを表示する -->
 <?php
 if ( $err_msg !== '' ) echo '<p>' . $err_msg . '</p>';
-if ( $messages     !== '' ) echo '<p>' . $messages . '</p>';
+foreach ($messages as &$message) {
+    echo '<p>' . $message . '</p>';
+}
 ?>
 </body>
