@@ -12,4 +12,11 @@
 
 <p>{$err_msg}<p/>
 
+
+foreach ({$messages} as &{$message}) {
+    <p>{$message['name']}:{$message['comment']}.{$message['created']}<p/>
+}
+?>
+</body>
+
 </body>
