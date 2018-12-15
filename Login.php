@@ -1,33 +1,33 @@
 <?php
-require 'password.php';   // password_verfy()‚Íphp 5.5.0ˆÈ~‚ÌŠÖ”‚Ì‚½‚ßAƒo[ƒWƒ‡ƒ“‚ªŒÃ‚­‚ÄŽg‚¦‚È‚¢ê‡‚ÉŽg—p
-// ƒZƒbƒVƒ‡ƒ“ŠJŽn
+require 'password.php';   // password_verfy()ã¯php 5.5.0ä»¥é™ã®é–¢æ•°ã®ãŸã‚ã€ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãŒå¤ãã¦ä½¿ãˆãªã„å ´åˆã«ä½¿ç”¨
+// ã‚»ãƒƒã‚·ãƒ§ãƒ³é–‹å§‹
 session_start();
 
-$db['host'] = "localhost";  // DBƒT[ƒo‚ÌURL
-$db['user'] = "hogeUser";  // ƒ†[ƒU[–¼
-$db['pass'] = "hogehoge";  // ƒ†[ƒU[–¼‚ÌƒpƒXƒ[ƒh
-$db['dbname'] = "loginManagement";  // ƒf[ƒ^ƒx[ƒX–¼
+$db['host'] = "localhost";  // DBã‚µãƒ¼ãƒã®URL
+$db['user'] = "hotty";  // ãƒ¦ãƒ¼ã‚¶ãƒ¼å
+$db['pass'] = "hotta";  // ãƒ¦ãƒ¼ã‚¶ãƒ¼åã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
+$db['dbname'] = "board";  // ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹å
 
-// ƒGƒ‰[ƒƒbƒZ[ƒW‚Ì‰Šú‰»
+// ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®åˆæœŸåŒ–
 $errorMessage = "";
 
-// ƒƒOƒCƒ“ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½ê‡
+// ãƒ­ã‚°ã‚¤ãƒ³ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸå ´åˆ
 if (isset($_POST["login"])) {
-    // 1. ƒ†[ƒUID‚Ì“ü—Íƒ`ƒFƒbƒN
-    if (empty($_POST["userid"])) {  // empty‚Í’l‚ª‹ó‚Ì‚Æ‚«
-        $errorMessage = 'ƒ†[ƒU[ID‚ª–¢“ü—Í‚Å‚·B';
+    // 1. ãƒ¦ãƒ¼ã‚¶IDã®å…¥åŠ›ãƒã‚§ãƒƒã‚¯
+    if (empty($_POST["userid"])) {  // emptyã¯å€¤ãŒç©ºã®ã¨ã
+        $errorMessage = 'ãƒ¦ãƒ¼ã‚¶ãƒ¼IDãŒæœªå…¥åŠ›ã§ã™ã€‚';
     } else if (empty($_POST["password"])) {
-        $errorMessage = 'ƒpƒXƒ[ƒh‚ª–¢“ü—Í‚Å‚·B';
+        $errorMessage = 'ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒæœªå…¥åŠ›ã§ã™ã€‚';
     }
 
     if (!empty($_POST["userid"]) && !empty($_POST["password"])) {
-        // “ü—Í‚µ‚½ƒ†[ƒUID‚ðŠi”[
+        // å…¥åŠ›ã—ãŸãƒ¦ãƒ¼ã‚¶IDã‚’æ ¼ç´
         $userid = $_POST["userid"];
 
-        // 2. ƒ†[ƒUID‚ÆƒpƒXƒ[ƒh‚ª“ü—Í‚³‚ê‚Ä‚¢‚½‚ç”FØ‚·‚é
+        // 2. ãƒ¦ãƒ¼ã‚¶IDã¨ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒå…¥åŠ›ã•ã‚Œã¦ã„ãŸã‚‰èªè¨¼ã™ã‚‹
         $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
 
-        // 3. ƒGƒ‰[ˆ—
+        // 3. ã‚¨ãƒ©ãƒ¼å‡¦ç†
         try {
             $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 
@@ -40,29 +40,29 @@ if (isset($_POST["login"])) {
                 if (password_verify($password, $row['password'])) {
                     session_regenerate_id(true);
 
-                    // “ü—Í‚µ‚½ID‚Ìƒ†[ƒU[–¼‚ðŽæ“¾
+                    // å…¥åŠ›ã—ãŸIDã®ãƒ¦ãƒ¼ã‚¶ãƒ¼åã‚’å–å¾—
                     $id = $row['id'];
-                    $sql = "SELECT * FROM userData WHERE id = $id";  //“ü—Í‚µ‚½ID‚©‚çƒ†[ƒU[–¼‚ðŽæ“¾
+                    $sql = "SELECT * FROM userData WHERE id = $id";  //å…¥åŠ›ã—ãŸIDã‹ã‚‰ãƒ¦ãƒ¼ã‚¶ãƒ¼åã‚’å–å¾—
                     $stmt = $pdo->query($sql);
                     foreach ($stmt as $row) {
-                        $row['name'];  // ƒ†[ƒU[–¼
+                        $row['name'];  // ãƒ¦ãƒ¼ã‚¶ãƒ¼å
                     }
                     $_SESSION["NAME"] = $row['name'];
-                    header("Location: Main.php");  // ƒƒCƒ“‰æ–Ê‚Ö‘JˆÚ
-                    exit();  // ˆ—I—¹
+                    header("Location: Main.php");  // ãƒ¡ã‚¤ãƒ³ç”»é¢ã¸é·ç§»
+                    exit();  // å‡¦ç†çµ‚äº†
                 } else {
-                    // ”FØŽ¸”s
-                    $errorMessage = 'ƒ†[ƒU[ID‚ ‚é‚¢‚ÍƒpƒXƒ[ƒh‚ÉŒë‚è‚ª‚ ‚è‚Ü‚·B';
+                    // èªè¨¼å¤±æ•—
+                    $errorMessage = 'ãƒ¦ãƒ¼ã‚¶ãƒ¼IDã‚ã‚‹ã„ã¯ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã«èª¤ã‚ŠãŒã‚ã‚Šã¾ã™ã€‚';
                 }
             } else {
-                // 4. ”FØ¬Œ÷‚È‚çAƒZƒbƒVƒ‡ƒ“ID‚ðV‹K‚É”­s‚·‚é
-                // ŠY“–ƒf[ƒ^‚È‚µ
-                $errorMessage = 'ƒ†[ƒU[ID‚ ‚é‚¢‚ÍƒpƒXƒ[ƒh‚ÉŒë‚è‚ª‚ ‚è‚Ü‚·B';
+                // 4. èªè¨¼æˆåŠŸãªã‚‰ã€ã‚»ãƒƒã‚·ãƒ§ãƒ³IDã‚’æ–°è¦ã«ç™ºè¡Œã™ã‚‹
+                // è©²å½“ãƒ‡ãƒ¼ã‚¿ãªã—
+                $errorMessage = 'ãƒ¦ãƒ¼ã‚¶ãƒ¼IDã‚ã‚‹ã„ã¯ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã«èª¤ã‚ŠãŒã‚ã‚Šã¾ã™ã€‚';
             }
         } catch (PDOException $e) {
-            $errorMessage = 'ƒf[ƒ^ƒx[ƒXƒGƒ‰[';
+            $errorMessage = 'ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚¨ãƒ©ãƒ¼';
             //$errorMessage = $sql;
-            // $e->getMessage() ‚ÅƒGƒ‰[“à—e‚ðŽQÆ‰Â”\iƒfƒoƒbƒOŽž‚Ì‚Ý•\Ž¦j
+            // $e->getMessage() ã§ã‚¨ãƒ©ãƒ¼å†…å®¹ã‚’å‚ç…§å¯èƒ½ï¼ˆãƒ‡ãƒãƒƒã‚°æ™‚ã®ã¿è¡¨ç¤ºï¼‰
             // echo $e->getMessage();
         }
     }
@@ -71,29 +71,29 @@ if (isset($_POST["login"])) {
 
 <!doctype html>
 <html>
-    <head>
-            <meta charset="UTF-8">
-            <title>ƒƒOƒCƒ“</title>
-    </head>
-    <body>
-        <h1>ƒƒOƒCƒ“‰æ–Ê</h1>
-        <form id="loginForm" name="loginForm" action="" method="POST">
-            <fieldset>
-                <legend>ƒƒOƒCƒ“ƒtƒH[ƒ€</legend>
-                <div><font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font></div>
-                <label for="userid">ƒ†[ƒU[ID</label><input type="text" id="userid" name="userid" placeholder="ƒ†[ƒU[ID‚ð“ü—Í" value="<?php if (!empty($_POST["userid"])) {echo htmlspecialchars($_POST["userid"], ENT_QUOTES);} ?>">
-                <br>
-                <label for="password">ƒpƒXƒ[ƒh</label><input type="password" id="password" name="password" value="" placeholder="ƒpƒXƒ[ƒh‚ð“ü—Í">
-                <br>
-                <input type="submit" id="login" name="login" value="ƒƒOƒCƒ“">
-            </fieldset>
-        </form>
+<head>
+    <meta charset="UTF-8">
+    <title>ãƒ­ã‚°ã‚¤ãƒ³</title>
+</head>
+<body>
+<h1>ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢</h1>
+<form id="loginForm" name="loginForm" action="" method="POST">
+    <fieldset>
+        <legend>ãƒ­ã‚°ã‚¤ãƒ³ãƒ•ã‚©ãƒ¼ãƒ </legend>
+        <div><font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font></div>
+        <label for="userid">ãƒ¦ãƒ¼ã‚¶ãƒ¼ID</label><input type="text" id="userid" name="userid" placeholder="ãƒ¦ãƒ¼ã‚¶ãƒ¼IDã‚’å…¥åŠ›" value="<?php if (!empty($_POST["userid"])) {echo htmlspecialchars($_POST["userid"], ENT_QUOTES);} ?>">
         <br>
-        <form action="SignUp.php">
-            <fieldset>          
-                <legend>V‹K“o˜^ƒtƒH[ƒ€</legend>
-                <input type="submit" value="V‹K“o˜^">
-            </fieldset>
-        </form>
-    </body>
+        <label for="password">ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰</label><input type="password" id="password" name="password" value="" placeholder="ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å…¥åŠ›">
+        <br>
+        <input type="submit" id="login" name="login" value="ãƒ­ã‚°ã‚¤ãƒ³">
+    </fieldset>
+</form>
+<br>
+<form action="SignUp.php">
+    <fieldset>
+        <legend>æ–°è¦ç™»éŒ²ãƒ•ã‚©ãƒ¼ãƒ </legend>
+        <input type="submit" value="æ–°è¦ç™»éŒ²">
+    </fieldset>
+</form>
+</body>
 </html>

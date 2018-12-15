@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// ƒƒOƒCƒ“ó‘Ôƒ`ƒFƒbƒN
+// ãƒ­ã‚°ã‚¤ãƒ³çŠ¶æ…‹ãƒã‚§ãƒƒã‚¯
 if (!isset($_SESSION["NAME"])) {
     header("Location: Logout.php");
     exit;
@@ -10,16 +10,16 @@ if (!isset($_SESSION["NAME"])) {
 
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>ƒƒCƒ“</title>
-    </head>
-    <body>
-        <h1>ƒƒCƒ“‰æ–Ê</h1>
-        <!-- ƒ†[ƒU[ID‚ÉHTMLƒ^ƒO‚ªŠÜ‚Ü‚ê‚Ä‚à—Ç‚¢‚æ‚¤‚ÉƒGƒXƒP[ƒv‚·‚é -->
-        <p>‚æ‚¤‚±‚»<u><?php echo htmlspecialchars($_SESSION["NAME"], ENT_QUOTES); ?></u>‚³‚ñ</p>  <!-- ƒ†[ƒU[–¼‚ðecho‚Å•\Ž¦ -->
-        <ul>
-            <li><a href="Logout.php">ƒƒOƒAƒEƒg</a></li>
-        </ul>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>ãƒ¡ã‚¤ãƒ³</title>
+</head>
+<body>
+<h1>ãƒ¡ã‚¤ãƒ³ç”»é¢</h1>
+<!-- ãƒ¦ãƒ¼ã‚¶ãƒ¼IDã«HTMLã‚¿ã‚°ãŒå«ã¾ã‚Œã¦ã‚‚è‰¯ã„ã‚ˆã†ã«ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã™ã‚‹ -->
+<p>ã‚ˆã†ã“ã<u><?php echo htmlspecialchars($_SESSION["NAME"], ENT_QUOTES); ?></u>ã•ã‚“</p>  <!-- ãƒ¦ãƒ¼ã‚¶ãƒ¼åã‚’echoã§è¡¨ç¤º -->
+<ul>
+    <li><a href="Logout.php">ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ</a></li>
+</ul>
+</body>
 </html>

@@ -2,29 +2,29 @@
 session_start();
 
 if (isset($_SESSION["NAME"])) {
-    $errorMessage = "ƒƒOƒAƒEƒg‚µ‚Ü‚µ‚½B";
+    $errorMessage = "ãƒ­ã‚°ã‚¢ã‚¦ãƒˆã—ã¾ã—ãŸã€‚";
 } else {
-    $errorMessage = "ƒZƒbƒVƒ‡ƒ“‚ªƒ^ƒCƒ€ƒAƒEƒg‚µ‚Ü‚µ‚½B";
+    $errorMessage = "ã‚»ãƒƒã‚·ãƒ§ãƒ³ãŒã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã—ã¾ã—ãŸã€‚";
 }
 
-// ƒZƒbƒVƒ‡ƒ“‚Ì•Ï”‚ÌƒNƒŠƒA
+// ã‚»ãƒƒã‚·ãƒ§ãƒ³ã®å¤‰æ•°ã®ã‚¯ãƒªã‚¢
 $_SESSION = array();
 
-// ƒZƒbƒVƒ‡ƒ“ƒNƒŠƒA
+// ã‚»ãƒƒã‚·ãƒ§ãƒ³ã‚¯ãƒªã‚¢
 @session_destroy();
 ?>
 
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>ƒƒOƒAƒEƒg</title>
-    </head>
-    <body>
-        <h1>ƒƒOƒAƒEƒg‰æ–Ê</h1>
-        <div><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></div>
-        <ul>
-            <li><a href="Login.php">ƒƒOƒCƒ“‰æ–Ê‚É–ß‚é</a></li>
-        </ul>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ</title>
+</head>
+<body>
+<h1>ãƒ­ã‚°ã‚¢ã‚¦ãƒˆç”»é¢</h1>
+<div><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></div>
+<ul>
+    <li><a href="Login.php">ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢ã«æˆ»ã‚‹</a></li>
+</ul>
+</body>
 </html>
