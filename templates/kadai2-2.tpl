@@ -10,11 +10,11 @@
 </form>
 <!-- ここに、書き込まれたデータを表示する -->
 <?php
-if ( $err_msg !== '' ) echo '<p>' . $err_msg . '</p>';
-foreach ($messages as &$message) {
-    echo "名前:".$message['name']." ";
-    echo "コメント:".$message['comment']." ";
-    echo "時間:".$message['created'].'</br>';
+if ( $err_msg !== '' ) echo '<p>' . {$err_msg} . '</p>';
+foreach ({$messages} as &{$message}) {
+    echo "名前:".{$message['name']}." ";
+    echo "コメント:".{$message['comment']}." ";
+    echo "時間:".{$message['created']}.'</br>';
 }
 ?>
 </body>
