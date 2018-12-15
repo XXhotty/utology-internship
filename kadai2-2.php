@@ -1,4 +1,13 @@
 ﻿<?php
+// smarty のライブラリを読み込みます
+include_once __DIR__ . '/libs/Smarty.class.php';
+
+// smartyを宣言して設定を書き加えます
+$smarty = new Smarty();
+$smarty->escape_html = true;
+$smarty->template_dir = __DIR__ . '/templates';
+$smarty->compile_dir = __DIR__ . '/templates_c';
+
 
 $DBSERVER = 'localhost';
 $DBNAME = 'board';
@@ -12,7 +21,7 @@ if (!$pdo)
 }
 
 
-$err_msg = '';
+$err_msg = 'test';
 
 if ( isset( $_POST['send'] ) === true ) {
 
@@ -37,15 +46,10 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $messages = $stmt->fetchAll();
 
- // smarty のライブラリを読み込みます
- include_once __DIR__ . '/libs/Smarty.class.php';
-
- // smartyを宣言して設定を書き加えます
-$smarty = new Smarty();
-$smarty->escape_html = true;
-$smarty->template_dir = __DIR__ . '/templates';
-$smarty->compile_dir = __DIR__ . '/templates_c';
 
 
-$smarty->assign('name', $name);
+
+$smarty->assign('err_msg', $err_msg);
+$smarty->assign('messages', $messages);
 $smarty->display('kadai2-2.tpl');
+
