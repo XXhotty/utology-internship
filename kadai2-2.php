@@ -37,21 +37,14 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $messages = $stmt->fetchAll();
 
-?>
-</head>
-<body>
-<form method="post" action="">
-    名前<input type="text" name="name" value="" />
-    コメント<textarea name="comment" rows="4" cols="20"></textarea>
-    <input type="submit" name="send" value="書き込む" />
-</form>
-<!-- ここに、書き込まれたデータを表示する -->
-<?php
-if ( $err_msg !== '' ) echo '<p>' . $err_msg . '</p>';
-foreach ($messages as &$message) {
-    echo "名前:".$message['name']." ";
-    echo "コメント:".$message['comment']." ";
-    echo "時間:".$message['created'].'</br>';
-}
-?>
-</body>
+ // smarty のライブラリを読み込みます
+ include_once __DIR__ . '/libs/Smarty.class.php';
+
+ // smartyを宣言して設定を書き加えます
+ $smarty = new Smarty();
+ $smarty->escape_html = true;
+ $smarty->template_dir = __DIR__ . '/templates';
+ $smarty->compile_dir = __DIR__ . '/templates_c';
+
+$smarty->assign('name', $name);
+$smarty->display('kadai2-2.tpl');
