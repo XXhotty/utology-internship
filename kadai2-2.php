@@ -38,9 +38,6 @@ $stmt->execute();
 $messages = $stmt->fetchAll();
 
 ?>
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 </head>
 <body>
 <form method="post" action="">
@@ -52,9 +49,9 @@ $messages = $stmt->fetchAll();
 <?php
 if ( $err_msg !== '' ) echo '<p>' . $err_msg . '</p>';
 foreach ($messages as &$message) {
-    echo $message['name'];
-    echo $message['comment'];
-    echo $message['created'];
+    echo "名前:".$message['name']." ";
+    echo "コメント:".$message['comment']." ";
+    echo "時間:".$message['created'].'</br>';
 }
 ?>
 </body>
