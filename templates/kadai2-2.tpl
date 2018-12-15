@@ -13,6 +13,5 @@
 <p>{$err_msg}</p>
 
 
-{foreach from=$messages item=message}
 
 </body>
