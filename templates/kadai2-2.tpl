@@ -10,13 +10,10 @@
 </form>
 <!-- ここに、書き込まれたデータを表示する -->
 
-<p>{$err_msg}<p/>
+<p>{$err_msg}</p>
 
 
-foreach ({$messages} as &{$message}) {
-    <p>{$message['name']}:{$message['comment']}.{$message['created']}<p/>
-}
-?>
-</body>
+{foreach from=$messages item=message}
+    <p>{$message['name']}:{$message['comment']}.{$message['created']}</p>
 
 </body>
