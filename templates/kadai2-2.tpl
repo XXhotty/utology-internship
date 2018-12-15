@@ -14,6 +14,5 @@
 
 
 {foreach from=$messages item=message}
-    <p>{$message['name']}:{$message['comment']}.{$message['created']}</p>
 
 </body>
