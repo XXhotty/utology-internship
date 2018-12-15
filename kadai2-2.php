@@ -52,7 +52,7 @@ $messages = $stmt->fetchAll();
 <?php
 if ( $err_msg !== '' ) echo '<p>' . $err_msg . '</p>';
 foreach ($messages as &$message) {
-    echo '<p>' . $message . '</p>';
+    echo $message;
 }
 ?>
 </body>
