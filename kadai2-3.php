@@ -4,9 +4,9 @@ require 'password.php';   // password_verfy()はphp 5.5.0以降の関数のた�
 session_start();
 
 $db['host'] = "localhost";  // DBサーバのURL
-$db['user'] = "hotty";  // ユーザー名
-$db['pass'] = "hotta";  // ユーザー名のパスワード
-$db['dbname'] = "board";  // データベース名
+$db['user'] = "hogeUser";  // ユーザー名
+$db['pass'] = "hogehoge";  // ユーザー名のパスワード
+$db['dbname'] = "loginManagement";  // データベース名
 
 // エラーメッセージの初期化
 $errorMessage = "";
