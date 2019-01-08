@@ -4,9 +4,9 @@ require 'password.php';   // password_hash()はphp 5.5.0以降の関数のため
 session_start();
 
 $db['host'] = "localhost";  // DBサーバのURL
-$db['user'] = "hogeUser";  // ユーザー名
-$db['pass'] = "hogehoge";  // ユーザー名のパスワード
-$db['dbname'] = "loginManagement";  // データベース名
+$db['user'] = "hotty";  // ユーザー名
+$db['pass'] = "hotta";  // ユーザー名のパスワード
+$db['dbname'] = "board";  // データベース名
 
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
