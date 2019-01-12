@@ -38,7 +38,7 @@ try{
         }
         else{
             echo "非対応ファイルです．<br/>";
-            echo ("<a href=\"index.php\">戻る</a><br/>");
+            echo ("<a href=\"3-1.php\">戻る</a><br/>");
             exit(1);
         }
 
@@ -74,7 +74,7 @@ catch(PDOException $e){
 </head>
 
 <body>
-<form action="index.php" enctype="multipart/form-data" method="post">
+<form action="3-1.php" enctype="multipart/form-data" method="post">
     <label>画像/動画アップロード</label>
     <input type="file" name="upfile">
     <br>
