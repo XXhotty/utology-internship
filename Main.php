@@ -58,6 +58,8 @@ $messages = $stmt->fetchAll();
 
 $smarty->assign('err_msg', $err_msg);
 $smarty->assign('messages', $messages);
-$smarty->assign('ENT_QUOTES', ENT_QUOTES);
+$smarty->assign('nickname', $_SESSION["NAME"]);
+
+
 $smarty->display('main.tpl');
 
