@@ -68,17 +68,6 @@ catch(PDOException $e){
 ?>
 
 
-<script type="text/javascript">
-    var count = 0;
-    function video_play() {
-        video.play();
-        alert(count)
-    }
-    function video_pause() {
-        video.pause();
-    }
-</script>
-
 
 <!DOCTYPE HTML>
 
@@ -124,6 +113,21 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 ?>
 
 
+
+<script type="text/javascript">
+    var count = 0;
+    function video_play() {
+        video.play();
+        var countup = function(){
+            console.log(count++);
+            alert(count);
+        }
+        setInterval(countup, 1000);
+    }
+    function video_pause() {
+        video.pause();
+    }
+</script>
 
 </body>
 </html>
