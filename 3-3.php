@@ -69,8 +69,10 @@ catch(PDOException $e){
 
 
 <script type="text/javascript">
+    var count = 0;
     function video_play() {
         video.play();
+        alert(count)
     }
     function video_pause() {
         video.pause();
