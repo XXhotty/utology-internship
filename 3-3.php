@@ -120,7 +120,7 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
         video.play();
         var countup = function(){
             console.log(count++);
-            alert(count);
+            document.write("表示する文字列")
         }
         setInterval(countup, 1000);
     }
