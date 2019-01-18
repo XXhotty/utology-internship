@@ -70,10 +70,10 @@ catch(PDOException $e){
 
 <script type="text/javascript">
     function video_play() {
-        $video.play();
+        video.play();
     }
     function video_pause() {
-        $video.pause();
+        video.pause();
     }
 </script>
 
@@ -106,11 +106,15 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     $target = $row["fname"];
     if($row["extension"] == "mp4"){
 
-        echo ("<video id =\"id\" src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
+        echo ("<video id =video src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
+
+        echo ("<br/>");
+        echo("\"id\"");
+        echo ("<br/>");
 
 
         echo ("<br/>");
-        echo ("<input type='button' value='play' onclick='video_play(),$video->id')>");
+        echo ("<input type='button' value='play' onclick='video_play()'>");
         echo ("<input type='button' value='pause' onclick='video_pause()'>");
 
     }
