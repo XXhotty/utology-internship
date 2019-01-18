@@ -106,10 +106,10 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     $target = $row["fname"];
     if($row["extension"] == "mp4"){
 
-        echo ("<video id ='id' src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
+        echo ("<video id =\"id\" src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
 
-        echo ("<input type='button' value='play' onclick='video_play()'>")
-        echo ("<input type='button' value='pause' onclick='video_pause()'>")
+        echo ("<input type='button' value='play' onclick='video_play()'>");
+        echo ("<input type='button' value='pause' onclick='video_pause()'>");
 
     }
     elseif($row["extension"] == "jpeg" || $row["extension"] == "png" || $row["extension"] == "gif"){
