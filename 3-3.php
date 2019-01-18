@@ -106,7 +106,7 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     $target = $row["fname"];
     if($row["extension"] == "mp4"){
 
-        echo ("<video src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
+        echo ("<video id = video src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
     }
     elseif($row["extension"] == "jpeg" || $row["extension"] == "png" || $row["extension"] == "gif"){
         echo ("<img src='3-2.php?target=$target'>");
