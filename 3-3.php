@@ -69,11 +69,20 @@ catch(PDOException $e){
 
 
 <script type="text/javascript">
-    function $row[id]_play() {
-        $row[id].play();
+    function video_play() {
+        video.play();
+        var count = 0;
+        countup = function(){
+            alert(count)
+            count++;
+            var I = setTimeout (countup,1000);
+        }
     }
     function video_pause() {
-        $row[id].pause();
+        video.pause();
+        try {
+            clearTimeout(I);
+        }
     }
 </script>
 
@@ -96,6 +105,7 @@ catch(PDOException $e){
 </form>
 
 <?php
+
 //DBから取得して表示する．
 $sql = "SELECT * FROM media ORDER BY id;";
 $stmt = $pdo->prepare($sql);
@@ -106,13 +116,10 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     $target = $row["fname"];
     if($row["extension"] == "mp4"){
 
-        echo ("<video id = $row[id] src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
+        echo ("<video id =video src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
 
-
-
-        echo ("<br/>");
-        echo ("<input type='button' value='play' onclick='$row[id]_play()'>");
-        echo ("<input type='button' value='pause' onclick='$row[id]_pause()'>");
+        echo ("<input type='button' value='play' onclick='video_play()'>");
+        echo ("<input type='button' value='pause' onclick='video_pause()'>");
 
     }
     elseif($row["extension"] == "jpeg" || $row["extension"] == "png" || $row["extension"] == "gif"){
