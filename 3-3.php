@@ -65,29 +65,18 @@ catch(PDOException $e){
 }
 
 
-while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
-    //動画と画像で場合分け
-    $target = $row["fname"];
-    if ($row["extension"] == "mp4") {
-
-        <script type="text/javascript">
-        function video_play() {
-            video.play();
-        }
-        function video_pause() {
-            video.pause();
-        }
-        </script>
-
-        echo("<video src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
-
-        <input type="button" value="play" onclick="video_play()">
-        <input type="button" value="pause" onclick="video_pause()">
-
-    }
-}
-
 ?>
+
+
+<script type="text/javascript">
+    function video_play() {
+        video.play();
+    }
+    function video_pause() {
+        video.pause();
+    }
+</script>
+
 
 <!DOCTYPE HTML>
 
@@ -125,6 +114,9 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     echo ("<br/><br/>");
 }
 ?>
+
+<input type="button" value="play" onclick="video_play()">
+<input type="button" value="pause" onclick="video_pause()">
 
 </body>
 </html>
