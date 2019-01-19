@@ -117,15 +117,15 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 
 <script type="text/javascript">
     var count = 0;
-    function video_play(var VideoNum) {
+    function video_play(VideoNum) {
         VideoNum.play();
         var countup = function(){
             console.log(count++);
         }
         I = setInterval(countup, 1000);
     }
-    function video_pause($number) {
-        VideoNum.pause(var VideoNum);
+    function video_pause(VideoNum) {
+        VideoNum.pause();
         clearInterval(I);
     }
 </script>
