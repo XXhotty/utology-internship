@@ -98,7 +98,7 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     $target = $row["fname"];
     if($row["extension"] == "mp4"){
 
-        echo ("<video id =video src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
+        echo ("<video id =vide src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
 
         echo ("<br/>");
         echo ("<input type='button' value='play' onclick='video_play()'>");
@@ -117,14 +117,14 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 <script type="text/javascript">
     var count = 0;
     function video_play() {
-        video.play();
+        vide.play();
         var countup = function(){
             console.log(count++);
         }
         I = setInterval(countup, 1000);
     }
     function video_pause() {
-        video.pause();
+        vide.pause();
         clearInterval(I);
     }
 </script>
