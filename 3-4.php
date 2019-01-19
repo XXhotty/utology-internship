@@ -94,11 +94,11 @@ $stmt = $pdo->prepare($sql);
 $stmt -> execute();
 
 while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
-    echo ($number = $row["id"]."<br/>");
+    echo ($row["id"]."<br/>");
     //動画と画像で場合分け
     $target = $row["fname"];
     if($row["extension"] == "mp4"){
-
+        $number = $row["id"];
         echo ("<video id=\"$number\" src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
 
         echo ("<br/>");
