@@ -114,7 +114,6 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 ?>
 
 
-
 <script type="text/javascript">
     var count = 0;
     function video_play($number) {
