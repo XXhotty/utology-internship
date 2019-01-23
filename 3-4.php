@@ -57,13 +57,7 @@ try{
         $stmt -> execute();
 
     }
-    while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
-        $target = $row["fname"];
-        if (isset($_POST['$row[id]'])) {
-            $_SESSION["$target"] =$target;
-            header("Location:3-5.php");
-        }
-    }
+
 }
 catch(PDOException $e){
     echo("<p>500 Inertnal Server Error</p>");
@@ -104,6 +98,7 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     echo("<input type=\"submit\" id=$row[id] name=$row[id] value=\"ログイン\">");
     //動画と画像で場合分け
     $target = $row["fname"];
+    $_SESSION["$target"] = $target;
     if($row["extension"] == "mp4"){
         $number = $row["id"];
         echo ("<video id=\"$number\" src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
