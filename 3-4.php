@@ -95,11 +95,19 @@ $stmt -> execute();
 
 while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     echo ($row["id"]."<br/>");
-    echo("<input type=\"submit\" id=$row[id] name=$row[id] value=\"再生\">");
+
     //動画と画像で場合分け
     $target = $row["fname"];
     $_SESSION["$target"] = $target;
+    echo("<input type=\"submit\" id=$row[id] name=$row[id] value=\"再生\">");
     echo ("<br/>");
+
+
+    if (isset($_POST["$target "])) {
+        $_SESSION["$target"] = $target;
+        header("Location: 3-5.php");
+    }
+
     if($row["extension"] == "mp4"){
         $number = $row["id"];
         echo ("<video id=\"$number\" src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
@@ -134,3 +142,12 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 
 </body>
 </html>
+
+
+<?php
+while($number !== 0){
+    if (isset($_POST["$number "])) {
+
+    }
+}
+?>
