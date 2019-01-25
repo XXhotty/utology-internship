@@ -101,13 +101,13 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 
     if($row["extension"] == "mp4"){
         $number = $row[id];
-        echo("<input type=\"submit\"  name=b$row[id] value=\"再生\">");
+        echo("<input type=\"submit\"  name=1 value=\"再生\">");
         echo ("<br/>");
-        echo ("<video id=\"$row[id]\" src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
+        echo ("<video id=V1 src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
 
         echo ("<br/>");
-        echo ("<input type='button' value='play' onclick='video_play($row[id])'>");
-        echo ("<input type='button' value='pause' onclick='video_pause($number)'>");
+        echo ("<input type='button' value='play' onclick='video_play1()'>");
+        echo ("<input type='button' value='pause' onclick='video_pause1()'>");
 
     }
     elseif($row["extension"] == "jpeg" || $row["extension"] == "png" || $row["extension"] == "gif"){
@@ -122,7 +122,7 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 
 
 
-if (isset($_POST["b1"])) {
+if (isset($_POST["1"])) {
     echo"ボタン1が押されました";
 }
 
@@ -130,15 +130,15 @@ if (isset($_POST["b1"])) {
 
 <script type="text/javascript">
     var count = 0;
-    function video_play($number) {
-        $number.play();
+    function video_play1() {
+        V1.play();
         var countup = function(){
             console.log(count++);
         }
         I = setInterval(countup, 1000);
     }
-    function video_pause($number) {
-        $number.pause();
+    function video_pause1() {
+        V1.pause();
         clearInterval(I);
     }
 </script>
