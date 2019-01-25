@@ -119,6 +119,7 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 
 <?php
 while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
+    echo ($row["id"]."<br/>");
     if (isset($_POST["b$row[id]"])) {
         echo"ボタンb$row[id]が押されました";
         $target = $row["fname"];
