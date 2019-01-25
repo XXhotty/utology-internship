@@ -139,7 +139,7 @@ if ( isset( $_POST['send'] ) === true ) {
 $sql2 = 'SELECT * FROM `board`';
 $stmt2 = $pdo2->prepare($sql2);
 $stmt2->execute();
-while($messages -> $stmt2->fetchAll()){
+while($messages = $stmt2->fetch(PDO::FETCH_ASSOC)){
     echo("<p>{$message['name']}:{$message['comment']}.{$message['created']}</p>");
 }
 
