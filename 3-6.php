@@ -126,23 +126,19 @@ if ( isset( $_POST['send'] ) === true ) {
     <input type="submit" value="アップロード">
 </form>
 
-<form method="post" action="">
-    時間<input type="text" name="name" value="" />
-    コメント<textarea name="comment" rows="4" cols="20"></textarea>
-    <input type="submit" name="send" value="書き込む" />
-</form>
 
-<p>{$err_msg}</p>
+
 
 <?php
 
+echo("$err_msg");
 $sql2 = 'SELECT * FROM `board`';
 $stmt2 = $pdo2->prepare($sql2);
 $stmt2->execute();
-while($messages = $stmt2->fetch(PDO::FETCH_ASSOC)){
-    echo("<p>{$message['name']}:{$message['comment']}.{$message['created']}</p>");
-}
+$smarty->assign('err_msg', $err_msg);
+$smarty->assign('messages', $messages);
 
+$smarty->display('main.tpl');
 
 //DBから取得して表示する．
 $sql = "SELECT * FROM media ORDER BY id;";
