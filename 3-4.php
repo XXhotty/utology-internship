@@ -95,20 +95,17 @@ $stmt -> execute();
 
 while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     echo ($row["id"]."<br/>");
+    $target = $row["fname"];
 
     //動画と画像で場合分け
-    echo("<input type=\"submit\"  name=b$row[id] value=\"再生\">");
-    echo ("<br/>");
-
-
-
 
     if($row["extension"] == "mp4"){
-        $number = $row["id"];
-        echo ("<video id=\"$number\" src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
+        echo("<input type=\"submit\"  name=b$row[id] value=\"再生\">");
+        echo ("<br/>");
+        echo ("<video id=\"$row[id]\" src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
 
         echo ("<br/>");
-        echo ("<input type='button' value='play' onclick='video_play($number)'>");
+        echo ("<input type='button' value='play' onclick='video_play($row[id])'>");
         echo ("<input type='button' value='pause' onclick='video_pause($number)'>");
 
     }
@@ -126,6 +123,7 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
         echo"ボタンb$row[id]が押されました";
         $target = $row["fname"];
         $_SESSION["$target"] = $target;
+        header("Location: 3-5.php");
     }
 }
 ?>
