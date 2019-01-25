@@ -133,9 +133,15 @@ if ( isset( $_POST['send'] ) === true ) {
 </form>
 
 
-<p>{$message['name']}:{$message['comment']}.{$message['created']}</p>
 
 <?php
+
+$sql = 'SELECT * FROM `board`';
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$messages = $stmt->fetchAll();
+
+echo("<p>{$message['name']}:{$message['comment']}.{$message['created']}</p>");
 
 //DBから取得して表示する．
 $sql = "SELECT * FROM media ORDER BY id;";
