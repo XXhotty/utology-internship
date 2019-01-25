@@ -121,12 +121,11 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 <?php
 
 
-while ($number !== 0){
-    echo ($number."<br/>");
-    if (isset($_POST["b$number"])) {
-        echo"ボタンb'$number'が押されました";
-    }
+
+if (isset($_POST["1"])) {
+    echo"ボタン1が押されました";
 }
+
 ?>
 
 <script type="text/javascript">
