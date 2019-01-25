@@ -138,7 +138,7 @@ $stmt2->execute();
 $smarty->assign('err_msg', $err_msg);
 $smarty->assign('messages', $messages);
 
-$smarty->display('main.tpl');
+$smarty->display('3-6.tpl');
 
 //DBから取得して表示する．
 $sql = "SELECT * FROM media ORDER BY id;";

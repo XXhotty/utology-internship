@@ -5,8 +5,6 @@
 </form>
 <!-- ここに、書き込まれたデータを表示する -->
 
-<p>{$err_msg}</p>
-
 
 {foreach from=$messages item=message}
     <p>{$message['name']}:{$message['comment']}.{$message['created']}</p>
