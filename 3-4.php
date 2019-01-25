@@ -100,6 +100,7 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     //動画と画像で場合分け
 
     if($row["extension"] == "mp4"){
+        $number = $row[id];
         echo("<input type=\"submit\"  name=b$row[id] value=\"再生\">");
         echo ("<br/>");
         echo ("<video id=\"$row[id]\" src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
@@ -119,16 +120,11 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 
 <?php
 
-$sql = "SELECT * FROM media ORDER BY id;";
-$stmt = $pdo->prepare($sql);
-$stmt -> execute();
-while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
-    echo ($row["id"]."<br/>");
-    if (isset($_POST["b$row[id]"])) {
-        echo"ボタンb$row[id]が押されました";
-        $target = $row["fname"];
-        $_SESSION["$target"] = $target;
-        header("Location: 3-5.php");
+
+while ($number !== 0){
+    echo ($number."<br/>");
+    if (isset($_POST["b$number"])) {
+        echo"ボタンb'$number'が押されました";
     }
 }
 ?>
