@@ -132,16 +132,17 @@ if ( isset( $_POST['send'] ) === true ) {
     <input type="submit" name="send" value="書き込む" />
 </form>
 
-
+<p>{$err_msg}</p>
 
 <?php
 
 $sql2 = 'SELECT * FROM `board`';
 $stmt2 = $pdo2->prepare($sql2);
 $stmt2->execute();
-$messages = $stmt2->fetchAll();
+while($messages -> $stmt2->fetchAll()){
+    echo("<p>{$message['name']}:{$message['comment']}.{$message['created']}</p>");
+}
 
-echo("<p>{$message['name']}:{$message['comment']}.{$message['created']}</p>");
 
 //DBから取得して表示する．
 $sql = "SELECT * FROM media ORDER BY id;";
