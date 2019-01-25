@@ -122,7 +122,7 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 
 
 
-if (isset($_POST["1"])) {
+if (isset($_POST["b1"])) {
     echo"ボタン1が押されました";
 }
 
