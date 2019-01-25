@@ -119,7 +119,6 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 }
 ?>
 
-
 <?php
 while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     if (isset($_POST["b$row[id]"])) {
