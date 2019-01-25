@@ -135,6 +135,10 @@ echo("$err_msg");
 $sql2 = 'SELECT * FROM `board`';
 $stmt2 = $pdo2->prepare($sql2);
 $stmt2->execute();
+$messages = $stmt2->fetchAll();
+
+echo("$messages");
+
 $smarty->assign('err_msg', $err_msg);
 $smarty->assign('messages', $messages);
 
