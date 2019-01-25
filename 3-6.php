@@ -78,9 +78,9 @@ $DBSERVER = 'localhost';
 $DBNAME = 'board';
 $DBUSER = 'hotty'; //作成したユーザー名
 $DBPASSWD = 'hotta'; //作成したユーザーのパスワード
-$dsn = 'mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8';
-$pdo = new \PDO('mysql:host=localhost;dbname=board', $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
-if (!$pdo)
+$dsn2 = 'mysql:host={$DBSERVER};dbname={$DBNAME};charset=utf8';
+$pdo2 = new \PDO('mysql:host=localhost;dbname=board', $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
+if (!$pdo2)
 {
     exit('データベースと接続できませんでした。');
 }
@@ -95,11 +95,11 @@ if ( isset( $_POST['send'] ) === true ) {
 
     if ( $name !== '' && $comment !== '' ) {
 
-        $sql = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :comment, NOW())';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
-        $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
-        $stmt->execute();
+        $sql2 = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :comment, NOW())';
+        $stmt2 = $pdo2->prepare($sql2);
+        $stmt2->bindValue(':name', $name, \PDO::PARAM_STR);
+        $stmt2->bindValue(':comment', $comment, \PDO::PARAM_STR);
+        $stmt2->execute();
 
     }else{
         $err_msg = '名前とコメントを記入してください';
@@ -136,10 +136,10 @@ if ( isset( $_POST['send'] ) === true ) {
 
 <?php
 
-$sql = 'SELECT * FROM `board`';
-$stmt = $pdo->prepare($sql);
-$stmt->execute();
-$messages = $stmt->fetchAll();
+$sql2 = 'SELECT * FROM `board`';
+$stmt2 = $pdo2->prepare($sql2);
+$stmt2->execute();
+$messages = $stmt2->fetchAll();
 
 echo("<p>{$message['name']}:{$message['comment']}.{$message['created']}</p>");
 
