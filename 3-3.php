@@ -105,7 +105,6 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
         echo ("<br/>");
         echo ("<input type='button' value='play' onclick='video_play(b$number,b$number)'>");
         echo ("<input type='button' value='pause' onclick='video_pause(b$number,b$number)'>");
-        echo ("<input type='button' value='hello' onclick=\"document.write('<?php //call a PHP function here ?>');\">");
 
 
     }
@@ -122,6 +121,7 @@ function hello(){
 ?>
 
 
+<input type="button" name="Release" onclick="document.write('<?php hello() ?>');" value="Click to Release">
 
 <script type="text/javascript">
     var count = 0;
