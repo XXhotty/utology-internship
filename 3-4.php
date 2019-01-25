@@ -118,6 +118,10 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 
 
 <?php
+
+$sql = "SELECT * FROM media ORDER BY id;";
+$stmt = $pdo->prepare($sql);
+$stmt -> execute();
 while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     echo ($row["id"]."<br/>");
     if (isset($_POST["b$row[id]"])) {
