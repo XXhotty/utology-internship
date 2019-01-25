@@ -127,7 +127,7 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
         }
         I = setInterval(countup, 1000);
     }
-    function video_pause() {
+    function video_pause(num,NUM) {
         NUM.pause();
         clearInterval(I);
     }
