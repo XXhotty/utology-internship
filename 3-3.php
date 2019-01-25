@@ -92,17 +92,19 @@ catch(PDOException $e){
 $sql = "SELECT * FROM media ORDER BY id;";
 $stmt = $pdo->prepare($sql);
 $stmt -> execute();
+$number = 0;
 while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
+    $number = $number + 1;
     echo ($row["id"]."<br/>");
     //動画と画像で場合分け
     $target = $row["fname"];
     if($row["extension"] == "mp4"){
 
-        echo ("<video id =vide src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
+        echo ("<video id =$number src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
 
         echo ("<br/>");
-        echo ("<input type='button' value='play' onclick='video_play()'>");
-        echo ("<input type='button' value='pause' onclick='video_pause()'>");
+        echo ("<input type='button' value='play' onclick='video_play($number)'>");
+        echo ("<input type='button' value='pause' onclick='video_pause($number)'>");
 
     }
     elseif($row["extension"] == "jpeg" || $row["extension"] == "png" || $row["extension"] == "gif"){
@@ -116,15 +118,15 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 
 <script type="text/javascript">
     var count = 0;
-    function video_play() {
-        vide.play();
+    function video_play(var playnum) {
+        playnum.play();
         var countup = function(){
             console.log(count++);
         }
         I = setInterval(countup, 1000);
     }
-    function video_pause() {
-        vide.pause();
+    function video_pause(var pausenum) {
+        pausenum.pause();
         clearInterval(I);
     }
 </script>
