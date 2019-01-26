@@ -86,57 +86,41 @@ catch(PDOException $e){
     <input type="submit" value="アップロード">
 </form>
 
+<form method="POST" action="">
 
-
-
-<?php
-
-
-
-//DBから取得して表示する．
-$sql = "SELECT * FROM media ORDER BY id;";
-$stmt = $pdo->prepare($sql);
-$stmt -> execute();
-$number = 0;
-while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
-    $number = $number + 1;
-    echo ($row["id"]."<br/>");
-    //動画と画像で場合分け
-    $target = $row["fname"];
-    if($row["extension"] == "mp4"){
-        ?>
-        <input type="button" name="Release" onclick="document.write('<?php Play($row["id"]) ?>');" value=$number>
-
-        <?php
-
-
-    }
-    echo ("<br/><br/>");
-}
-
-
-function Play($videonum){
-
-    $user = "hotty";
-    $pass = "hotta";
-    $pdo = new PDO("mysql:host=localhost;dbname=board;charset=utf8", $user, $pass);
-
-
+    <?php
     $sql = "SELECT * FROM media ORDER BY id;";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $stmt -> execute();
+    $number = 0;
+    while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
+        $number = $number + 1;
+        echo ($row["id"]."<br/>");
+        //動画と画像で場合分け
         $target = $row["fname"];
-        if($videonum == $row["id"]){
-            echo ("$videonum");
-            echo ("<video id =video src='3-2.php?target=$target' width='426' height='240' controls></video>");
+        if($row["extension"] == "mp4"){
+
+            echo ("<input type=\"submit\" value='$row[id]' name=\"sub1\">　");
+
+
+
         }
-
+        elseif($row["extension"] == "jpeg" || $row["extension"] == "png" || $row["extension"] == "gif"){
+            echo ("<img src='3-2.php?target=$target'>");
+        }
+        echo ("<br/><br/>");
     }
-}
-?>
+    ?>
+    <input type="submit" value="1" name="sub1">
+</form>
 
-<input type="button" name="Release" onclick="document.write('<?php hello() ?>');" value="Click to Release">
+<?php
+if (isset($_POST["sub1"])) {
+    $videonum = $_POST["sub1"];
+    echo("$videonum");
+}
+
+?>
 
 </body>
 </html>
