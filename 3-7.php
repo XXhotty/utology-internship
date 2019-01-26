@@ -111,7 +111,7 @@ catch(PDOException $e){
         echo ("<br/><br/>");
     }
     ?>
-    <input type="submit" value="1" name="sub1">
+    <input type="submit" value="$target" name="sub1">
 </form>
 
 <?php
