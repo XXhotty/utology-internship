@@ -104,12 +104,13 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     //動画と画像で場合分け
     $target = $row["fname"];
     if($row["extension"] == "mp4"){
-        echo ("<input type=\"button\" name=\"Release\" onclick=\"document.write('<?php hello() ?>');\" value=\"Click to Release\">");
+        echo ("<input type=\"button\" name=\"Release\" onclick=\"document.write('hello()');\" value=\"Click to Release\">");
 
 
     }
     echo ("<br/><br/>");
 }
+
 
 function hello(){
     echo "Hello";
