@@ -129,7 +129,7 @@ function Play($videonum){
         $target = $row["fname"];
         if($videonum == $row["id"]){
             echo ("$videonum");
-            echo ("<video id =video src='3-2.php?target=$target' width=\"426\" height=\"240\" controls></video>");
+            echo ("<video id =video src='3-2.php?target=$target' width='426' height='240' controls></video>");
         }
 
     }
