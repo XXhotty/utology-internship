@@ -105,7 +105,7 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     $target = $row["fname"];
     if($row["extension"] == "mp4"){
         ?>
-        <input type="button" name="Release" onclick="document.write('<?php Play($row["id"]) ?>');" value=''$number'>
+        <input type="button" name="Release" onclick="document.write('<?php Play($row["id"]) ?>');" value="$number">
 
         <?php
 
