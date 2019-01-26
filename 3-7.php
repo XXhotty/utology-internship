@@ -116,7 +116,6 @@ catch(PDOException $e){
 <?php
 if (isset($_POST["sub1"])) {
     $videonum = $_POST["sub1"];
-    echo("$videonum");
     echo ("<video id =video src=\"3-2.php?target=$videonum\" width=\"426\" height=\"240\" controls></video>");
 }
 
