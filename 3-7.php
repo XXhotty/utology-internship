@@ -105,7 +105,7 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     $target = $row["fname"];
     if($row["extension"] == "mp4"){
         ?>
-        <input type="button" name="Release" onclick="document.write('<?php hello() ?>');" value="Click to Release">
+        <input type="button" name="Release" onclick="document.write('<?php Play($row["id"]) ?>');" value=''$number'>
 
         <?php
 
@@ -115,10 +115,24 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
 }
 
 
-function hello(){
-    echo "Hello";
-}
+function Play($videonum){
 
+    $user = "hotty";
+    $pass = "hotta";
+    $pdo = new PDO("mysql:host=localhost;dbname=board;charset=utf8", $user, $pass);
+
+
+    $sql = "SELECT * FROM media ORDER BY id;";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $target = $row["fname"];
+        if($videonum == $row["id"]){
+            echo ("<video id =b$number src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
+        }
+
+    }
+}
 ?>
 
 <input type="button" name="Release" onclick="document.write('<?php hello() ?>');" value="Click to Release">
