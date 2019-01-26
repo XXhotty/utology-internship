@@ -100,7 +100,7 @@ catch(PDOException $e){
         $target = $row["fname"];
         if($row["extension"] == "mp4"){
 
-            echo ("<input type=\"submit\" value='$row[id]' name=\"sub1\">　");
+            echo ("<input type=\"submit\" value='$target' name=\"sub1\">　");
 
 
 
@@ -111,7 +111,6 @@ catch(PDOException $e){
         echo ("<br/><br/>");
     }
     ?>
-    <input type="submit" value="$target" name="sub1">
 </form>
 
 <?php
