@@ -128,7 +128,7 @@ function Play($videonum){
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $target = $row["fname"];
         if($videonum == $row["id"]){
-            echo ("<video id ='video' src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
+            echo ("$videonum");
         }
 
     }
