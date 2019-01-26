@@ -105,7 +105,7 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     $target = $row["fname"];
     if($row["extension"] == "mp4"){
         ?>
-        <input type="button" name="Release" onclick="document.write('<?php Play($row["id"]) ?>');" value="$number">
+        <input type="button" name="Release" onclick="document.write('<?php Play($row["id"]) ?>');" value='$number'>
 
         <?php
 
@@ -129,6 +129,7 @@ function Play($videonum){
         $target = $row["fname"];
         if($videonum == $row["id"]){
             echo ("$videonum");
+            echo ("<video id =video src=\"3-2.php?target=$target\" width=\"426\" height=\"240\" controls></video>");
         }
 
     }
