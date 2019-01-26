@@ -111,6 +111,7 @@ while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
     echo ("<br/><br/>");
 }
 
+
 function hello(){
     echo "Hello";
 }
