@@ -166,7 +166,8 @@ $smarty->assign('messages', $messages);
                 $comlength = 0;
                 echo("<br/>");
                       if($data[name] == $row[id]){
-                          echo($comlength++);
+                          $comlength =$data[name];
+                          echo($comlength);
                           array_push($Acom, $data[comment]);
                           foreach($Acom as $Bcom):
                           echo("$Bcom");
@@ -178,9 +179,8 @@ $smarty->assign('messages', $messages);
                       }
             endforeach;
 
-            echo("<br/>");
             echo ("<input type=\"submit\" value='$target,$number,$comlength,$Bcom,$Btime' name=\"sub1\">　");
-            echo("<br/>");
+
         }
         elseif($row["extension"] == "jpeg" || $row["extension"] == "png" || $row["extension"] == "gif"){
             echo ("<img src='3-2.php?target=$target'>");
@@ -196,7 +196,7 @@ if (isset($_POST["sub1"])) {
     $videonum = explode(",",$sub1);
     $smarty->assign('comnum', $videonum[1]);
     echo ("<video id =video src=\"3-2.php?target=$videonum[0]\" width=\"426\" height=\"240\" controls></video>");
-
+    echo("<br/>");
     echo ("<input type='button' value='play' onclick='video_play($videonum[2],$videonum[3])'>");
     echo ("<input type='button' value='pause' onclick='video_pause()'>");
 }
