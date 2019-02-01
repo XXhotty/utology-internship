@@ -195,7 +195,9 @@ if (isset($_POST["sub1"])) {
     function video_play(message,num) {
         video.play();
         var countup = function(){
+            console.log(message);
             console.log(count++);
+            console.log(message[0]);
             message.forEach(function (value){
                 console.log(value.name)
             });
