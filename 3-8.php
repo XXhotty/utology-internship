@@ -167,6 +167,7 @@ $smarty->assign('messages', $messages);
                 echo("<br/>");
                       if($data[name] == $row[id]){
                           $comlength += 1;
+                          echo($comlength);
                           array_push($Acom, $data[comment]);
                           foreach($Acom as $Bcom):
                           echo("$Bcom");
@@ -178,6 +179,7 @@ $smarty->assign('messages', $messages);
                       }
             endforeach;
 
+            echo("<br/>");
             echo ("<input type=\"submit\" value='$target,$number,$comlength,$Bcom,$Btime' name=\"sub1\">　");
             echo("<br/>");
         }
