@@ -174,7 +174,9 @@ $smarty->display('3-8.tpl');
 if (isset($_POST["sub1"])) {
     $sub1 =  $_POST["sub1"];
     $videonum = $sub1[0];
+    echo ("<br/>a<br/>");
     echo("$sub1[1]");
+    echo ("<br/>a<br/>");
     $smarty->assign('comnum', $sub1[1]);
     echo ("<video id =video src=\"3-2.php?target=$videonum\" width=\"426\" height=\"240\" controls></video>");
 }
