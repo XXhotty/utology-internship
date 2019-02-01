@@ -213,12 +213,6 @@ if (isset($_POST["sub1"])) {
 
     function video_play(Ccom,Ctime) {
         video.play();
-        Ccom.forEach(function( value ) {
-            console.log( value );
-        });
-        Ctime.forEach(function( value ) {
-            console.log( value );
-        });
         var countup = function(){
             console.log(count++);
             if(count == Ctime){
