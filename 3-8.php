@@ -159,27 +159,29 @@ $smarty->assign('messages', $messages);
         //動画と画像で場合分け
         $target = $row["fname"];
         if($row["extension"] == "mp4"){
+            $videoadd = array($target,$number);
 
-
-
-            echo("<br/>");
             foreach( $messages as $data ):
-                $Acom = array("");
-                $Atime = array("");
+                $Acom = "";
+                $Atime = "";
+                $comlength = 0;
                 echo("<br/>");
-                      if($data[name] == $row[id]){
-                          array_push($Acom, $data[comment]);
-                          foreach($Acom as $Bcom):
-                          echo("$Bcom");
-                          endforeach;
-                          array_push($Atime, $data[created]);
-                          foreach($Atime as $Btime):
-                              echo("$Btime");
-                          endforeach;
-                      }
+                if($data[name] == $row[id]){
+                      $comlength++;
+                      array_push($Acom, $data[comment]);
+                      foreach($Acom as $Bcom):
+                        echo("$Bcom");
+                      endforeach;
+                      array_push($Atime, $data[created]);
+                      foreach($Atime as $Btime):
+                          echo("$Btime");
+                      endforeach;
+                }
+                array_push($videoadd, $Acom,Atime);
             endforeach;
 
-            echo ("<input type=\"submit\" value='$target,$number,$Acom,$Atime' name=\"sub1\">　");
+            echo ("<input type=\"submit\" value='$videoadd' name=\"sub1\">　");
+            echo("<br/>");
         }
         elseif($row["extension"] == "jpeg" || $row["extension"] == "png" || $row["extension"] == "gif"){
             echo ("<img src='3-2.php?target=$target'>");
