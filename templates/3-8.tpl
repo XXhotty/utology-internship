@@ -11,6 +11,3 @@
     <p>{$message['name']}:{$message['comment']}.{$message['created']}</p>
 {/foreach}
 
-<body>
-    <div>こんにちは {$comnum} さん</div>
-</body>
