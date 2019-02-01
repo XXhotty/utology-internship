@@ -159,7 +159,6 @@ $smarty->assign('messages', $messages);
         //動画と画像で場合分け
         $target = $row["fname"];
         if($row["extension"] == "mp4"){
-            $videoadd = array($target,$number);
 
             foreach( $messages as $data ):
                 $Acom = "";
@@ -180,7 +179,7 @@ $smarty->assign('messages', $messages);
                 array_push($videoadd, $Acom,Atime);
             endforeach;
 
-            echo ("<input type=\"submit\" value='$videoadd' name=\"sub1\">　");
+            echo ("<input type=\"submit\" value='$target,$number,$comlength,$Acom[0],$Atime[0]' name=\"sub1\">　");
             echo("<br/>");
         }
         elseif($row["extension"] == "jpeg" || $row["extension"] == "png" || $row["extension"] == "gif"){
