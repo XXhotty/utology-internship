@@ -149,9 +149,8 @@ $smarty->display('3-8.tpl');
     $sql = "SELECT * FROM media ORDER BY id;";
     $stmt = $pdo->prepare($sql);
     $stmt -> execute();
-    $number = 0;
     while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
-        $number = $number + 1;
+        $number = $row["id"];
         echo ($row["id"]."<br/>");
         //動画と画像で場合分け
         $target = $row["fname"];
