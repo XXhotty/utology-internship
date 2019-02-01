@@ -202,7 +202,7 @@ if (isset($_POST["sub1"])) {
         clearInterval(I);
     }
 </script>
-<body>
+
 <div class="header-footer">ヘッダです</div>
 <div class="contents" id="output"></div>
 <div class="header-footer">フッタです</div>
