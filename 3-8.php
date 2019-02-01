@@ -213,8 +213,6 @@ if (isset($_POST["sub1"])) {
 
     function video_play(Ccom,Ctime) {
         video.play();
-        console.log(Ccom);
-        console.log(Ctime);
         Ccom.forEach(function( value ) {
             console.log( value );
         });
