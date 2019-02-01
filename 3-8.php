@@ -233,7 +233,6 @@ if (isset($_POST["sub1"])) {
 <div class="contents" id="output2"></div>
 <div class="contents" id="output3"></div>
 
-
 　　<?php
     echo("<br/>");
     foreach( $messages as $data ):
