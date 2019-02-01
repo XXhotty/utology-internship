@@ -155,15 +155,12 @@ $smarty->assign('messages', $messages);
         $target = $row["fname"];
         if($row["extension"] == "mp4"){
 
-            echo ("<input type=\"submit\" value='$target,$number' name=\"sub1\">　");
 
 
             echo("<br/>");
             foreach( $messages as $data ):
                 $Acom = array("");
                 $Atime = array("");
-                echo("$data[name]");
-                echo("$row[id]");
                 echo("<br/>");
                       if($data[name] == $row[id]){
                           array_push($Acom, $data[comment]);
@@ -175,9 +172,9 @@ $smarty->assign('messages', $messages);
                               echo("$Btime");
                           endforeach;
                       }
-                echo("<br/>");
             endforeach;
 
+            echo ("<input type=\"submit\" value='$target,$number,$Acom,$Atime' name=\"sub1\">　");
         }
         elseif($row["extension"] == "jpeg" || $row["extension"] == "png" || $row["extension"] == "gif"){
             echo ("<img src='3-2.php?target=$target'>");
@@ -195,7 +192,7 @@ if (isset($_POST["sub1"])) {
     echo ("<video id =video src=\"3-2.php?target=$videonum[0]\" width=\"426\" height=\"240\" controls></video>");
 
     echo ("<br/>");
-    echo ("<input type='button' value='play' onclick='video_play()'>");
+    echo ("<input type='button' value='play' onclick='video_play($videonum[2],$videonum[3])'>");
     echo ("<input type='button' value='pause' onclick='video_pause()'>");
 
     $smarty->display('3-8.tpl');
@@ -211,11 +208,16 @@ if (isset($_POST["sub1"])) {
         target.innerHTML = count;
     }
 
-    function video_play() {
+    function video_play(Ccom,Ctime) {
         video.play();
         var countup = function(){
             console.log(count++);
-            target.innerHTML = count;
+            if(count == Ctime){
+                target.innerHTML = Ccom;
+            }
+            else{
+                target.innerHTML = count;
+            }
         }
         I = setInterval(countup, 1000);
     }
