@@ -156,7 +156,7 @@ $smarty->display('3-8.tpl');
         $target = $row["fname"];
         if($row["extension"] == "mp4"){
 
-            echo ("<input type=\"submit\" value='[$target][$number]' name=\"sub1\">　");
+            echo ("<input type=\"submit\" value='[\"$target\"][\"$number\"]' name=\"sub1\">　");
 
 
 
