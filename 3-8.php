@@ -161,23 +161,24 @@ $smarty->assign('messages', $messages);
         if($row["extension"] == "mp4"){
 
             foreach( $messages as $data ):
+                $Acom = array("");
+                $Atime = array("");
                 $comlength = 0;
                 echo("<br/>");
-                if($data[name] == $row[id]){
-                      $comlength = $comlength + 1;
-                      array_push($Acom, $data[comment]);
-                      foreach($Acom as $Bcom):
-                        echo("$Bcom");
-                      endforeach;
-                      array_push($Atime, $data[created]);
-                      foreach($Atime as $Btime):
-                          echo("$Btime");
-                      endforeach;
-                }
-                array_push($videoadd, $Acom,Atime);
+                      if($data[name] == $row[id]){
+                          $comlength = $comlength + 1;
+                          array_push($Acom, $data[comment]);
+                          foreach($Acom as $Bcom):
+                          echo("$Bcom");
+                          endforeach;
+                          array_push($Atime, $data[created]);
+                          foreach($Atime as $Btime):
+                              echo("$Btime");
+                          endforeach;
+                      }
             endforeach;
 
-            echo ("<input type=\"submit\" value='$target,$number,$comlength' name=\"sub1\">　");
+            echo ("<input type=\"submit\" value='$target,$number,$comlength,$Acom[0],$Atime[0]' name=\"sub1\">　");
             echo("<br/>");
         }
         elseif($row["extension"] == "jpeg" || $row["extension"] == "png" || $row["extension"] == "gif"){
