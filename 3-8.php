@@ -148,6 +148,7 @@ $smarty->assign('messages', $messages);
     $sql = "SELECT * FROM media ORDER BY id;";
     $stmt = $pdo->prepare($sql);
     $stmt -> execute();
+    $stack = array("orange", "banana");
     while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
         $number = $row["id"];
         echo ($row["id"]."<br/>");
@@ -160,7 +161,6 @@ $smarty->assign('messages', $messages);
 
             echo("<br/>");
             foreach( $messages as $data ):
-                echo("Loop.<br/>");
                 echo("$data[name]");
                 echo("$row[id]");
                 echo("<br/>");
