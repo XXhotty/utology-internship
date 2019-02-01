@@ -195,7 +195,7 @@ if (isset($_POST["sub1"])) {
     $videonum = explode(",",$sub1);
     $smarty->assign('comnum', $videonum[1]);
     echo ("<video id =video src=\"3-2.php?target=$videonum[0]\" width=\"426\" height=\"240\" controls></video>");
-
+    echo("$videonum[0].$videonum[1].$videonum[2].$videonum[3].<br/>");
     echo ("<br/>");
     echo ("<input type='button' value='play' onclick='video_play($videonum[2],$videonum[3])'>");
     echo ("<input type='button' value='pause' onclick='video_pause()'>");
@@ -212,26 +212,9 @@ if (isset($_POST["sub1"])) {
     }
     function video_play(Ccom,Ctime) {
         video.play();
-        console.log(JSON.stringify(Ccom,null,'\t'));
-        var testObj = {
-            top:{
-                a: 1,
-                b: {
-                    ba:1,
-                    bb:"bbtext"
-                },
-                c:{
-                    ca:1,
-                    cb:[1,2,3],
-                    cc:3,
-                    cd:{
-                        cda:1,
-                        cdb:2
-                    }
-                }
-            }
-        }
-        console.log(testObj);
+
+
+
         var countup = function(){
             console.log(count++);
             if(count == Ctime){
