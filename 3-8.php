@@ -160,6 +160,7 @@ $smarty->assign('messages', $messages);
 
 
             foreach( $messages as $data ):
+                echo("Loop.<br/>");
                       if($data[name]=$row[id]){
                           array_push($stack, $data[comment]);
                           echo("$stack.<br/>");
