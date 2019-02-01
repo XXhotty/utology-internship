@@ -166,8 +166,7 @@ $smarty->assign('messages', $messages);
                 $comlength = 0;
                 echo("<br/>");
                       if($data[name] == $row[id]){
-                          $comlength += 1;
-                          echo($comlength);
+                          echo($comlength++);
                           array_push($Acom, $data[comment]);
                           foreach($Acom as $Bcom):
                           echo("$Bcom");
