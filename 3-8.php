@@ -225,6 +225,9 @@ if (isset($_POST["sub1"])) {
             if(count == Ctime){
                 target.innerHTML = Ccom;
             }
+            else{
+                target.innerHTML = "コメントなし";
+            }
         }
         I = setInterval(countup, 1000);
     }
