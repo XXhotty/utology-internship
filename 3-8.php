@@ -140,10 +140,6 @@ $messages = $stmt2->fetchAll();
 $smarty->assign('err_msg', $err_msg);
 $smarty->assign('messages', $messages);
 
-
-$smarty->assign('comnum', $videonum[1]);
-
-$smarty->display('3-8.tpl');
 ?>
 
 <form method="POST" action="">
@@ -179,7 +175,10 @@ if (isset($_POST["sub1"])) {
     echo ("<br/>a<br/>");
     echo("$videonum[1]");
     echo ("<br/>a<br/>");
+    $smarty->assign('comnum', $videonum[1]);
     echo ("<video id =video src=\"3-2.php?target=$videonum[0]\" width=\"426\" height=\"240\" controls></video>");
+
+    $smarty->display('3-8.tpl');
 }
 
 ?>
