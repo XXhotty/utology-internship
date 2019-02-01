@@ -196,6 +196,7 @@ if (isset($_POST["sub1"])) {
         video.play();
         var countup = function(){
             console.log(count++);
+            target.innerHTML = count;
         }
         I = setInterval(countup, 1000);
     }
