@@ -185,7 +185,6 @@ if (isset($_POST["sub1"])) {
 ?>
 
 <script type="text/javascript">
-
     var count = 0;
 
     window.onload = function onLoad() {
