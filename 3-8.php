@@ -202,8 +202,9 @@ if (isset($_POST["sub1"])) {
         clearInterval(I);
     }
 </script>
-
+<br/>a<br/>
 <div class="contents" id="output"></div>
+<br/>a<br/>
 
 </body>
 </html>
