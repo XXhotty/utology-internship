@@ -92,13 +92,15 @@ if ( isset( $_POST['send'] ) === true ) {
 
     $name     = $_POST['name'];
     $comment = $_POST['comment'];
+    $created = $_POST['created'];
 
-    if ( $name !== '' && $comment !== '' ) {
+    if ( $name !== '' && $comment !== '' && $created !=='') {
 
-        $sql2 = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :comment, NOW())';
+        $sql2 = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :comment, :created)';
         $stmt2 = $pdo2->prepare($sql2);
         $stmt2->bindValue(':name', $name, \PDO::PARAM_STR);
         $stmt2->bindValue(':comment', $comment, \PDO::PARAM_STR);
+        $stmt2->bindValue(':created', $created, \PDO::PARAM_STR);
         $stmt2->execute();
 
     }else{
