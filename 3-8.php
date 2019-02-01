@@ -162,6 +162,7 @@ $smarty->assign('messages', $messages);
             foreach( $messages as $data ):
                       if($data[name]=$row[id]){
                           array_push($stack, $data[comment]);
+                          echo("$stack.<br/>");
                       }
             endforeach;
 
@@ -213,7 +214,9 @@ if (isset($_POST["sub1"])) {
 </script>
 
 <div class="contents" id="output"></div>
-　　<?php foreach( $messages as $data ):
+　　<?php
+    echo("<br/>");
+    foreach( $messages as $data ):
     echo("$data[name]");
     echo("$data[comment].<br/>");
     endforeach;?>
