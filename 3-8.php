@@ -157,7 +157,7 @@ $smarty->display('3-8.tpl');
         $target = $row["fname"];
         if($row["extension"] == "mp4"){
 
-            echo ("<input type=\"submit\" value='$target' name=\"sub1\">　");
+            echo ("<input type=\"submit\" value='[$target][$number]' name=\"sub1\">　");
 
 
 
@@ -172,7 +172,10 @@ $smarty->display('3-8.tpl');
 
 <?php
 if (isset($_POST["sub1"])) {
-    $videonum = $_POST["sub1"];
+    $sub1 =  $_POST["sub1"];
+    $videonum = $sub1[0];
+    echo("$sub1[1]");
+    $smarty->assign('comnum', $sub1[1]);
     echo ("<video id =video src=\"3-2.php?target=$videonum\" width=\"426\" height=\"240\" controls></video>");
 }
 
