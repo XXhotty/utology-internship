@@ -166,7 +166,7 @@ $smarty->assign('messages', $messages);
                 $comlength = 0;
                 echo("<br/>");
                       if($data[name] == $row[id]){
-                          $comlength = $comlength + 1;
+                          $comlength ++;
                           array_push($Acom, $data[comment]);
                           foreach($Acom as $Bcom):
                           echo("$Bcom");
@@ -178,7 +178,7 @@ $smarty->assign('messages', $messages);
                       }
             endforeach;
 
-            echo ("<input type=\"submit\" value='$target,$number,$comlength,$Acom[0],$Atime[0]' name=\"sub1\">　");
+            echo ("<input type=\"submit\" value='$target,$number,$comlength,$Bcom,$Btime' name=\"sub1\">　");
             echo("<br/>");
         }
         elseif($row["extension"] == "jpeg" || $row["extension"] == "png" || $row["extension"] == "gif"){
