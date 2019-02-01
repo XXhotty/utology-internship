@@ -141,7 +141,12 @@ $smarty->assign('err_msg', $err_msg);
 $smarty->assign('messages', $messages);
 
 ?>
-
+<form method="post" action="">
+    時間<input type="text" name="name" value="" />
+    コメント<textarea name="comment" rows="4" cols="20"></textarea>
+    動画番号<input type="text" name="created" value="" />
+    <input type="submit" name="send" value="書き込む" />
+</form>
 <form method="POST" action="">
 
     <?php
@@ -204,16 +209,18 @@ if (isset($_POST["sub1"])) {
 
     window.onload = function onLoad() {
         target = document.getElementById("output");
-        target2 = document.getElementById("output2");
-        target3 = document.getElementById("output3");
     }
 
     function video_play(Ccom,Ctime) {
         video.play();
         console.log(Ccom);
         console.log(Ctime);
-        target2.innerHTML = Ccom;
-        target3.innerHTML = Ctime;
+        Ccom.forEach(function( value ) {
+            console.log( value );
+        });
+        Ctime.forEach(function( value ) {
+            console.log( value );
+        });
         var countup = function(){
             console.log(count++);
             if(count == Ctime){
@@ -232,8 +239,6 @@ if (isset($_POST["sub1"])) {
 </script>
 
 <div class="contents" id="output"></div>
-<div class="contents" id="output2"></div>
-<div class="contents" id="output3"></div>
 
 　　<?php
     echo("<br/>");
