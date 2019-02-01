@@ -175,6 +175,7 @@ if (isset($_POST["sub1"])) {
     $smarty->assign('comnum', $videonum[1]);
     echo ("<video id =video src=\"3-2.php?target=$videonum[0]\" width=\"426\" height=\"240\" controls></video>");
 
+    echo ("<br/>");
     echo ("<input type='button' value='play' onclick='video_play()'>");
     echo ("<input type='button' value='pause' onclick='video_pause()'>");
 
