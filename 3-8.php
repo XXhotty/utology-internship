@@ -96,7 +96,7 @@ if ( isset( $_POST['send'] ) === true ) {
 
     if ( $name !== '' && $comment !== '' && $created !=='') {
 
-        $sql2 = 'INSERT INTO `board` (name, comment, created) VALUES (:name, :comment, :created)';
+        $sql2 = 'INSERT INTO `videocomment` (name, comment, created) VALUES (:name, :comment, :created)';
         $stmt2 = $pdo2->prepare($sql2);
         $stmt2->bindValue(':name', $name, \PDO::PARAM_STR);
         $stmt2->bindValue(':comment', $comment, \PDO::PARAM_STR);
@@ -131,7 +131,7 @@ if ( isset( $_POST['send'] ) === true ) {
 
 <?php
 echo("$err_msg");
-$sql2 = 'SELECT * FROM `board`';
+$sql2 = 'SELECT * FROM `videocomment`';
 $stmt2 = $pdo2->prepare($sql2);
 $stmt2->execute();
 $messages = $stmt2->fetchAll();
