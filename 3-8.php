@@ -190,7 +190,10 @@ if (isset($_POST["sub1"])) {
         video.play();
         var countup = function(){
             console.log(count++);
-            document.write("count");
+            window.onload = function onLoad() {
+                target = document.getElementById("output");
+                target.innerHTML = "count";
+            }
         }
         I = setInterval(countup, 1000);
     }
@@ -199,6 +202,8 @@ if (isset($_POST["sub1"])) {
         clearInterval(I);
     }
 </script>
+
+<div class="contents" id="output"></div>
 
 </body>
 </html>
