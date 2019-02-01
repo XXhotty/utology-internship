@@ -159,6 +159,12 @@ $smarty->assign('messages', $messages);
 
 
 
+            foreach( $messages as $data ):
+                      if($data[name]=$row[id]){
+                          array_push($stack, $data[comment]);
+                      }
+            endforeach;
+
         }
         elseif($row["extension"] == "jpeg" || $row["extension"] == "png" || $row["extension"] == "gif"){
             echo ("<img src='3-2.php?target=$target'>");
@@ -209,7 +215,7 @@ if (isset($_POST["sub1"])) {
 <div class="contents" id="output"></div>
 　　<?php foreach( $messages as $data ):
     echo("$data[name]");
-    echo("$data[name]");
+    echo("$data[comment].<br/>");
     endforeach;?>
 </body>
 </html>
