@@ -176,7 +176,7 @@ if (isset($_POST["sub1"])) {
     echo ("<video id =video src=\"3-2.php?target=$videonum[0]\" width=\"426\" height=\"240\" controls></video>");
 
     echo ("<br/>");
-    echo ("<input type='button' value='play' onclick='video_play($messages,$vifronum[1])'>");
+    echo ("<input type='button' value='play' onclick='video_play()'>");
     echo ("<input type='button' value='pause' onclick='video_pause()'>");
 
     $smarty->display('3-8.tpl');
@@ -192,15 +192,10 @@ if (isset($_POST["sub1"])) {
         target.innerHTML = count;
     }
 
-    function video_play(message,num) {
+    function video_play() {
         video.play();
         var countup = function(){
-            console.log(message);
             console.log(count++);
-            console.log(message[0]);
-            message.forEach(function (value){
-                console.log(value.name)
-            });
             target.innerHTML = count;
         }
         I = setInterval(countup, 1000);
