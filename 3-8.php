@@ -212,10 +212,7 @@ if (isset($_POST["sub1"])) {
     }
     function video_play(Ccom,Ctime) {
         video.play();
-        var COM = Ccom[1];
-        console.log(Ccom[0]);
-        console.log(Ctime[1]);
-        console.log(COM);
+        console.log(JSON.stringify(Ccom,null,'\t'));
         var countup = function(){
             console.log(count++);
             if(count == Ctime){
