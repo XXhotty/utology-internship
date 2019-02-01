@@ -140,7 +140,7 @@ $messages = $stmt2->fetchAll();
 $smarty->assign('err_msg', $err_msg);
 $smarty->assign('messages', $messages);
 
-$smarty->display('3-6.tpl');
+$smarty->display('3-8.tpl');
 ?>
 
 <form method="POST" action="">
