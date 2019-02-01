@@ -210,9 +210,12 @@ if (isset($_POST["sub1"])) {
     window.onload = function onLoad() {
         target = document.getElementById("output");
     }
-
     function video_play(Ccom,Ctime) {
         video.play();
+        var COM = Ccom;
+        console.log(Ccom);
+        console.log(Ctime);
+        console.log(COM);
         var countup = function(){
             console.log(count++);
             if(count == Ctime){
