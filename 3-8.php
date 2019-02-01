@@ -166,7 +166,7 @@ $smarty->assign('messages', $messages);
                 echo("<br/>");
                       if($data[name]=$row[id]){
                           array_push($stack, $data[comment]);
-                          echo("$stack.<br/>");
+                          echo("a.$stack.<br/>");
                       }
             endforeach;
 
