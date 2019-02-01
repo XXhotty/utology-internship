@@ -189,7 +189,7 @@ if (isset($_POST["sub1"])) {
 
     window.onload = function onLoad() {
         target = document.getElementById("output");
-        target.innerHTML = "count";
+        target.innerHTML = count;
     }
 
     function video_play() {
