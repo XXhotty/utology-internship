@@ -169,7 +169,7 @@ $smarty->assign('messages', $messages);
             foreach( $messages as $data ):
                 echo("<br/>");
                       if($data[name] == $row[id]){
-                          $comlength =$data[name];
+                          $comlength += 1;
                           echo($comlength);
                           array_push($Acom, $data[comment]);
                           foreach($Acom as $Bcom):
@@ -179,9 +179,6 @@ $smarty->assign('messages', $messages);
                           foreach($Atime as $Btime):
                               echo("$Btime");
                           endforeach;
-                      }
-                      else{
-
                       }
             endforeach;
 
@@ -201,9 +198,8 @@ if (isset($_POST["sub1"])) {
     $sub1 = $_POST["sub1"];
     $videonum = explode(",",$sub1);
     $smarty->assign('comnum', $videonum[1]);
-    echo("$videonum[0]");
-    echo("$videonum[1]");
-    echo("$videonum[2]");
+    echo("$videonum[3].<br/>");
+    echo("$videonum[4]");
     echo ("<br/>");
     echo ("<video id =video src=\"3-2.php?target=$videonum[0]\" width=\"426\" height=\"240\" controls></video>");
     echo("<br/>");
@@ -228,9 +224,6 @@ if (isset($_POST["sub1"])) {
             console.log(count++);
             if(count == Ctime){
                 target.innerHTML = Ccom;
-            }
-            else{
-                target.innerHTML = count;
             }
         }
         I = setInterval(countup, 1000);
