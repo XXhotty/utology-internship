@@ -158,8 +158,12 @@ $smarty->assign('messages', $messages);
             echo ("<input type=\"submit\" value='$target,$number' name=\"sub1\">　");
 
 
+            echo("<br/>");
             foreach( $messages as $data ):
                 echo("Loop.<br/>");
+                echo("$data[name]");
+                echo("$row[id]");
+                echo("<br/>");
                       if($data[name]=$row[id]){
                           array_push($stack, $data[comment]);
                           echo("$stack.<br/>");
