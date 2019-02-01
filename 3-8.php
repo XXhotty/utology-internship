@@ -207,8 +207,9 @@ if (isset($_POST["sub1"])) {
 </script>
 
 <div class="contents" id="output"></div>
-　　<?php foreach( $messages as $data ):?>
-    　　　　<p><span><?php echo $data["name"]; ?></span>:<span><?php echo $data["comment"]; ?></span></p>
-    　　 <?php endforeach;?>
+　　<?php foreach( $messages as $data ):
+    echo('$data[\"name\"]');
+    echo('$data[\"name\"]');
+    endforeach;?>
 </body>
 </html>
