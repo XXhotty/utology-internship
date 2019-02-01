@@ -161,12 +161,10 @@ $smarty->assign('messages', $messages);
         if($row["extension"] == "mp4"){
 
             foreach( $messages as $data ):
-                $Acom = "";
-                $Atime = "";
                 $comlength = 0;
                 echo("<br/>");
                 if($data[name] == $row[id]){
-                      $comlength++;
+                      $comlength = $comlength + 1;
                       array_push($Acom, $data[comment]);
                       foreach($Acom as $Bcom):
                         echo("$Bcom");
