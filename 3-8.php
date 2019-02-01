@@ -172,16 +172,31 @@ $smarty->assign('messages', $messages);
 if (isset($_POST["sub1"])) {
     $sub1 = $_POST["sub1"];
     $videonum = explode(",",$sub1);
-    echo ("<br/>a<br/>");
-    echo("$videonum[1]");
-    echo ("<br/>a<br/>");
     $smarty->assign('comnum', $videonum[1]);
     echo ("<video id =video src=\"3-2.php?target=$videonum[0]\" width=\"426\" height=\"240\" controls></video>");
+
+    echo ("<input type='button' value='play' onclick='video_play()'>");
+    echo ("<input type='button' value='pause' onclick='video_pause()'>");
 
     $smarty->display('3-8.tpl');
 }
 
 ?>
+
+<script type="text/javascript">
+    var count = 0;
+    function video_play() {
+        video.play();
+        var countup = function(){
+            console.log(count++);
+        }
+        I = setInterval(countup, 1000);
+    }
+    function video_pause() {
+        video.pause();
+        clearInterval(I);
+    }
+</script>
 
 </body>
 </html>
