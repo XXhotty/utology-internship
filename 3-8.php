@@ -185,15 +185,17 @@ if (isset($_POST["sub1"])) {
 ?>
 
 <script type="text/javascript">
+
+    window.onload = function onLoad() {
+        target = document.getElementById("output");
+        target.innerHTML = "Penguin";
+    }
+
     var count = 0;
     function video_play() {
         video.play();
         var countup = function(){
             console.log(count++);
-            window.onload = function onLoad() {
-                target = document.getElementById("output");
-                target.innerHTML = "count";
-            }
         }
         I = setInterval(countup, 1000);
     }
