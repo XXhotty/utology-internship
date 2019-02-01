@@ -172,7 +172,7 @@ $smarty->assign('messages', $messages);
                           foreach($Acom as $Bcom):
                           echo("$Bcom");
                           endforeach;
-                          array_push($Bcom, $data[created]);
+                          array_push($Atime, $data[created]);
                           foreach($Atime as $Btime):
                               echo("$Btime");
                           endforeach;
@@ -195,16 +195,9 @@ if (isset($_POST["sub1"])) {
     $videonum = explode(",",$sub1);
     $smarty->assign('comnum', $videonum[1]);
     echo ("<video id =video src=\"3-2.php?target=$videonum[0]\" width=\"426\" height=\"240\" controls></video>");
-    print_r($videonum);
-    $com2 = explode(",",$videonum[2]);
-    echo ("<br/>");
-    echo("$com2[0]");
-    echo ("<br/>");
-    print_r($com2);
-    echo ("<br/>");
+
     echo ("<input type='button' value='play' onclick='video_play($videonum[2],$videonum[3])'>");
     echo ("<input type='button' value='pause' onclick='video_pause()'>");
-
 }
 
 ?>
