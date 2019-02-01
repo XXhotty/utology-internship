@@ -195,7 +195,6 @@ if (isset($_POST["sub1"])) {
     echo ("<input type='button' value='play' onclick='video_play($videonum[2],$videonum[3])'>");
     echo ("<input type='button' value='pause' onclick='video_pause()'>");
 
-    $smarty->display('3-8.tpl');
 }
 
 ?>
@@ -205,11 +204,14 @@ if (isset($_POST["sub1"])) {
 
     window.onload = function onLoad() {
         target = document.getElementById("output");
-        target.innerHTML = count;
+        target2 = document.getElementById("output2");
+        target3 = document.getElementById("output3");
     }
 
     function video_play(Ccom,Ctime) {
         video.play();
+        target2.innerHTML = Ccom;
+        target3.innerHTML = Ctime;
         var countup = function(){
             console.log(count++);
             if(count == Ctime){
@@ -228,11 +230,13 @@ if (isset($_POST["sub1"])) {
 </script>
 
 <div class="contents" id="output"></div>
+<div class="contents" id="output2"></div>
+<div class="contents" id="output3"></div>
+
 　　<?php
     echo("<br/>");
     foreach( $messages as $data ):
-    echo("$data[name]");
-    echo("$data[comment].<br/>");
+    echo("$data[name].$data[comment].$data[created]<br/>");
     endforeach;?>
 </body>
 </html>
