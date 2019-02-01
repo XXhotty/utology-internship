@@ -160,10 +160,13 @@ $smarty->assign('messages', $messages);
         $target = $row["fname"];
         if($row["extension"] == "mp4"){
 
+            $Acom = array("");
+            $Atime = array("");
+            $Bcom = "";
+            $Btime = "";
+            $comlength = 0;
+
             foreach( $messages as $data ):
-                $Acom = array("");
-                $Atime = array("");
-                $comlength = 0;
                 echo("<br/>");
                       if($data[name] == $row[id]){
                           $comlength =$data[name];
@@ -176,6 +179,9 @@ $smarty->assign('messages', $messages);
                           foreach($Atime as $Btime):
                               echo("$Btime");
                           endforeach;
+                      }
+                      else{
+
                       }
             endforeach;
 
@@ -201,7 +207,7 @@ if (isset($_POST["sub1"])) {
     echo ("<br/>");
     echo ("<video id =video src=\"3-2.php?target=$videonum[0]\" width=\"426\" height=\"240\" controls></video>");
     echo("<br/>");
-    echo ("<input type='button' value='play' onclick='video_play($videonum[2],$videonum[3])'>");
+    echo ("<input type='button' value='play' onclick='video_play($videonum[3],$videonum[4])'>");
     echo ("<input type='button' value='pause' onclick='video_pause()'>");
 }
 
