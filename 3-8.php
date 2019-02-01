@@ -176,7 +176,7 @@ if (isset($_POST["sub1"])) {
     echo ("<br/>a<br/>");
     echo("$videonum[1]");
     echo ("<br/>a<br/>");
-    $smarty->assign('comnum', $sub1[1]);
+    $smarty->assign('comnum', $videonum[1]);
     echo ("<video id =video src=\"3-2.php?target=$videonum[0]\" width=\"426\" height=\"240\" controls></video>");
 }
 
