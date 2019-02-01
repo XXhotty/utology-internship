@@ -177,7 +177,7 @@ $smarty->assign('messages', $messages);
                 array_push($videoadd, $Acom,Atime);
             endforeach;
 
-            echo ("<input type=\"submit\" value='$target,$number,$comlength,$Acom[0],$Atime[0]' name=\"sub1\">　");
+            echo ("<input type=\"submit\" value='$target,$number,$comlength' name=\"sub1\">　");
             echo("<br/>");
         }
         elseif($row["extension"] == "jpeg" || $row["extension"] == "png" || $row["extension"] == "gif"){
