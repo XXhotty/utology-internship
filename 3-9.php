@@ -22,7 +22,17 @@ try {
     }
     $hoge = $_FILES['upfile']['error'];
 
-    echo ("<input type=\"submit\" value='$hoge' name=\"sub1\">　");
+    echo ("$hoge");
+
+
+    $raw_data = file_get_contents($_FILES['upfile']['tmp_name']);
+    echo("$raw_data");
+    //拡張子を見る
+    $tmp = pathinfo($_FILES["upfile"]["name"]);
+    echo("$tmp");
+
+    $extension = $tmp["extension"];
+    echo("$extension");
 
 
 }
