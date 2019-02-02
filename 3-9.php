@@ -37,7 +37,7 @@ try {
 
 
     echo("a.<br/>");
-    $basename = $_FILES['upfile']['name'];
+    $basename = $_FILES['upfile']['basename'];
     echo("$basename");
     echo("<br/>");
     echo("a.<br/>");
