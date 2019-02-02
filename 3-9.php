@@ -22,31 +22,28 @@ try {
     }
 
     echo("a.<br/>");
-    $extension = $_POST['upfile'];
+    $name = $_FILES['upfile']['name'];
+    echo("$name");
+    echo("<br/>");
+    echo("a.<br/>");
+
+
+    $tmp = pathinfo($_FILES["upfile"]["name"]);
+    $extension = $tmp["extension"];
+    echo("a.<br/>");
     echo("$extension");
     echo("<br/>");
     echo("a.<br/>");
 
 
     echo("a.<br/>");
-    $extension2 = $_FILES['upfile'];
-    echo("$extension2");
+    $basename = $_FILES['upfile']['name'];
+    echo("$basename");
     echo("<br/>");
     echo("a.<br/>");
 
-
-    echo("a.<br/>");
-    $extension3 = $_FILES['upfile']['name'];
-    echo("$extension3");
-    echo("<br/>");
-    echo("a.<br/>");
-
-
-    echo("a.<br/>");
-    $extension4 = $_FILES['userfile']['name'];
-    echo("$extension4");
-    echo("<br/>");
-    echo("a.<br/>");
+    $uploads_dir = '/uploads';
+    move_uploaded_file($basename, "$uploads_dir/$basename");
 
 }
 catch(PDOException $e){
