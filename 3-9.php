@@ -36,14 +36,9 @@ try {
     echo("a.<br/>");
 
 
-    echo("a.<br/>");
-    $basename = $_FILES['upfile']['basename'];
-    echo("$basename");
-    echo("<br/>");
-    echo("a.<br/>");
 
     $uploads_dir = '/uploads';
-    move_uploaded_file($basename, "$uploads_dir/$basename");
+    move_uploaded_file($name, "$uploads_dir/$basename");
 
 }
 catch(PDOException $e){
