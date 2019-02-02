@@ -12,6 +12,7 @@ try {
                 break;
             case UPLOAD_ERR_NO_FILE:   // 未選択
                 throw new RuntimeException('ファイルが選択されていません', 400);
+                echo("ファイルが選択されていません");
             case UPLOAD_ERR_INI_SIZE:  // php.ini定義の最大サイズ超過
                 throw new RuntimeException('ファイルサイズが大きすぎます', 400);
             default:
@@ -19,7 +20,9 @@ try {
         }
 
     }
-    print_r($_FILES['upfile']['error']);
+    $hoge = $_FILES['upfile']['error'];
+
+    echo ("<input type=\"submit\" value='$hoge' name=\"sub1\">　");
 
 
 }
@@ -39,3 +42,5 @@ $smarty->template_dir = __DIR__ . '/templates';
 $smarty->compile_dir = __DIR__ . '/templates_c';
 
 $smarty->display('3-9.tpl');
+
+
