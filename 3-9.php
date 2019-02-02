@@ -21,11 +21,7 @@ try {
 
     }
 
-    $raw_data = file_get_contents($_FILES['upfile']['tmp_name']);
-
-    //拡張子を見る
-    $tmp = pathinfo($_FILES["upfile"]["name"]);
-    $extension = $tmp["extension"];
+    $extension = $_POST['upfile'];
     echo("$extension");
     echo("<br/>");
 
