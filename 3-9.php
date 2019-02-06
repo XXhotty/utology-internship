@@ -38,7 +38,7 @@ try {
 
 
     $uploads_dir = '/uploads';
-    move_uploaded_file($name, "$uploads_dir/$basename");
+    move_uploaded_file($name, "$uploads_dir/$name");
 
 }
 catch(PDOException $e){
@@ -49,13 +49,25 @@ catch(PDOException $e){
 
 // smarty のライブラリを読み込みます
 include_once __DIR__ . '/libs/Smarty.class.php';
-
+?>
 // smartyを宣言して設定を書き加えます
-$smarty = new Smarty();
-$smarty->escape_html = true;
-$smarty->template_dir = __DIR__ . '/templates';
-$smarty->compile_dir = __DIR__ . '/templates_c';
+<!DOCTYPE HTML>
 
-$smarty->display('3-9.tpl');
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>media</title>
+</head>
 
+<body>
+<form action="3-9.php" enctype="multipart/form-data" method="post">
+    <label>動画アップロード</label>
+    <input type="file" name="upfile">
+    <br>
+※画像はjpeg方式，png方式，gif方式に対応しています．動画はmp4方式のみ対応しています．<br>
+    <input type="submit" value="アップロード">
+</form>
+
+</body>
+</html>
 
