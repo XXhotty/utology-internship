@@ -34,6 +34,13 @@ try {
     echo("<br/>");
     echo("a.<br/>");
 
+    $tmpname = $_FILES["upfile"]["tmp_name"];
+    echo("a.<br/>");
+    echo("$tmpname");
+    echo("<br/>");
+    echo("a.<br/>");
+
+
 
     if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
         if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "files/" . $_FILES["upfile"]["name"])) {
