@@ -1,23 +1,22 @@
-<?php
-$updir = "./upload/";
-$filename = $_FILES['upfile']['name'];
-if(move_uploaded_file($_FILES['upfile']['tmp_name'], $updir.$filename)==FALSE){
-    print("Upload failed");
-    print($_FILES['upfile']['error']);
-}
-else {
-    print("<b> $filename </b> uploaded");
-}
-?>
-
 <html>
-<head><title>uploader.html</title></head>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>sample</title>
+</head>
 <body>
-<form method="post" enctype="multipart/form-data" action="3-9.php">
-    <input type="file" name="upfile">
-    <input type="submit" value="アップロードする">
-</form>
+<p><?php
+
+    if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
+        if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "files/" . $_FILES["upfile"]["name"])) {
+            chmod("files/" . $_FILES["upfile"]["name"], 0644);
+            echo $_FILES["upfile"]["name"] . "をアップロードしました。";
+        } else {
+            echo "ファイルをアップロードできません。";
+        }
+    } else {
+        echo "ファイルが選択されていません。";
+    }
+
+    ?></p>
 </body>
 </html>
-
-
