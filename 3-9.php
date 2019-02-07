@@ -8,13 +8,16 @@ if(move_uploaded_file($_FILES['upfile']['tmp_name'], $updir.$filename)==FALSE){
 else {
     print("<b> $filename </b> uploaded");
 }
+?>
 
-// smartyを宣言して設定を書き加えます
-$smarty = new Smarty();
-$smarty->escape_html = true;
-$smarty->template_dir = __DIR__ . '/templates';
-$smarty->compile_dir = __DIR__ . '/templates_c';
-
-$smarty->display('3-9.tpl');
+<html>
+<head><title>uploader.html</title></head>
+<body>
+<form method="post" enctype="multipart/form-data" action="3-9.php">
+    <input type="file" name="upfile">
+    <input type="submit" value="アップロードする">
+</form>
+</body>
+</html>
 
 
