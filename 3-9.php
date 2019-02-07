@@ -21,12 +21,6 @@ try {
 
     }
 
-    echo("a.<br/>");
-    $name = $_FILES['upfile']['name'];
-    echo("$name");
-    echo("<br/>");
-    echo("a.<br/>");
-
     $tmp = pathinfo($_FILES["upfile"]["name"]);
     $extension = $tmp["extension"];
     echo("a.<br/>");
@@ -34,10 +28,8 @@ try {
     echo("<br/>");
     echo("a.<br/>");
 
-    $tmpname = $_FILES["upfile"]["tmp_name"];
     echo("a.<br/>");
-    echo("$tmpname");
-    echo("<br/>");
+    var_dump($_FILES["upfile"]);
     echo("a.<br/>");
 
 
