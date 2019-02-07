@@ -23,26 +23,8 @@ try {
 
     $tmp = pathinfo($_FILES["upfile"]["name"]);
     $extension = $tmp["extension"];
-    echo("a.<br/>");
-    echo("$extension");
-    echo("<br/>");
-    echo("a.<br/>");
-
-    echo("a.<br/>");
-    var_dump($_FILES["upfile"]);
-    echo("a.<br/>");
-
-
 
     if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
-        if (! file_exists ( 'files' )) {
-            echo("Nuthing<br/>");
-            mkdir ( 'files' );
-        }
-        else{
-            echo("OK<br/>");
-        }
-
         if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "files/" . $_FILES["upfile"]["name"])) {
             chmod("files/" . $_FILES["upfile"]["name"], 0644);
             echo $_FILES["upfile"]["name"] . "をアップロードしました。";
@@ -61,26 +43,12 @@ catch(PDOException $e){
 }
 // smarty のライブラリを読み込みます
 include_once __DIR__ . '/libs/Smarty.class.php';
+// smartyを宣言して設定を書き加えます
+$smarty = new Smarty();
+$smarty->escape_html = true;
+$smarty->template_dir = __DIR__ . '/templates';
+$smarty->compile_dir = __DIR__ . '/templates_c';
 
-?>
 
+$smarty->display('3-9.tpl');
 
-<!DOCTYPE HTML>
-
-<html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <title>media</title>
-</head>
-
-<body>
-<form action="3-9.php" enctype="multipart/form-data" method="post">
-    <label>動画アップロード</label>
-    <input type="file" name="upfile">
-    <br>
-    ※画像はjpeg方式，png方式，gif方式に対応しています．動画はmp4方式のみ対応しています．<br>
-    <input type="submit" value="アップロード">
-</form>
-
-</body>
-</html>
