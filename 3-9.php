@@ -1,7 +1,3 @@
-<html>
-<head><title>uploader.php</title></head>
-<body>
-<p> file uploader </p>
 <?php
 $updir = "./upload/";
 $filename = $_FILES['upfile']['name'];
@@ -12,7 +8,13 @@ if(move_uploaded_file($_FILES['upfile']['tmp_name'], $updir.$filename)==FALSE){
 else {
     print("<b> $filename </b> uploaded");
 }
-?>
-</body>
-</html>
+
+// smartyを宣言して設定を書き加えます
+$smarty = new Smarty();
+$smarty->escape_html = true;
+$smarty->template_dir = __DIR__ . '/templates';
+$smarty->compile_dir = __DIR__ . '/templates_c';
+
+$smarty->display('3-9.tpl');
+
 
