@@ -33,7 +33,6 @@ try {
     echo("a.<br/>");
 
 
-    echo ("<video id =video src=\"$_FILES[upfile][tmp_name]\" width=\"426\" height=\"240\" controls></video>");
 
     if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
         if (! file_exists ( 'files' )) {
