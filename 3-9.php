@@ -36,8 +36,11 @@ try {
 
     if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
         if (! file_exists ( 'files' )) {
-            echo("dab<br/>");
+            echo("Nuthing<br/>");
             mkdir ( 'files' );
+        }
+        else{
+            echo("OK<br/>");
         }
 
         if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "files/" . $_FILES["upfile"]["name"])) {
