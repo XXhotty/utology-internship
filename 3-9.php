@@ -33,9 +33,13 @@ try {
     echo("a.<br/>");
 
 
-    echo ("<video id =video src=\"$_FILES[upfile][tmp_name]\" width=\"426\" height=\"240\" controls></video>");
 
     if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
+        if (! file_exists ( 'files' )) {
+            echo("dab<br/>");
+            mkdir ( 'files' );
+        }
+
         if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "files/" . $_FILES["upfile"]["name"])) {
             chmod("files/" . $_FILES["upfile"]["name"], 0644);
             echo $_FILES["upfile"]["name"] . "をアップロードしました。";
