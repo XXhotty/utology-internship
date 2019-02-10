@@ -7,10 +7,8 @@
     <title>media</title>
 </head>
 
-<p>a</p>
-<p>{$messages}</p>
+
 <body>
-<p>a</p>
 <p>{$messages}</p>
 <form action="3-9.php" enctype="multipart/form-data" method="post">
     <label>動画アップロード</label>
