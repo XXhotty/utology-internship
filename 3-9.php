@@ -1,10 +1,19 @@
 <?php
+
+// smarty のライブラリを読み込みます
+include_once __DIR__ . '/libs/Smarty.class.php';
+// smartyを宣言して設定を書き加えます
+$smarty = new Smarty();
+$smarty->escape_html = true;
+$smarty->template_dir = __DIR__ . '/templates';
+$smarty->compile_dir = __DIR__ . '/templates_c';
+
 try {
     $user = "hotty";
     $pass = "hotta";
     $pdo = new PDO("mysql:host=localhost;dbname=board;charset=utf8", $user, $pass);
 
-    $messages ='';
+    $messages ='a';
     //ファイルアップロードがあったとき
     if (isset($_FILES['upfile']['error']) && $_FILES["upfile"]["name"] !== "") {
         //エラーチェック
@@ -48,20 +57,15 @@ try {
     else {
         $messages = "ファイルが選択されていません。";
     }
+
+    $smarty->assign('messages', $messages);
 }
 catch(PDOException $e){
     echo("<p>500 Inertnal Server Error</p>");
     exit($e->getMessage());
 }
-// smarty のライブラリを読み込みます
-include_once __DIR__ . '/libs/Smarty.class.php';
-// smartyを宣言して設定を書き加えます
-$smarty = new Smarty();
-$smarty->escape_html = true;
-$smarty->template_dir = __DIR__ . '/templates';
-$smarty->compile_dir = __DIR__ . '/templates_c';
 
-$smarty->assign('messages', $messages);
+
 
 $smarty->display('3-9.tpl');
 
