@@ -8,6 +8,7 @@
 </head>
 
 <body>
+<p>{$messages['name']}</p>
 <form action="3-9.php" enctype="multipart/form-data" method="post">
     <label>動画アップロード</label>
     <input type="file" name="upfile">
