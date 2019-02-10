@@ -23,22 +23,29 @@ try {
 
     $tmp = pathinfo($_FILES["upfile"]["name"]);
     $extension = $tmp["extension"];
-    if ($extension === "mp4" || $extension === "MP4"){
-        if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
+    if (is_uploaded_file($_FILES["upfile"]["tmp_name"])){
+        if ($extension === "mp4" || $extension === "MP4") {
             if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "files/" . $_FILES["upfile"]["name"])) {
                 chmod("files/" . $_FILES["upfile"]["name"], 0644);
                 echo $_FILES["upfile"]["name"] . "をアップロードしました。";
+
+                $name = $_FILES["upfile"]["name"];
+
+                $sql2 = 'INSERT INTO `mp4` (name, created) VALUES (:name, NOW())';
+                $stmt2 = $pdo2->prepare($sql2);
+                $stmt2->bindValue(':name', $name, \PDO::PARAM_STR);
+                $stmt2->execute();
             }
             else {
                 echo "ファイルをアップロードできません。";
             }
         }
         else {
-            echo "ファイルが選択されていません。";
+            echo "非対応ファイルです";
         }
     }
     else {
-        echo "非対応ファイルです";
+        echo "ファイルが選択されていません。";
     }
 }
 catch(PDOException $e){
