@@ -1,3 +1,25 @@
+<?php
+
+// smarty のライブラリを読み込みます
+include_once __DIR__ . '/libs/Smarty.class.php';
+// smartyを宣言して設定を書き加えます
+$smarty = new Smarty();
+$smarty->escape_html = true;
+$smarty->template_dir = __DIR__ . '/templates';
+$smarty->compile_dir = __DIR__ . '/templates_c';
+
+try {
+    $user = "hotty";
+    $pass = "hotta";
+    $pdo = new PDO("mysql:host=localhost;dbname=board;charset=utf8", $user, $pass);
+
+}
+catch(PDOException $e){
+    echo("<p>500 Inertnal Server Error</p>");
+    exit($e->getMessage());
+}
+?>
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
