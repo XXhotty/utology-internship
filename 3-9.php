@@ -4,6 +4,7 @@ try {
     $pass = "hotta";
     $pdo = new PDO("mysql:host=localhost;dbname=board;charset=utf8", $user, $pass);
 
+    $messages ='';
     //ファイルアップロードがあったとき
     if (isset($_FILES['upfile']['error']) && $_FILES["upfile"]["name"] !== "") {
         //エラーチェック
@@ -27,7 +28,7 @@ try {
         if ($extension === "mp4" || $extension === "MP4") {
             if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "files/" . $_FILES["upfile"]["name"])) {
                 chmod("files/" . $_FILES["upfile"]["name"], 0644);
-                echo $_FILES["upfile"]["name"] . "をアップロードしました。";
+                $messages =$_FILES["upfile"]["name"] . "をアップロードしました。";
 
                 $name = $_FILES["upfile"]["name"];
 
@@ -37,15 +38,15 @@ try {
                 $stmt2->execute();
             }
             else {
-                echo "ファイルをアップロードできません。";
+                $messages = "ファイルをアップロードできません。";
             }
         }
         else {
-            echo "非対応ファイルです";
+            $messages ="非対応ファイルです";
         }
     }
     else {
-        echo "ファイルが選択されていません。";
+        $messages = "ファイルが選択されていません。";
     }
 }
 catch(PDOException $e){
@@ -60,6 +61,7 @@ $smarty->escape_html = true;
 $smarty->template_dir = __DIR__ . '/templates';
 $smarty->compile_dir = __DIR__ . '/templates_c';
 
+$smarty->assign('messages', $messages);
 
 $smarty->display('3-9.tpl');
 
