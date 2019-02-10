@@ -28,8 +28,9 @@ catch(PDOException $e){
 <body>
 <form method="POST" action="">
 
-
+    a.<br/>
     <?php
+    echo("a.<br/>");
     $sql = "SELECT * FROM mp4 ORDER BY id;";
     $stmt = $pdo->prepare($sql);
     $stmt -> execute();
@@ -41,6 +42,7 @@ catch(PDOException $e){
         echo ("<video id =video src=\"$target\" width=\"426\" height=\"240\" controls></video>");
         }
     echo ("<br/><br/>");
+    echo ("<video id =video src=\"files/me.mp4\" width=\"426\" height=\"240\" controls></video>");
 
 ?>
 

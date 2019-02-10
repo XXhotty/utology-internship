@@ -41,7 +41,6 @@ try {
 
                 $name = $_FILES["upfile"]["name"];
 
-                echo("$name");
                 $sql = 'INSERT INTO `mp4` (name, created) VALUES (:name, NOW())';
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
