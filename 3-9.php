@@ -41,10 +41,10 @@ try {
 
                 $name = $_FILES["upfile"]["name"];
 
-                $sql2 = 'INSERT INTO `mp4` (name, created) VALUES (:name, NOW())';
-                $stmt2 = $pdo2->prepare($sql2);
-                $stmt2->bindValue(':name', $name, \PDO::PARAM_STR);
-                $stmt2->execute();
+                $sql = 'INSERT INTO `mp4` (name, created) VALUES (:name, NOW())';
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
+                $stmt->execute();
             }
             else {
                 $messages = "ファイルをアップロードできません。";
