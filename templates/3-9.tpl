@@ -12,6 +12,7 @@
 <p>{$messages}</p>
 <form action="3-9.php" enctype="multipart/form-data" method="post">
     <label>動画アップロード</label>
+    タイトル<input type="text" name="title" value="" />
     <input type="file" name="upfile">
     <br>
     ※動画はmp4方式のみ対応しています．<br>
