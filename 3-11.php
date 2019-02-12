@@ -27,25 +27,32 @@ catch(PDOException $e){
 }
 
 
-$name     = $_POST['name'];
-echo("$name.<br/>");
-$title = explode(":",$name);
-echo("$title[0].<br/>");
-echo("$title[1].<br/>");
-var_dump("$title");
+if (isset($_POST["sub1"])) {
+    $sub = $_POST["sub"];
+    echo("$sub.<br/>");
+    $title = explode(":", $sub);
+    echo("$title[0].<br/>");
+    echo("$title[1].<br/>");
+    var_dump("$title");
+    echo("<br/>");
 
-$sql = "SELECT * FROM mp4 ORDER BY id;";
-$stmt = $pdo->prepare($sql);
-$stmt -> execute();
-while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
-    echo("a.<br/>");
-    if ($row["title"] == $title[0]) {
-        echo("b.<br/>");
-        echo("<input type=\"hidden\" name=\"name\" value=\"$name\">");
-        echo($row["name"] . "<br/>");
-        $target = "files/" . $row["name"];
-        echo("<video id =video src=\"$target\" width=\"426\" height=\"240\" controls></video>");
+    $sql = "SELECT * FROM mp4 ORDER BY id;";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        echo("a.<br/>");
+        if ($row["title"] == $title[0]) {
+            echo("b.<br/>");
+            echo("<input type=\"hidden\" name=\"name\" value=\"$name\">");
+            echo($row["name"] . "<br/>");
+            $target = "files/" . $row["name"];
+            echo("<video id =video src=\"$target\" width=\"426\" height=\"240\" controls></video>");
+
+        }
     }
+}
+else{
+    echo("動画一覧画面で動画を選択");
 }
 ?>
 
