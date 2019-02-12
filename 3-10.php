@@ -42,10 +42,8 @@ catch(PDOException $e){
     $stmt = $pdo->prepare($sql);
     $stmt -> execute();
     while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
-        echo ($row["name"]."<br/>");
-        $target = "files/".$row["name"];
-
-        echo ("<video id =video src=\"$target\" width=\"426\" height=\"240\" controls></video>");
+        $name = $row["title"];
+        echo("<input type=\"submit\" value=\"$name:この動画を見る\">");
         }
     echo ("<br/><br/>");
 ?>
