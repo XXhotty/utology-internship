@@ -5,6 +5,15 @@
     <title>sample</title>
 </head>
 <body>
+<form method="post" action="">
+    時間:<input type="text" name="time" value="" />秒地点
+    コメント:<textarea name="comment" rows="4" cols="20"></textarea>
+    <input type="submit" name="send" value="書き込む" />
+    <?php
+    $title = $_POST["title"];
+    echo("<input type=\"hidden\" name=\"title\" value=\"$title\">");
+    ?>
+    </form>
 <?php
 
 // smarty のライブラリを読み込みます
@@ -28,9 +37,20 @@ catch(PDOException $e){
 
 
 if (isset($_POST["title"])) {
-    $title = $_POST["title"];
-    echo("$title");
+    $name = $_POST["title"];
+    $comment = $_POST['comment'];
+    $created = $_POST['time'];
+    if ($name !== '' && $comment !== '' && $created !== '') {
+
+
+        $sql = 'INSERT INTO `videocomment` (name, comment, created) VALUES (:name,:title, NOW())';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
+        $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
+        $stmt->bindValue(':created', $created, \PDO::PARAM_STR);
+        $stmt->execute();
     }
+}
 else{
     echo("動画一覧画面で動画を選択してください");
 }
