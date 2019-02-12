@@ -27,7 +27,7 @@ catch(PDOException $e){
 }
 
 
-if (isset($_POST["sub1"])) {
+if (isset($_POST["sub"])) {
     $sub = $_POST["sub"];
     echo("$sub.<br/>");
     $title = explode(":", $sub);
@@ -52,7 +52,7 @@ if (isset($_POST["sub1"])) {
     }
 }
 else{
-    echo("動画一覧画面で動画を選択");
+    echo("動画一覧画面で動画を選択してください");
 }
 ?>
 
