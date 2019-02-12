@@ -1,3 +1,10 @@
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>sample</title>
+</head>
+<body>
 <?php
 
 // smarty のライブラリを読み込みます
@@ -21,18 +28,27 @@ catch(PDOException $e){
 
 
 $name     = $_POST['name'];
+echo("$name.<br/>");
 $title = explode(":",$name);
+echo("$title[0].<br/>");
+echo("$title[1].<br/>");
+var_dump("$title");
 
 $sql = "SELECT * FROM mp4 ORDER BY id;";
 $stmt = $pdo->prepare($sql);
 $stmt -> execute();
 while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
+    echo("a.<br/>");
     if ($row["title"] == $title[0]) {
+        echo("b.<br/>");
         echo("<input type=\"hidden\" name=\"name\" value=\"$name\">");
         echo($row["name"] . "<br/>");
         $target = "files/" . $row["name"];
         echo("<video id =video src=\"$target\" width=\"426\" height=\"240\" controls></video>");
     }
 }
+?>
 
-
+<li><a href="3-10.php">動画一覧へ</a></li>
+</body>
+</html>
