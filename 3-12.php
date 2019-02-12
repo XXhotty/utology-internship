@@ -39,13 +39,13 @@ catch(PDOException $e){
 if (isset($_POST["title"])) {
     $name = $_POST["title"];
     $comment = $_POST['comment'];
-    $created = $_POST['time'];
+    $time = $_POST['time'];
     if ($name !== '' && $comment !== '' && $created !== '') {
-        $sql = 'INSERT INTO `videocomment` (name, comment, created) VALUES (:name,:title, :created)';
+        $sql = 'INSERT INTO `videocomment` (name, comment, time) VALUES (:name,:comment, :time)';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
         $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
-        $stmt->bindValue(':created', $created, \PDO::PARAM_STR);
+        $stmt->bindValue(':created', $title, \PDO::PARAM_STR);
         $stmt->execute();
     }
     else{
