@@ -26,9 +26,8 @@ catch(PDOException $e){
     <title>sample</title>
 </head>
 <body>
-<form method="POST" action="">
+<form action="3-11.php" enctype="multipart/form-data" method="post">
 
-    a.<br/>
     <?php
     try {
         $user = "hotty";
@@ -43,9 +42,8 @@ catch(PDOException $e){
     $stmt = $pdo->prepare($sql);
     $stmt -> execute();
     while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
-        echo ($row["id"]."<br/>");
+        echo ($row["name"]."<br/>");
         $target = "files/".$row["name"];
-        echo ($target."<br/>");
 
         echo ("<video id =video src=\"$target\" width=\"426\" height=\"240\" controls></video>");
         }
@@ -53,5 +51,6 @@ catch(PDOException $e){
 ?>
 
 </form>
+<li><a href="3-9.php">アップロード画面へ</a></li>
 </body>
 </html>

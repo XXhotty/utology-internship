@@ -31,15 +31,15 @@ try {
 
     }
 
+    $name     = $_POST['title'];
     $tmp = pathinfo($_FILES["upfile"]["name"]);
     $extension = $tmp["extension"];
-    if (is_uploaded_file($_FILES["upfile"]["tmp_name"])){
+    if ($name !== '' && is_uploaded_file($_FILES["upfile"]["tmp_name"])){
         if ($extension === "mp4" || $extension === "MP4") {
             if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "files/" . $_FILES["upfile"]["name"])) {
                 chmod("files/" . $_FILES["upfile"]["name"], 0644);
                 $messages =$_FILES["upfile"]["name"] . "をアップロードしました。";
 
-                $name = $_FILES["upfile"]["name"];
 
                 $sql = 'INSERT INTO `mp4` (name, created) VALUES (:name, NOW())';
                 $stmt = $pdo->prepare($sql);
@@ -55,7 +55,7 @@ try {
         }
     }
     else {
-        $messages = "ファイルが選択されていません。";
+        $messages = "タイトルが入力されていない、もしくはファイルが選択されていません。";
     }
 
     $smarty->assign('messages', $messages);
