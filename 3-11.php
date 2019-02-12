@@ -42,6 +42,7 @@
                 echo("<input type='button' value='play' onclick='video_play()'>");
                 echo("<input type='button' value='pause' onclick='video_pause()'>");
                 echo("<br/>");
+                echo("<input type=\"hidden\" name=\"title\" value=\"$title[0]\">");
 
             }
         }
@@ -49,8 +50,6 @@
         echo("動画一覧画面で動画を選択してください");
     }
 ?>
-
-    <input type="hidden" name="title" value='$title[0]'>
     <input type="submit" value="この動画にコメントする" />
 </form>
 
