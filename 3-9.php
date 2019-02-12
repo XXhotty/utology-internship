@@ -39,13 +39,11 @@ try {
                 chmod("files/" . $_FILES["upfile"]["name"], 0644);
                 $messages =$_FILES["upfile"]["name"] . "をアップロードしました。";
 
-                $name = 1;
-                $created = 1;
+                $name = $_FILES["upfile"]["name"];
 
-                $sql = 'INSERT INTO `mp4` (name, created) VALUES (:name, :created)';
+                $sql = 'INSERT INTO `mp4` (name, created) VALUES (:name, NOW())';
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
-                $stmt->bindValue(':created', $created, \PDO::PARAM_STR);
                 $stmt->execute();
             }
             else {
