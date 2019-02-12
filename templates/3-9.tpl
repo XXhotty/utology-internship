@@ -20,6 +20,6 @@
     <input type="submit" value="アップロード">
 </form>
 
-<li><a href="3-10.php">閲覧画面へ</a></li>
+<li><a href="3-10.php">動画一覧へ</a></li>
 </body>
 </html>
