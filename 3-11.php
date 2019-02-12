@@ -48,7 +48,6 @@
     } else {
         echo("動画一覧画面で動画を選択してください");
     }
-
 ?>
 
     <input type="hidden" name="title" value='$title[0]'>
