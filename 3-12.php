@@ -45,7 +45,7 @@ if (isset($_POST["title"])) {
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
         $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
-        $stmt->bindValue(':created', $title, \PDO::PARAM_STR);
+        $stmt->bindValue(':time', $time, \PDO::PARAM_STR);
         $stmt->execute();
     }
     else{
