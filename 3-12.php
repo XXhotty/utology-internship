@@ -41,14 +41,15 @@ if (isset($_POST["title"])) {
     $comment = $_POST['comment'];
     $created = $_POST['time'];
     if ($name !== '' && $comment !== '' && $created !== '') {
-
-
-        $sql = 'INSERT INTO `videocomment` (name, comment, created) VALUES (:name,:title, NOW())';
+        $sql = 'INSERT INTO `videocomment` (name, comment, created) VALUES (:name,:title, :created)';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
         $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
         $stmt->bindValue(':created', $created, \PDO::PARAM_STR);
         $stmt->execute();
+    }
+    else{
+        echo("時間とコメントを入力してください");
     }
 }
 else{
