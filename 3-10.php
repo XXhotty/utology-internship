@@ -39,16 +39,6 @@ catch(PDOException $e){
         echo("<p>500 Inertnal Server Error</p>");
         exit($e->getMessage());
     }
-    $name = 1;
-    $created = 1;
-
-    $sql = 'INSERT INTO `mp4` (name, created) VALUES (:name, :created)';
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
-    $stmt->bindValue(':created', $created, \PDO::PARAM_STR);
-    $stmt->execute();
-
-    echo("a.<br/>");
     $sql = "SELECT * FROM mp4 ORDER BY id;";
     $stmt = $pdo->prepare($sql);
     $stmt -> execute();
@@ -60,8 +50,6 @@ catch(PDOException $e){
         echo ("<video id =video src=\"$target\" width=\"426\" height=\"240\" controls></video>");
         }
     echo ("<br/><br/>");
-    echo ("<video id =video src=\"files/me.mp4\" width=\"426\" height=\"240\" controls></video>");
-
 ?>
 
 </form>
