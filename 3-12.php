@@ -43,7 +43,7 @@ if (isset($_POST["title"])) {
     if ($name !== '' && $comment !== '' && $created !== '') {
 
 
-        $sql = 'INSERT INTO `videocomment` (name, comment, created) VALUES (:name,:title, NOW())';
+        $sql = 'INSERT INTO `videocomment` (name, comment, created) VALUES (:name,:title, :created)';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
         $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
