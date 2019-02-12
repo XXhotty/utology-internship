@@ -36,7 +36,7 @@ if (isset($_POST["sub"])) {
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         if ($row["title"] == $title[0]) {
             echo("<input type=\"hidden\" name=\"name\" value=\"$name\">");
-            echo($row["name"] . "<br/>");
+            echo($title[0] . "<br/>");
             $target = "files/" . $row["name"];
             echo("<video id =video src=\"$target\" width=\"426\" height=\"240\"></video>");
             echo("<br/>");
@@ -68,6 +68,11 @@ else{
     }
 </script>
 
+<form action="3-12.php" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="title" value="$title[0]">
+    <input type="submit" value="この動画にコメントする" />
+</form>
+<li><a href="3-9.php">アップロード画面へ</a></li>
 <li><a href="3-10.php">動画一覧へ</a></li>
 </body>
 </html>
