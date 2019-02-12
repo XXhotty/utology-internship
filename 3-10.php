@@ -30,6 +30,24 @@ catch(PDOException $e){
 
     a.<br/>
     <?php
+    try {
+        $user = "hotty";
+        $pass = "hotta";
+        $pdo = new PDO("mysql:host=localhost;dbname=board;charset=utf8", $user, $pass);
+    }
+    catch(PDOException $e){
+        echo("<p>500 Inertnal Server Error</p>");
+        exit($e->getMessage());
+    }
+    $name = 1;
+    $created = 1;
+
+    $sql = 'INSERT INTO `mp4` (name, created) VALUES (:name, :created)';
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
+    $stmt->bindValue(':created', $created, \PDO::PARAM_STR);
+    $stmt->execute();
+
     echo("a.<br/>");
     $sql = "SELECT * FROM mp4 ORDER BY id;";
     $stmt = $pdo->prepare($sql);
