@@ -31,7 +31,7 @@ try {
 
     }
 
-    $name     = $_POST['title'];
+    $title     = $_POST['title'];
     $tmp = pathinfo($_FILES["upfile"]["name"]);
     $extension = $tmp["extension"];
     if ($name !== '' && is_uploaded_file($_FILES["upfile"]["tmp_name"])){
@@ -40,10 +40,11 @@ try {
                 chmod("files/" . $_FILES["upfile"]["name"], 0644);
                 $messages =$_FILES["upfile"]["name"] . "をアップロードしました。";
 
-
-                $sql = 'INSERT INTO `mp4` (name, created) VALUES (:name, NOW())';
+                $name = $_FILES["upfile"]["name"];
+                $sql = 'INSERT INTO `mp4` (name, title, created) VALUES (:name,:title, NOW())';
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
+                $stmt->bindValue(':title', $title, \PDO::PARAM_STR);
                 $stmt->execute();
             }
             else {
