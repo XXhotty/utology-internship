@@ -40,11 +40,14 @@
         while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
             if ($row2["name"] == $title[0]) {
                 $num++;
-                array_push($comment, $row2[comment]);
-                array_push($time, $row2[time]);
+                echo("$comment.<br/>");
+                echo("$time.<br/>");
+                array_push($comment, $row2["comment"]);
+                array_push($time, $row2["time"]);
             }
         }
 
+        echo("$comment[1].<br/>");
         $sql = "SELECT * FROM mp4 ORDER BY id;";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -78,17 +81,16 @@
         target = document.getElementById("output");
     };
     function video_play(array1,array2) {
+        console.log(array2);
+        console.log(array2[1]);
         empty = "コメントなし";
         video.play();
-        var stockList = '';
         var countup = function(){
             console.log(count++);
             len = array1.length;
             len++;
             for (var i = 0; i < len; i++){
 
-                stockList += '<li>'+ array[i] + '</li>';
-                document.getElementById('stock').innerHTML = stockList;
                 if(count == array2[i]){
                     target.innerHTML = array1[i];
                 }
