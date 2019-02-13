@@ -41,13 +41,14 @@
         while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
             if ($row2["name"] == $title[0]) {
                 $num++;
+                echo("$comment.<br/>");
                 $comment = $comment.$space.$row2["comment"];
                 $comment = $time.$space.$row2["time"];
+                echo("$time.<br/>");
             }
         }
 
-        echo("$comment.<br/>");
-        echo("$time.<br/>");
+
         $sql = "SELECT * FROM mp4 ORDER BY id;";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -82,7 +83,7 @@
     };
     function video_play(array1,array2) {
         var C = array1.split(' ');
-        var T = array1.split(' ');
+        var T = array2.split(' ');
         console.log(C);
         console.log(T[1]);
         empty = "コメントなし";
