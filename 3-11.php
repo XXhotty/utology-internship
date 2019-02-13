@@ -72,24 +72,25 @@
 <script type="text/javascript">
     var count = 0;
 
+
     window.onload = function() {
+        for (var i = 0; i < array1.length; i++){
+            if(array2[i] = count){
+                target[i].innerHTML = array1[i];
+            }
+            else{
+                target[i].innerHTML = empty;
+            }
+            target[i] = document.getElementById("output[i]");
+        }
+
     };
     function video_play(array1,array2) {
         empty = "";
         video.play();
         var countup = function(){
-            for (var i = 0; i < array1.length; i++){
-                if(array2[i] = count){
-                    target[i].innerHTML = array1[i];
-                }
-                else{
-                    target[i].innerHTML = empty;
-                }
-                target[i] = document.getElementById("output[i]");
-            }
-
             console.log(count++);
-        }
+        };
         I = setInterval(countup, 1000);
     }
     function video_pause() {
