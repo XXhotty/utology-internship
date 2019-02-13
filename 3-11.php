@@ -77,7 +77,7 @@
     window.onload = function() {
         target = document.getElementById("output");
     };
-    function video_play(array1,array2) {
+    function video_play(var array1 = new Array(50),array2 = new Array(50)) {
         empty = "コメントなし";
         video.play();
         var countup = function(){
