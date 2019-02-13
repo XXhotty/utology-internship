@@ -80,17 +80,20 @@
     function video_play(array1,array2) {
         empty = "コメントなし";
         video.play();
+        var stockList = '';
         var countup = function(){
             console.log(count++);
             len = array1.length;
             len++;
             for (var i = 0; i < len; i++){
-                console.log(array1[i]);
+
+                stockList += '<li>'+ array[i] + '</li>';
+                document.getElementById('stock').innerHTML = stockList;
                 if(count == array2[i]){
                     target.innerHTML = array1[i];
                 }
                 else{
-                    target.innerHTML = array1;
+                    target.innerHTML = empty;
                 }
             }
         };
