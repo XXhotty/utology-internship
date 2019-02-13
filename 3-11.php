@@ -40,7 +40,7 @@
         while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
             if ($row2["name"] == $title[0]) {
                 $num++;
-                echo("$num");
+                echo("$num.<br/>");
                 array_push($comment, $row2[comment]);
                 array_push($time, $row2[time]);
             }
@@ -66,9 +66,9 @@
         echo("動画一覧画面で動画を選択してください");
     }
 
-    for($n = 1; $n < $num; $n++){
+    for($n = 0; $n < $num; $n++){
         echo("<div class=\"contents\" id=\"output[$n]\"></div>");
-        echo("output[$n]");
+        echo("$n.<br/>");
     }
 ?>
     <input type="submit" value="この動画にコメントする" />
@@ -77,10 +77,10 @@
 <script type="text/javascript">
     var count = 0;
 
-
+    var target = new Array(5);
 
     function video_play(array1,array2) {
-        empty = "";
+        empty = "コメントなし";
         video.play();
         var countup = function(){
             console.log(count++);
