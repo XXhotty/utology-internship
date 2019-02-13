@@ -29,6 +29,27 @@
     if (isset($_POST["sub"])) {
         $sub = $_POST["sub"];
         $title = explode(":", $sub);
+
+        $comment = array("");
+        $time = array("");
+        $sql = "SELECT * FROM videocomment ORDER BY id;";
+        $stmt2 = $pdo->prepare($sql2);
+        $stmt2->execute();
+        while ($row2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            if ($row2["name"] == $title[0]) {
+                array_push($comment, $row2[comment]);
+                array_push($time, $row2[time]);
+            }
+        }
+        var_dump($comment);
+        echo("<br/>");
+        var_dump($time);
+        echo("<br/>");
+        print_r($comment);
+        echo("<br/>");
+        print_r($time);
+        echo("<br/>");
+
         $sql = "SELECT * FROM mp4 ORDER BY id;";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -37,41 +58,30 @@
                 echo("<input type=\"hidden\" name=\"name\" value=\"$name\">");
                 echo($title[0] . "<br/>");
                 $target = "files/" . $row["name"];
-
-
                 echo("<video id =video src=\"$target\" width=\"426\" height=\"240\"></video>");
                 echo("<br/>");
-                echo("<input type='button' value='play' onclick='video_play()'>");
+                echo("<input type='button' value='play' onclick='video_play($comment,$time)'>");
                 echo("<input type='button' value='pause' onclick='video_pause()'>");
                 echo("<br/>");
                 echo("<input type=\"hidden\" name=\"title\" value=\"$title[0]\">");
-
-
-
-
             }
         }
     } else {
         echo("動画一覧画面で動画を選択してください");
     }
-    $sql2 = 'SELECT * FROM `videocomment`';
-    $stmt2 = $pdo2->prepare($sql2);
-    $stmt2->execute();
-    $messages = $stmt2->fetchAll();
-    print_r($messages);
-    echo("$messages[0].<br/>");
-    echo("$messages[0][0].<br/>");
-    echo("$messages[0][\"name\"].<br/>");
-    echo("<br/>");
+
 ?>
     <input type="submit" value="この動画にコメントする" />
 </form>
 
 <script type="text/javascript">
     var count = 0;
+    array1 = new Array(50)
+    array2 = new Array(50)
 
-    function video_play() {
-        console.log( array );
+    function video_play(array1,array2) {
+        console.log( array1 );
+        console.log( array2 );
         video.play();
         var countup = function(){
             console.log(count++);
