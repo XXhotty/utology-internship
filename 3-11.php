@@ -40,7 +40,6 @@
         while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
             if ($row2["name"] == $title[0]) {
                 $num++;
-                echo("$num.<br/>");
                 array_push($comment, $row2[comment]);
                 array_push($time, $row2[time]);
             }
@@ -84,13 +83,12 @@
             len++;
             for (var i = 0; i < len; i++){
                 if(array2[i] = count){
-                    target[i].innerHTML = array1[i];
+                    target.innerHTML = array1[i];
                 }
                 else{
-                    target[i].innerHTML = empty;
+                    target.innerHTML = empty;
                 }
-                console.log(target[i]);
-                target[i] = document.getElementById("output[i]");
+                target = document.getElementById("output");
             }
         };
         I = setInterval(countup, 1000);
@@ -100,8 +98,7 @@
         clearInterval(I);
     }
 </script>
-<div class="contents" id="output[1]"></div>
-<div class="contents" id="output[2]"></div>
+<div class="contents" id="output"></div>
 
 <li><a href="3-9.php">アップロード画面へ</a></li>
 <li><a href="3-10.php">動画一覧へ</a></li>
