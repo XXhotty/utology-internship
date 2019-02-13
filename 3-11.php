@@ -66,10 +66,9 @@
         echo("動画一覧画面で動画を選択してください");
     }
 
-    $num++;
-    for($n = 0; $n < $num; $n++){
+    for($n = 0; $n = $num; $n++){
         echo("<div class=\"contents\" id=\"output[$n]\"></div>");
-        echo("$n.<br/>");
+        echo("output[$n].<br/>");
     }
 ?>
     <input type="submit" value="この動画にコメントする" />
@@ -84,7 +83,9 @@
         video.play();
         var countup = function(){
             console.log(count++);
-            for (var i = 0; i < array1.length; i++){
+            for (var i = 0; i = array1.length; i++){
+                console.log(i);
+                console.log(target[i]);
                 if(array2[i] = count){
                     target[i].innerHTML = array1[i];
                 }
