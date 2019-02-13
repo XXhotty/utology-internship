@@ -66,7 +66,8 @@
         echo("動画一覧画面で動画を選択してください");
     }
 
-    for($n = 0; $n = $num; $n++){
+    $num++;
+    for($n = 0; $n < $num; $n++){
         echo("<div class=\"contents\" id=\"output[$n]\"></div>");
         echo("output[$n].<br/>");
     }
@@ -83,7 +84,10 @@
         video.play();
         var countup = function(){
             console.log(count++);
-            for (var i = 0; i = array1.length; i++){
+            len = array1.length;
+            len++;
+            console.log(len);
+            for (var i = 0; i < len; i++){
                 console.log(i);
                 console.log(target[i]);
                 if(array2[i] = count){
