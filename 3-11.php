@@ -95,9 +95,6 @@
                     CC = CC + time[i];
                     target.innerHTML = CC;
                 }
-                else if(CC != ""){
-                    target.innerHTML = empty;
-                }
             }
         };
         I = setInterval(countup, 1000);
