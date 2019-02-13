@@ -66,10 +66,7 @@
         echo("動画一覧画面で動画を選択してください");
     }
 
-    $num++;
-    for($n = 0; $n < $num; $n++){
-        echo("<div class=\"contents\" id=\"output[$n]\"></div>");
-    }
+
 ?>
     <input type="submit" value="この動画にコメントする" />
 </form>
@@ -103,7 +100,8 @@
         clearInterval(I);
     }
 </script>
-
+<div class="contents" id="output[1]"></div>
+<div class="contents" id="output[2]"></div>
 
 <li><a href="3-9.php">アップロード画面へ</a></li>
 <li><a href="3-10.php">動画一覧へ</a></li>
