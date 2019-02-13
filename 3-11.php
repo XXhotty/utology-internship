@@ -20,6 +20,7 @@
         $user = "hotty";
         $pass = "hotta";
         $pdo = new PDO("mysql:host=localhost;dbname=board;charset=utf8", $user, $pass);
+        $pdo2 = new PDO("mysql:host=localhost;dbname=board;charset=utf8", $user, $pass);
     } catch (PDOException $e) {
         echo("<p>500 Inertnal Server Error</p>");
         exit($e->getMessage());
@@ -33,7 +34,7 @@
         $comment = array("");
         $time = array("");
         $sql2 = "SELECT * FROM videocomment ORDER BY id;";
-        $stmt2 = $pdo->prepare($sql2);
+        $stmt2 = $pdo2->prepare($sql2);
         $stmt2->execute();
         while ($row2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
             if ($row2["name"] == $title[0]) {
