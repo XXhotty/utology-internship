@@ -89,11 +89,14 @@
             console.log(count++);
             len = comment.length;
             len++;
+            CC = "";
             for (var i = 0; i < len; i++){
-                CC = "";
                 if(count == time[i]){
                     CC = CC + time[i];
                     target.innerHTML = CC;
+                }
+                else if(CC != ""){
+                    target.innerHTML = empty;
                 }
             }
         };
