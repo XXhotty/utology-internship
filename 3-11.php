@@ -36,7 +36,7 @@
         $sql2 = "SELECT * FROM videocomment ORDER BY id;";
         $stmt2 = $pdo2->prepare($sql2);
         $stmt2->execute();
-        while ($row2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
             if ($row2["name"] == $title[0]) {
                 array_push($comment, $row2[comment]);
                 array_push($time, $row2[time]);
