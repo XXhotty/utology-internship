@@ -44,6 +44,7 @@ catch(PDOException $e){
     while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){
         $name = $row["title"];
         echo("<input type=\"submit\" value=\"$name:この動画を見る\" name=\"sub\">");
+        echo("<br/>");
         }
     echo ("<br/><br/>");
 ?>
