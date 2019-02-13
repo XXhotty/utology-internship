@@ -31,9 +31,8 @@
         $sub = $_POST["sub"];
         $title = explode(":", $sub);
 
-        $comment = "";
-        $time = "";
-        $space = " ";
+        $comment = array("");
+        $time = array("");
         $sql2 = "SELECT * FROM videocomment ORDER BY id;";
         $stmt2 = $pdo2->prepare($sql2);
         $stmt2->execute();
@@ -41,14 +40,13 @@
         while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
             if ($row2["name"] == $title[0]) {
                 $num++;
-                echo("$comment.<br/>");
-                $comment = $comment.$space.$row2["comment"];
-                $comment = $time.$space.$row2["time"];
-                echo("$time.<br/>");
+                array_push($comment, $row2["comment"]);
+                array_push($time, $row2["time"]);
             }
         }
 
-
+        $C = json_encode($comment);
+        $T = json_encode($time);
         $sql = "SELECT * FROM mp4 ORDER BY id;";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -59,7 +57,7 @@
                 $target = "files/" . $row["name"];
                 echo("<video id =video src=\"$target\" width=\"426\" height=\"240\"></video>");
                 echo("<br/>");
-                echo("<input type='button' value='play' onclick='video_play($comment,$time)'>");
+                echo("<input type='button' value='play' onclick='video_play()'>");
                 echo("<input type='button' value='pause' onclick='video_pause()'>");
                 echo("<br/>");
                 echo("<input type=\"hidden\" name=\"title\" value=\"$title[0]\">");
@@ -76,29 +74,26 @@
 
 <script type="text/javascript">
     var count = 1;
-
+    var comment = JSON.parse('<?php echo $C; ?>');
+    var time = JSON.parse('<?php echo $time; ?>');
+    console.log(comment);
+    console.log(time);
 
     window.onload = function() {
         target = document.getElementById("output");
     };
-    function video_play(array1,array2) {
-        var C = array1.split(' ');
-        var T = array2.split(' ');
-        console.log(C);
-        console.log(T[1]);
+    function video_play() {
         empty = "コメントなし";
         video.play();
         var countup = function(){
             console.log(count++);
-            len = array1.length;
+            len = comment.length;
             len++;
             for (var i = 0; i < len; i++){
-
-                if(count == T[i]){
-                    target.innerHTML = C[i];
-                }
-                else{
-                    target.innerHTML = empty;
+                CC = "";
+                if(count == time[i]){
+                    CC = CC + time[i];
+                    target.innerHTML = CC;
                 }
             }
         };
