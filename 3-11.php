@@ -31,8 +31,9 @@
         $sub = $_POST["sub"];
         $title = explode(":", $sub);
 
-        $comment = array("");
-        $time = array("");
+        $comment = "";
+        $time = "";
+        $space = " ";
         $sql2 = "SELECT * FROM videocomment ORDER BY id;";
         $stmt2 = $pdo2->prepare($sql2);
         $stmt2->execute();
@@ -40,11 +41,13 @@
         while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
             if ($row2["name"] == $title[0]) {
                 $num++;
-                array_push($comment, $row2["comment"]);
-                array_push($time, $row2["time"]);
+                $comment = $comment.$space.$row2["comment"];
+                $comment = $time.$space.$row2["time"];
             }
         }
 
+        echo("$comment.<br/>");
+        echo("$time.<br/>");
         $sql = "SELECT * FROM mp4 ORDER BY id;";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -78,8 +81,10 @@
         target = document.getElementById("output");
     };
     function video_play(array1,array2) {
-        console.log(array2);
-        console.log(array2[1]);
+        var C = array1.split(' ');
+        var T = array1.split(' ');
+        console.log(C);
+        console.log(T[1]);
         empty = "コメントなし";
         video.play();
         var countup = function(){
@@ -88,8 +93,8 @@
             len++;
             for (var i = 0; i < len; i++){
 
-                if(count == array2[i]){
-                    target.innerHTML = array1[i];
+                if(count == T[i]){
+                    target.innerHTML = C[i];
                 }
                 else{
                     target.innerHTML = empty;
