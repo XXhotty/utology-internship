@@ -86,16 +86,14 @@
             console.log(count++);
             len = array1.length;
             len++;
-            console.log(len);
             for (var i = 0; i < len; i++){
-                console.log(i);
-                console.log(target[i]);
                 if(array2[i] = count){
                     target[i].innerHTML = array1[i];
                 }
                 else{
                     target[i].innerHTML = empty;
                 }
+                console.log(target[i]);
                 target[i] = document.getElementById("output[i]");
             }
         };
