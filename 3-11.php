@@ -74,9 +74,10 @@
 
 
     window.onload = function() {
-        for (var i = 0; i < array1.length; i++){
+        for (var i = 0; i < array1.length; i++) {
             target[i] = document.getElementById("output[i]");
         }
+    }
     function video_play(array1,array2) {
         empty = "";
         video.play();
