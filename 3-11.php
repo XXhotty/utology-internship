@@ -72,7 +72,7 @@
 <script type="text/javascript">
     var count = 0;
     function video_play(array1,array2) {
-        console.log( array.length );
+        console.log( array1.length );
         for (var i=0; i<array1.length; i++){
             stockList.push('<li>'+ array1[i]+'</li>');
             stockList.push('<li>'+ array2[i]+'</li>');
