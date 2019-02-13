@@ -78,8 +78,8 @@
         target = document.getElementById("output");
     };
     function video_play(array1,array2) {
-        var new_array1 = [];
-        var new_array2 = [];
+        var new array1 = [];
+        var new array2 = [];
         console.log(array2);
         console.log(array2[1]);
         empty = "コメントなし";
