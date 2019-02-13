@@ -85,7 +85,7 @@
             len = array1.length;
             len++;
             for (var i = 0; i < len; i++){
-                if(array2[i] = count){
+                if(count == array2[i]){
                     target.innerHTML = array1[i];
                 }
                 else{
