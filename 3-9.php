@@ -35,7 +35,7 @@ try {
     $tmp = pathinfo($_FILES["upfile"]["name"]);
     $extension = $tmp["extension"];
     if ($name !== '' && is_uploaded_file($_FILES["upfile"]["tmp_name"])){
-        if ($extension === "mp4") {
+        if ($extension == "mp4") {
             if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "files/" . $_FILES["upfile"]["name"])) {
                 chmod("files/" . $_FILES["upfile"]["name"], 0644);
                 $messages =$_FILES["upfile"]["name"] . "をアップロードしました。";
