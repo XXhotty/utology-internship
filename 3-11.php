@@ -74,8 +74,8 @@
 
 <script type="text/javascript">
     var count = 1;
-    var comment = JSON.parse('<?php echo $C; ?>');
-    var time = JSON.parse('<?php echo $time; ?>');
+    let comment = <?php echo $C; ?>;
+    let time = <?php echo $T; ?>;
     console.log(comment);
     console.log(time);
 
