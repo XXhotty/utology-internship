@@ -86,7 +86,6 @@
         empty = "コメントなし";
         video.play();
         var countup = function(){
-            console.log(count++);
             len = comment.length;
             len++;
             CC = "";
@@ -99,6 +98,7 @@
                     target.innerHTML = empty;
                 }
             }
+            console.log(count++);
         };
         I = setInterval(countup, 1000);
     }
