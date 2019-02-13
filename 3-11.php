@@ -71,23 +71,23 @@
 
 <script type="text/javascript">
     var count = 0;
-    var stockList1 = [];
-    var stockList2 = [];
 
     window.onload = function() {
-        target1 = document.getElementById("output1");
-        target2 = document.getElementById("output2");
     };
     function video_play(array1,array2) {
-        console.log( array1.length );
-        for (var i=0; i<array1.length; i++){
-            stockList1.push('<li>'+ array1[i]+'</li>');
-            stockList2.push('<li>'+ array2[i]+'</li>');
-        }
-        target1.innerHTML = array1;
-        target2.innerHTML = array1;
+        empty = "";
         video.play();
         var countup = function(){
+            for (var i = 0; i < array1.length; i++){
+                if(array2[i] = count){
+                    target[i].innerHTML = array1[i];
+                }
+                else{
+                    target[i].innerHTML = empty;
+                }
+                target[i] = document.getElementById("output[i]");
+            }
+
             console.log(count++);
         }
         I = setInterval(countup, 1000);
@@ -98,9 +98,12 @@
     }
 </script>
 
-
-<div class="contents" id="output1"></div>
-<div class="contents" id="output2"></div>
+<?php
+for($n = 1; $n < $num; $n++){
+    echo("<div class=\"contents\" id=\"output[$n]\"></div>");
+    echo("output[$n]");
+}
+?>
 
 <li><a href="3-9.php">アップロード画面へ</a></li>
 <li><a href="3-10.php">動画一覧へ</a></li>
