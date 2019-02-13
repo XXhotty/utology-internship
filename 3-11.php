@@ -32,7 +32,7 @@
 
         $comment = array("");
         $time = array("");
-        $sql = "SELECT * FROM videocomment ORDER BY id;";
+        $sql2 = "SELECT * FROM videocomment ORDER BY id;";
         $stmt2 = $pdo->prepare($sql2);
         $stmt2->execute();
         while ($row2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
