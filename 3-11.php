@@ -66,6 +66,7 @@
         echo("動画一覧画面で動画を選択してください");
     }
 
+    $num++;
     for($n = 0; $n < $num; $n++){
         echo("<div class=\"contents\" id=\"output[$n]\"></div>");
         echo("$n.<br/>");
@@ -77,7 +78,6 @@
 <script type="text/javascript">
     var count = 0;
 
-    var target = new Array(5);
 
     function video_play(array1,array2) {
         empty = "コメントなし";
