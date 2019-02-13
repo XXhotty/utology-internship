@@ -69,7 +69,6 @@
     $num++;
     for($n = 0; $n < $num; $n++){
         echo("<div class=\"contents\" id=\"output[$n]\"></div>");
-        echo("output[$n].<br/>");
     }
 ?>
     <input type="submit" value="この動画にコメントする" />
