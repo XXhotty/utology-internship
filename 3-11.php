@@ -48,20 +48,21 @@
 
 
 
-                $sql2 = 'SELECT * FROM `videocomment`';
-                $stmt2 = $pdo2->prepare($sql2);
-                $stmt2->execute();
-                $messages = $stmt2->fetchAll();
-                print_r($messages);
-                echo("$messages[0].<br/>");
-                echo("$messages[0][0].<br/>");
-                echo("$messages[0][\"name\"].<br/>");
-                echo("<br/>");
+
             }
         }
     } else {
         echo("動画一覧画面で動画を選択してください");
     }
+    $sql2 = 'SELECT * FROM `videocomment`';
+    $stmt2 = $pdo2->prepare($sql2);
+    $stmt2->execute();
+    $messages = $stmt2->fetchAll();
+    print_r($messages);
+    echo("$messages[0].<br/>");
+    echo("$messages[0][0].<br/>");
+    echo("$messages[0][\"name\"].<br/>");
+    echo("<br/>");
 ?>
     <input type="submit" value="この動画にコメントする" />
 </form>
