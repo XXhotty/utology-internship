@@ -55,7 +55,7 @@
                 $target = "files/" . $row["name"];
                 echo("<video id =video src=\"$target\" width=\"426\" height=\"240\"></video>");
                 echo("<br/>");
-                echo("<input type='button' value='play' onclick='video_play($comment,$time,$num)'>");
+                echo("<input type='button' value='play' onclick='video_play($comment,$time)'>");
                 echo("<input type='button' value='pause' onclick='video_pause()'>");
                 echo("<br/>");
                 echo("<input type=\"hidden\" name=\"title\" value=\"$title[0]\">");
@@ -71,9 +71,7 @@
 
 <script type="text/javascript">
     var count = 0;
-
-    function video_play(array1,array2,num) {
-        console.log(num);
+    function video_play(array1,array2) {
         for (var i=0; i<num; i++){
             stockList.push('<li>'+ array1[i]+'</li>');
             stockList.push('<li>'+ array2[i]+'</li>');
