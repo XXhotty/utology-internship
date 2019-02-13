@@ -40,14 +40,13 @@
         while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
             if ($row2["name"] == $title[0]) {
                 $num++;
-                echo("$comment.<br/>");
-                echo("$time.<br/>");
                 array_push($comment, $row2["comment"]);
                 array_push($time, $row2["time"]);
             }
         }
 
-        echo("$comment[1].<br/>");
+        print_r($comment);
+        print_r($time);
         $sql = "SELECT * FROM mp4 ORDER BY id;";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
