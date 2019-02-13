@@ -45,8 +45,6 @@
             }
         }
 
-        print_r($comment);
-        print_r($time);
         $sql = "SELECT * FROM mp4 ORDER BY id;";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -80,6 +78,8 @@
         target = document.getElementById("output");
     };
     function video_play(array1,array2) {
+        var new_array1 = [];
+        var new_array2 = [];
         console.log(array2);
         console.log(array2[1]);
         empty = "コメントなし";
