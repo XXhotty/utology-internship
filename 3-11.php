@@ -77,22 +77,14 @@
     window.onload = function() {
         target = document.getElementById("output");
     };
-    function video_play(var array1 = new Array(50),array2 = new Array(50)) {
+    function video_play(array1,array2) {
         empty = "コメントなし";
         video.play();
         var countup = function(){
             console.log(count++);
+            target.innerHTML = array1[1];
             len = array1.length;
             len++;
-            for (var i = 0; i < len; i++){
-                console.log(array1[i]);
-                if(count == array2[i]){
-                    target.innerHTML = array1[i];
-                }
-                else{
-                    target.innerHTML = empty;
-                }
-            }
         };
         I = setInterval(countup, 1000);
     }
