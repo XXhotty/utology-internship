@@ -74,6 +74,9 @@
     var count = 0;
 
 
+    window.onload = function() {
+        target = document.getElementById("output");
+    };
     function video_play(array1,array2) {
         empty = "コメントなし";
         video.play();
@@ -88,7 +91,6 @@
                 else{
                     target.innerHTML = empty;
                 }
-                target = document.getElementById("output");
             }
         };
         I = setInterval(countup, 1000);
