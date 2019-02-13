@@ -71,7 +71,7 @@
 </form>
 
 <script type="text/javascript">
-    var count = 0;
+    var count = 1;
 
 
     window.onload = function() {
@@ -85,6 +85,7 @@
             len = array1.length;
             len++;
             for (var i = 0; i < len; i++){
+                console.log(array1[i]);
                 if(count == array2[i]){
                     target.innerHTML = array1[i];
                 }
