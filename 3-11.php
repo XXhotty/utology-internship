@@ -39,17 +39,6 @@
                 $target = "files/" . $row["name"];
 
 
-
-                $sql2 = 'SELECT * FROM `videocomment`';
-                $stmt2 = $pdo2->prepare($sql2);
-                $stmt2->execute();
-                $messages = $stmt2->fetchAll();
-                print_r($messages);
-                echo("$messages[0].<br/>");
-                echo("$messages[0][0].<br/>");
-                echo("$messages[0][\"name\"].<br/>");
-                echo("<br/>");
-
                 echo("<video id =video src=\"$target\" width=\"426\" height=\"240\"></video>");
                 echo("<br/>");
                 echo("<input type='button' value='play' onclick='video_play($messages)'>");
