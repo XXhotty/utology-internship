@@ -8,12 +8,13 @@ abstract class Database
     {
         try {
             global $DBSERVER, $DBUSER, $DBPASSWD, $DBNAME;
-            echo("a.<br/>");
+            echo("$DBSERVER.a.<br/>");
             $dsn = 'mysql:'
                 . 'host=' . $DBSERVER . ';'
                 . 'dbname=' . $DBNAME . ';'
                 . 'charset=utf8';
             $this->pdo = new \PDO($dsn, $DBUSER, $DBPASSWD, array(\PDO::ATTR_EMULATE_PREPARES => false));
+            echo("$DBSERVER.b.<br/>");
         } catch (\Exception $e) {
             throw $e;
         }
