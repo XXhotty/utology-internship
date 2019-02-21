@@ -6,19 +6,14 @@ $smarty->escape_html = true;
 $smarty->template_dir = __DIR__ . '/templates';
 $smarty->compile_dir = __DIR__ . '/templates_c';
 
-
-
 include_once __DIR__ . '/douga.inc.php';
 require_once __DIR__ . '/libs/dao/Database.php';
 require_once __DIR__ . '/libs/dao/UploadDao.php';
 
-$DBSERVER = "localhost";
-$DBUSER = "hotty";
-$DBPASSWD = "hotta";
-$DBNAME = "board";
+
+$messages = "";
 
 $hoge = 0;
-
 echo("$hoge.<br/>");
 $hoge++;
 
