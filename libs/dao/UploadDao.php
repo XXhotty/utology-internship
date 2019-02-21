@@ -3,7 +3,6 @@ namespace libs\dao;
 
 use libs\entity\UploadEntity;
 
-echo("a.<br/>");
 class UploadDao extends Database
 {
     /**
