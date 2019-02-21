@@ -9,8 +9,8 @@ $smarty->compile_dir = __DIR__ . '/templates_c';
 include_once __DIR__ . '/douga.inc.php';
 require_once __DIR__ . '/libs/dao/UploadDao.php';
 
-$this->dataBase = new Database();
-$this->uploadDao = new UploadtDao();
+
+$this->uploadDao = new UploadDao();
 $messages = "";
 
 if (isset($_FILES['upfile']['error'])) {
