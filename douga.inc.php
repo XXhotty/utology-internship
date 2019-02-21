@@ -2,6 +2,7 @@
 
 date_default_timezone_set('Asia/Tokyo');
 
+echo("a.<br/>");
 // MySQLのホスト名
 $DBSERVER = "localhost";
 // データベース名

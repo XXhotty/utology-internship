@@ -8,7 +8,7 @@ abstract class Database
     {
         try {
             global $DBSERVER, $DBUSER, $DBPASSWD, $DBNAME;
-            echo("$DBSERVER");
+            echo("a.<br/>");
             $dsn = 'mysql:'
                 . 'host=' . $DBSERVER . ';'
                 . 'dbname=' . $DBNAME . ';'

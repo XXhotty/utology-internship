@@ -3,11 +3,13 @@ namespace libs\dao;
 
 use libs\entity\UploadEntity;
 
+echo("a.<br/>");
 class UploadDao extends Database
 {
     /**
      * @param $name
      * @param $title
+     * @return null
      */
     public function create($name, $title)
     {
@@ -17,5 +19,6 @@ class UploadDao extends Database
         $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
         $stmt->bindValue(':title', $title, \PDO::PARAM_STR);
         $stmt->execute();
+        return null;
     }
 }
