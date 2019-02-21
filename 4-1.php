@@ -18,19 +18,16 @@ echo("$hoge.<br/>");
 $hoge++;
 
 if (isset($_FILES['upfile']['error'])) {
-
-    $name = $_FILES["upfile"]["name"];
-    $title = $_POST['title'];
-    $tmp = pathinfo($_FILES["upfile"]["name"]);
-    $extension = $tmp["extension"];
-
-    $create = new create($name, $title);
-
-    echo("$hoge.<br/>");
-    $hoge++;
-
-    if ($name !== '' && is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
+    if ($_FILES['upfile']['error'] !== '' && is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
+        $name = $_FILES["upfile"]["name"];
+        $title = $_POST['title'];
+        $tmp = pathinfo($_FILES["upfile"]["name"]);
+        $extension = $tmp["extension"];
         if ($extension == "mp4") {
+            $create = new create($name, $title);
+            echo("$hoge.<br/>");
+            $hoge++;
+
             if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "files/" . $_FILES["upfile"]["name"])) {
                 chmod("files/" . $_FILES["upfile"]["name"], 0644);
                 $messages = $_FILES["upfile"]["name"] . "をアップロードしました。";
