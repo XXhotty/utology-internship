@@ -1,11 +1,11 @@
 <?php
 namespace libs\dao;
-echo("a.<br/>");
 abstract class Database
 {
     protected $pdo;
     public function __construct()
     {
+        echo("a.<br/>");
         try {
             global $DBSERVER, $DBUSER, $DBPASSWD, $DBNAME;
             $dsn = 'mysql:'
