@@ -6,6 +6,9 @@ $smarty->escape_html = true;
 $smarty->template_dir = __DIR__ . '/templates';
 $smarty->compile_dir = __DIR__ . '/templates_c';
 
+
+
+include_once __DIR__ . '/douga.inc.php';
 require_once __DIR__ . '/libs/dao/Database.php';
 require_once __DIR__ . '/libs/dao/UploadDao.php';
 
@@ -19,6 +22,8 @@ $title     = $_POST['title'];
 $tmp = pathinfo($_FILES["upfile"]["name"]);
 $extension = $tmp["extension"];
 
+
+$create = new create($name, $title);
 $hoge = 0;
 echo("$hoge.<br/>");
 $hoge++;
@@ -31,10 +36,8 @@ if ($name !== '' && is_uploaded_file($_FILES["upfile"]["tmp_name"])){
             echo("$hoge.<br/>");
             $hoge++;
 
-            __construct();
-            echo("$hoge.<br/>");
-            $hoge++;
-            create($name, $title);
+            $create->execute();
+
         }
         else {
             $messages = "ファイルをアップロードできません。";

@@ -1,7 +1,7 @@
 <?php
 namespace libs\dao;
 
-use libs\entity\UserEntity;
+use libs\entity\UploadEntity;
 
 class UploadDao extends Database
 {
