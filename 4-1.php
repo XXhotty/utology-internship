@@ -10,7 +10,7 @@ include_once __DIR__ . '/douga.inc.php';
 require_once __DIR__ . '/libs/dao/UploadDao.php';
 
 
-$this->uploadDao = new UploadtDao();
+$this->uploadDao = new UploadDao();
 $messages = "";
 
 if (isset($_FILES['upfile']['error'])) {

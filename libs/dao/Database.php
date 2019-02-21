@@ -5,8 +5,8 @@ abstract class Database
     protected $pdo;
     public function __construct()
     {
-        echo("a.<br/>");
         try {
+            echo("databaseConstruct.<br/>");
             global $DBSERVER, $DBUSER, $DBPASSWD, $DBNAME;
             $dsn = 'mysql:'
                 . 'host=' . $DBSERVER . ';'
