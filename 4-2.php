@@ -11,8 +11,9 @@ $db = new DB(localhost,hotty,hotta,board);
 $sql = "SELECT * FROM mp4 ORDER BY id;";
 $result = $db->fetch($sql);
 
-echo("require.<br/>");
+echo("$result.<br/>");
+echo("$data.<br/>");
 
-$smarty->assign('result', $result);
+$smarty->assign('data', $data);
 $smarty->display('4-2.tpl');
 
