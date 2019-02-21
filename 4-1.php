@@ -7,15 +7,9 @@ $smarty->template_dir = __DIR__ . '/templates';
 $smarty->compile_dir = __DIR__ . '/templates_c';
 
 include_once __DIR__ . '/douga.inc.php';
-require_once __DIR__ . '/libs/dao/Database.php';
 require_once __DIR__ . '/libs/dao/UploadDao.php';
 
-
 $messages = "";
-
-$hoge = 0;
-echo("$hoge.<br/>");
-$hoge++;
 
 if (isset($_FILES['upfile']['error'])) {
     if ($_FILES['upfile']['error'] !== '' && is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
@@ -24,17 +18,12 @@ if (isset($_FILES['upfile']['error'])) {
         $tmp = pathinfo($_FILES["upfile"]["name"]);
         $extension = $tmp["extension"];
         if ($extension == "mp4") {
-            $create = new create($name, $title);
-            echo("$hoge.<br/>");
-            $hoge++;
+            create($name, $title);
 
             if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "files/" . $_FILES["upfile"]["name"])) {
                 chmod("files/" . $_FILES["upfile"]["name"], 0644);
                 $messages = $_FILES["upfile"]["name"] . "をアップロードしました。";
-                echo("$hoge.<br/>");
-                $hoge++;
 
-                $create->execute();
 
             } else {
                 $messages = "ファイルをアップロードできません。";
@@ -46,9 +35,6 @@ if (isset($_FILES['upfile']['error'])) {
         $messages = "タイトルが入力されていない、もしくはファイルが選択されていません。";
     }
 }
-
-echo("$hoge.<br/>");
-$hoge++;
 
 $smarty->assign('messages', $messages);
 $smarty->display('4-1.tpl');
