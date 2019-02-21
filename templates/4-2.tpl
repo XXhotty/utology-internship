@@ -2,6 +2,6 @@
 <body>
 
 {foreach from=$result item=result}
-    <p>{$result['name']}:{$result['title']}.{$result['created']}</p>
+    <p>{$result['name']}</p>
 {/foreach}
 </body>
