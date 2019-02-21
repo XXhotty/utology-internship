@@ -10,7 +10,7 @@
 
 <body>
 <p>{$messages}</p>
-<form action="3-9.php" enctype="multipart/form-data" method="post">
+<form action="4-1.php" enctype="multipart/form-data" method="post">
     <label>動画アップロード</label>
     <br/>
     タイトル:<input type="text" name="title" value="" />
