@@ -1,5 +1,6 @@
 <?php
 namespace libs\dao;
+
 abstract class Database
 {
     protected $pdo;

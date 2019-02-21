@@ -1,27 +1,25 @@
 <?php
 namespace libs\entity;
 
-use libs\config\InviteConfig;
-
-class UserEntity
+class UploadEntity
 {
     public $id; // ユーザーID
-    public $nickname; // ニックネーム
-    public $mail; // メールアドレス
+    public $title; // ニックネーム
+    public $created; // メールアドレス
 
     public function __construct($data)
     {
         $this->id = $data['id'];
-        $this->nickname = $data['nickname'];
-        $this->mail = $data['mail'];
+        $this->title = $data['title'];
+        $this->created = $data['created'];
     }
 
     public function toArray()
     {
         return [
             'id' => $this->id,
-            'nickname' => $this->nickname,
-            'mail' => $this->mail,
+            'title' => $this->title,
+            'created' => $this->created,
         ];
     }
 }
