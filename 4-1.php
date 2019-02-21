@@ -6,27 +6,34 @@ $smarty->escape_html = true;
 $smarty->template_dir = __DIR__ . '/templates';
 $smarty->compile_dir = __DIR__ . '/templates_c';
 
+require_once __DIR__ . '/libs/dao/Database.php';
+require_once __DIR__ . '/libs/dao/UploadDao.php';
+
 $DBSERVER = "localhost";
 $DBUSER = "hotty";
 $DBPASSWD = "hotta";
 $DBNAME = "board";
-
-require_once __DIR__ . '/libs/dao/Database.php';
-require_once __DIR__ . '/libs/dao/UploadDao.php';
 
 $name = $_FILES["upfile"]["name"];
 $title     = $_POST['title'];
 $tmp = pathinfo($_FILES["upfile"]["name"]);
 $extension = $tmp["extension"];
 
-
+$hoge = 0;
+echo("$hoge.<br/>");
+$hoge++;
 
 if ($name !== '' && is_uploaded_file($_FILES["upfile"]["tmp_name"])){
     if ($extension == "mp4") {
         if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "files/" . $_FILES["upfile"]["name"])) {
             chmod("files/" . $_FILES["upfile"]["name"], 0644);
             $messages =$_FILES["upfile"]["name"] . "をアップロードしました。";
+            echo("$hoge.<br/>");
+            $hoge++;
 
+            __construct();
+            echo("$hoge.<br/>");
+            $hoge++;
             create($name, $title);
         }
         else {
@@ -40,6 +47,8 @@ if ($name !== '' && is_uploaded_file($_FILES["upfile"]["tmp_name"])){
 else {
     $messages = "タイトルが入力されていない、もしくはファイルが選択されていません。";
 }
+echo("$hoge.<br/>");
+$hoge++;
 
 $smarty->assign('messages', $messages);
 $smarty->display('4-1.tpl');
