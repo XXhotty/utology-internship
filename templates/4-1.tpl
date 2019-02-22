@@ -17,9 +17,9 @@
     <input type="file" name="upfile">
     <br>
     ※動画はmp4方式のみ対応しています．<br>
-    <input type="submit" value="アップロード">
+    <input type="submit" name="send" value="アップロード">
 </form>
 
-<li><a href="3-10.php">動画一覧へ</a></li>
+<li><a href="4-2.php">動画一覧へ</a></li>
 </body>
 </html>
