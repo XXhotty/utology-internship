@@ -17,8 +17,8 @@ if (isset($_POST["videoname"])) {
     $time = $_POST['time'];
     if ($videoname !== '' && $comment !== '' && $time !== '') {
         if (ctype_digit($time)) {
-
-            $result = $db->comment($name, $comment, $time);
+            $result = $db->comment($videoname, $comment, $time);
+            $message ='コメントしました';
         }
         else{
             $message ='時間の入力は整数のみです';
