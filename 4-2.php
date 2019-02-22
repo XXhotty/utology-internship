@@ -11,3 +11,4 @@ $sql = "SELECT * FROM mp4 ORDER BY id;";
 $result = $db->fetch($sql);
 $smarty->assign('result', $result);
 $smarty->display('4-2.tpl');
+

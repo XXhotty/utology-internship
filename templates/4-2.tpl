@@ -4,6 +4,10 @@
     <title>sample</title>
 </head>
 <body>
+a
+{foreach from=$message item=result}
+    <p>{$message['name']}</p>
+{/foreach}
 <form action="4-3.php" enctype="multipart/form-data" method="post">
     {foreach from=$result item=result}
         <input type='submit' value='{$result['title']}:この動画を見る' name='sub'>
