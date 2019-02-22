@@ -10,8 +10,9 @@ $db = new DB(localhost,hotty,hotta,board);
 $sql = "SELECT * FROM mp4 ORDER BY id;";
 $result = $db->fetch($sql);
 
-foreach ($result as $key => $val) {
-    echo'・'.$key.$val;
+foreach ($result as $row) {
+    echo $row['name'].'：'.$row['title'];
+    echo '<br>';
 }
 
 $smarty->assign('result', $result);
