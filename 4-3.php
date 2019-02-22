@@ -30,7 +30,7 @@ if (isset($_POST["sub"])) {
     foreach ($result2 as $row) {
         if ($row["title"] == $title[0]) {
             $target = "files/" . $row["name"];
-            $videoname = $row["name"];
+            $videoname = $row["title"];
         }
     }
 } else {
