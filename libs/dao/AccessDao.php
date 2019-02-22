@@ -50,4 +50,25 @@ class DB
             exit();}
     }
 
+    /**
+     * @param $name
+     * @param $title
+     * @return null
+     */
+    function create ($name, $title)
+    {
+        try {
+            echo("$name");
+            $sql = 'INSERT INTO `mp4` (name, title, created) VALUES (:name,:title, NOW())';
+            $pdo = new PDO ($this->dsn, $this->user, $this->pass, array(
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET 'utf8'"));
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
+            $stmt->bindValue(':title', $title, \PDO::PARAM_STR);
+            $stmt->execute();
+            return null;
+        }catch(PDOException $ei) {
+            echo 'Connection failed:'.$e->getMessage();
+            exit();}
+    }
 }
