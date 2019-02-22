@@ -59,8 +59,7 @@ class DB
     {
         try {
             $sql = 'INSERT INTO `mp4` (name, title, created) VALUES (:name,:title, NOW())';
-            $pdo = new PDO ($this->dsn, $this->user, $this->pass, array(
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET 'utf8'"));
+            $pdo = new PDO("mysql:host=$this->host;dbname=$this->db;charset=utf8", $this->user, $this->pass);
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':name', $name, \PDO::PARAM_STR);
             $stmt->bindValue(':title', $title, \PDO::PARAM_STR);
@@ -82,8 +81,7 @@ class DB
     {
         try {
             $sql = 'INSERT INTO `videocomment` (name, comment, time) VALUES (:name,:comment, :time)';
-            $pdo = new PDO ($this->dsn, $this->user, $this->pass, array(
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET 'utf8'"));
+            $pdo = new PDO("mysql:host=$this->host;dbname=$this->db;charset=utf8", $this->user, $this->pass);
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':videoname', $videoname, \PDO::PARAM_STR);
             $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
