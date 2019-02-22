@@ -32,5 +32,6 @@ else{
     $message ='動画一覧画面で動画を選択してください';
 }
 
+$smarty->assign('message', $message);
 $smarty->assign('videoname', $videoname);
 $smarty->display('4-4.tpl');
