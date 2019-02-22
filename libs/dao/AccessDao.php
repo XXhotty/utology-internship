@@ -70,4 +70,27 @@ class DB
             echo 'Connection failed:'.$e->getMessage();
             exit();}
     }
+
+
+    /**
+     * @param $name
+     * @param $title
+     * @return null
+     */
+    function comment ($videoname, $comment, $time)
+    {
+        try {
+            $sql = 'INSERT INTO `videocomment` (name, comment, time) VALUES (:name,:comment, :time)';
+            $pdo = new PDO ($this->dsn, $this->user, $this->pass, array(
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET 'utf8'"));
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':videoname', $videoname, \PDO::PARAM_STR);
+            $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
+            $stmt->bindValue(':time', $time, \PDO::PARAM_STR);
+            $stmt->execute();
+            return null;
+        }catch(PDOException $ei) {
+            echo 'Connection failed:'.$e->getMessage();
+            exit();}
+    }
 }
