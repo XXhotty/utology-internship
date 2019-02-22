@@ -10,7 +10,9 @@ $db = new DB(localhost,hotty,hotta,board);
 $sql = "SELECT * FROM mp4 ORDER BY id;";
 $result = $db->fetch($sql);
 
-print_r($result);
+foreach ($result as $key => $val) {
+    echo'・'.$key.$val;
+}
 
 $smarty->assign('result', $result);
 $smarty->display('4-2.tpl');

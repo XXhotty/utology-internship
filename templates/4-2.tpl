@@ -4,7 +4,7 @@
     <title>sample</title>
 </head>
 <body>
-
+a
 {foreach from=$result item=result}
     <p>{$result['name']}</p>
 {/foreach}
