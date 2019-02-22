@@ -15,6 +15,9 @@ if (isset($_POST["videoname"])) {
     $videoname = $_POST["videoname"];
     $comment = $_POST['comment'];
     $time = $_POST['time'];
+    echo("$videoname");
+    echo("$comment");
+    echo("$time");
     if ($videoname !== '' && $comment !== '' && $time !== '') {
         if (ctype_digit($time)) {
             $result = $db->comment($videoname, $comment, $time);
