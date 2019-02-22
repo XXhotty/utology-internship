@@ -6,6 +6,9 @@ $smarty->escape_html = true;
 $smarty->template_dir = __DIR__ . '/templates';
 $smarty->compile_dir = __DIR__ . '/templates_c';
 
+require_once __DIR__ . '/libs/dao/AccessDao.php';
+$db = new DB(localhost,hotty,hotta,board);
+
 $message = '';
 
 if (isset($_POST["videoname"])) {
@@ -14,6 +17,7 @@ if (isset($_POST["videoname"])) {
     $time = $_POST['time'];
     if ($videoname !== '' && $comment !== '' && $time !== '') {
         if (ctype_digit($time)) {
+
             $result = $db->comment($name, $comment, $time);
         }
         else{

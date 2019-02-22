@@ -73,8 +73,9 @@ class DB
 
 
     /**
-     * @param $name
-     * @param $title
+     * @param $videoname
+     * @param $comment
+     * @param $time
      * @return null
      */
     function comment ($videoname, $comment, $time)

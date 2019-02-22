@@ -62,7 +62,7 @@ $smarty->display('4-3.tpl');
             CC = "";
             for (var i = 0; i < len; i++){
                 if(count == time[i]){
-                    CC = CC + comment[i];
+                    CC = CC + ' ' + comment[i];
                     target.innerHTML = CC;
                 }
                 else if(CC == ""){
