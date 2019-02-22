@@ -58,7 +58,6 @@ class DB
     function create ($name, $title)
     {
         try {
-            echo("$name");
             $sql = 'INSERT INTO `mp4` (name, title, created) VALUES (:name,:title, NOW())';
             $pdo = new PDO ($this->dsn, $this->user, $this->pass, array(
                 PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET 'utf8'"));
