@@ -5,7 +5,6 @@ $smarty->escape_html = true;
 $smarty->template_dir = __DIR__ . '/templates';
 $smarty->compile_dir = __DIR__ . '/templates_c';
 
-
 require_once __DIR__ . '/libs/dao/AccessDao.php';
 
 $messages ='';
@@ -21,7 +20,6 @@ if ( isset( $_POST['send'] ) === true ) {
                 chmod("files/" . $_FILES["upfile"]["name"], 0644);
                 $messages = $_FILES["upfile"]["name"] . "をアップロードしました。";
                 $db = new DB(localhost,hotty,hotta,board);
-                $sql = 'INSERT INTO `mp4` (name, title, created) VALUES (:name,:title, NOW())';
                 $result = $db->create($name,$title);
             } else {
                 $messages = "ファイルをアップロードできません。";
@@ -36,4 +34,3 @@ if ( isset( $_POST['send'] ) === true ) {
 
 $smarty->assign('messages', $messages);
 $smarty->display('4-1.tpl');
-
