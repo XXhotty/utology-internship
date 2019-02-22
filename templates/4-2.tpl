@@ -5,8 +5,8 @@
 </head>
 <body>
 a
-{foreach from=$result item=result}
-    <p>{$result['name']}</p>
+{foreach from=$result item=mp}
+    <p>{$mp['name']}</p>
 {/foreach}
 <li><a href="4-1.php">アップロード画面へ</a></li>
 </body>
