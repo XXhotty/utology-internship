@@ -83,7 +83,7 @@ class DB
             $sql = 'INSERT INTO `videocomment` (name, comment, time) VALUES (:name,:comment, :time)';
             $pdo = new PDO("mysql:host=$this->host;dbname=$this->db;charset=utf8", $this->user, $this->pass);
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':videoname', $videoname, \PDO::PARAM_STR);
+            $stmt->bindValue(':name', $videoname, \PDO::PARAM_STR);
             $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
             $stmt->bindValue(':time', $time, \PDO::PARAM_STR);
             $stmt->execute();
