@@ -10,6 +10,7 @@
     コメント:<textarea name="comment" rows="4" cols="20"></textarea>
     <input type="submit" name="send" value="書き込む" />
     <input type='hidden' name='videoname' value='{$videoname}'>
+    <br/>
     {$message}
 </form>
 <li><a href="4-1.php">アップロード画面へ</a></li>
