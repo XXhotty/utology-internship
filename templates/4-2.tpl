@@ -4,7 +4,10 @@
     <title>sample</title>
 </head>
 <body>
-a
+
+{foreach from=$message item=result}
+    <p>{$message['name']}</p>
+{/foreach}
 <li><a href="4-1.php">アップロード画面へ</a></li>
 </body>
 </html>
