@@ -33,4 +33,4 @@ if ( isset( $_POST['send'] ) === true ) {
 }
 
 $smarty->assign('messages', $messages);
-$smarty->display('VideoUplad.tpl');
+$smarty->display('VideoUpload.tpl');
