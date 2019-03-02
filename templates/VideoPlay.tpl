@@ -15,7 +15,7 @@
     <br/>
     コメント:<textarea name="comment" rows="1" cols="20"></textarea>
     <input type="submit" value="コメントする" />
-    <input type='hidden' name='videoId' value='{$videoId}'>
+    <input type='hidden' name='sub' value='{$sub}'>
 </form>
 
 

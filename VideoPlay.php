@@ -33,7 +33,7 @@ if (isset($_POST["sub"])) {
             $videoId = $row["id"];
         }
     }
-} else {
+}else {
     $message ='動画一覧画面で動画を選択してください';
 }
 
@@ -44,6 +44,7 @@ if (isset($_POST["comment"])) {
 $smarty->assign('message', $message);
 $smarty->assign('target', $target);
 $smarty->assign('videoId', $videoId);
+$smarty->assign('sub', $sub);
 $smarty->display('VideoPlay.tpl');
 ?>
 
