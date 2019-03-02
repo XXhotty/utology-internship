@@ -11,13 +11,13 @@ $db = new DB(localhost,hotty,hotta,board);
 
 $message = '';
 
-if (isset($_POST["videoname"])) {
-    $videoname = $_POST["videoname"];
+if (isset($_POST["videoId"])) {
+    $videoId = $_POST["videoId"];
     $comment = $_POST['comment'];
-    $time = $_POST['time'];
-    if ($videoname !== '' && $comment !== '' && $time !== '') {
+    $time = mb_convert_kana($_POST['time'],"a");
+    if ($videoId !== '' && $comment !== '' && $time !== '') {
         if (ctype_digit($time)) {
-            $result = $db->comment($videoname, $comment, $time);
+            $result = $db->comment($videoId, $comment, $time);
             $message ='コメントしました';
         }
         else{
@@ -33,5 +33,5 @@ else{
 }
 
 $smarty->assign('message', $message);
-$smarty->assign('videoname', $videoname);
+$smarty->assign('videoId', $videoid);
 $smarty->display('VideoComment.tpl');

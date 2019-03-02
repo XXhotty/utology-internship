@@ -13,7 +13,7 @@
     <input type='button' value='play' onclick='video_play()'>
     <input type='button' value='pause' onclick='video_pause()'>
     <br/>
-    <input type='hidden' name='videoname' value='{$videoname}'>
+    <input type='hidden' name='videoId' value='{$videoId}'>
     <input type="submit" value="この動画にコメントする" />
 </form>
 
