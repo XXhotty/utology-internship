@@ -5,7 +5,7 @@
     <title>sample</title>
 </head>
 <body>
-<form action="VideoComment.php" enctype="multipart/form-data" method="post">
+<form action="" enctype="multipart/form-data" method="post">
     {$message}<br/>
     {$videoname}<br/>
     <video id =video src='{$target}' width='426' height='240'></video>
@@ -13,8 +13,8 @@
     <input type='button' value='play' onclick='video_play()'>
     <input type='button' value='pause' onclick='video_pause()'>
     <br/>
-    コメント:<textarea name="comment" rows="4" cols="20"></textarea>
-    <input type="submit" value="この動画にコメントする" />
+    コメント:<textarea name="comment" rows="1" cols="20"></textarea>
+    <input type="submit" value="コメントする" />
     <input type='hidden' name='videoId' value='{$videoId}'>
 </form>
 
