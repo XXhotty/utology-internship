@@ -18,7 +18,7 @@ $message ='';
 
 if (isset($_POST["sub"])) {
     $sub = $_POST["sub"];
-    $id = explode(":", $sub);
+    $id = explode(".", $sub);
     foreach ($result as $row) {
         if ($row["id"] == $id[0]) {
             array_push($comment, $row["comment"]);
