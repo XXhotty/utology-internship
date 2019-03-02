@@ -60,15 +60,13 @@ $smarty->display('VideoPlay.tpl');
     let newComment = <?php echo $N; ?>;
     console.log(newComment);
 
-    if(newComment != ""){
-        $.ajax({
-            url : "ajax.php",
-            type : "POST",
-            dataType:"json",
-            data : {post_data_1:"newComment", post_data_2:"count"},
-        });
+    $.ajax({
+        url : "ajax.php",
+        type : "POST",
+        dataType:"json",
+        data : {post_data_1:"newComment", post_data_2:"count"},
+    });
 
-    }
 
     window.onload = function() {
         target = document.getElementById("output");
