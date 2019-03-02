@@ -18,9 +18,9 @@ $message ='';
 
 if (isset($_POST["sub"])) {
     $sub = $_POST["sub"];
-    $title = explode(":", $sub);
+    $id = explode(":", $sub);
     foreach ($result as $row) {
-        if ($row["name"] == $title[0]) {
+        if ($row["id"] == $id[0]) {
             array_push($comment, $row["comment"]);
             array_push($time, $row["time"]);
         }
@@ -28,9 +28,9 @@ if (isset($_POST["sub"])) {
     $C = json_encode($comment);
     $T = json_encode($time);
     foreach ($result2 as $row) {
-        if ($row["title"] == $title[0]) {
+        if ($row["id"] == $id[0]) {
             $target = "files/" . $row["name"];
-            $videoname = $row["title"];
+            $videoId = $row["id"];
         }
     }
 } else {
@@ -39,7 +39,7 @@ if (isset($_POST["sub"])) {
 
 $smarty->assign('message', $message);
 $smarty->assign('target', $target);
-$smarty->assign('videoname', $videoname);
+$smarty->assign('videoId', $videoId);
 $smarty->display('VideoPlay.tpl');
 ?>
 

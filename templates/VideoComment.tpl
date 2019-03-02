@@ -8,7 +8,7 @@
     時間:<input type="text" name="time" value="" />秒地点
     コメント:<textarea name="comment" rows="4" cols="20"></textarea>
     <input type="submit" name="send" value="書き込む" />
-    <input type='hidden' name='videoname' value='{$videoname}'>
+    <input type='hidden' name='videoname' value='{$videoId}'>
     <br/>
     {$message}
 </form>
