@@ -77,13 +77,13 @@ class DB
      * @param $time
      * @return null
      */
-    function comment ($videoname, $comment, $time)
+    function comment ($videoId, $comment, $time)
     {
         try {
-            $sql = 'INSERT INTO `videocomment` (name, comment, time) VALUES (:name,:comment, :time)';
+            $sql = 'INSERT INTO `videocomment` (videoId, comment, time) VALUES (:VideoId,:comment, :time)';
             $pdo = new PDO("mysql:host=$this->host;dbname=$this->db;charset=utf8", $this->user, $this->pass);
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':name', $videoname, \PDO::PARAM_STR);
+            $stmt->bindValue(':videoId', $videoId, \PDO::PARAM_STR);
             $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
             $stmt->bindValue(':time', $time, \PDO::PARAM_STR);
             $stmt->execute();
