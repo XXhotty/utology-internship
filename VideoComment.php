@@ -33,5 +33,5 @@ else{
 }
 
 $smarty->assign('message', $message);
-$smarty->assign('videoId', $videoid);
+$smarty->assign('videoId', $videoId);
 $smarty->display('VideoComment.tpl');
