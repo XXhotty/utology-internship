@@ -61,7 +61,7 @@ $smarty->display('VideoPlay.tpl');
     console.log(newComment);
 
     $.ajax({
-        url : "ajax.php",
+        url : "VideoPlay.php",
         type : "POST",
         dataType:"json",
         data : {post_data_1:"newComment", post_data_2:"count"},
