@@ -41,6 +41,11 @@ if (isset($_POST["comment"])) {
     $N = json_encode(($_POST["comment"]));
 }
 
+if($post_data_1 = $_POST['post_data_1'] != "" && $post_data_2 = $_POST['post_data_2']!= ""){
+    echo("$post_data_1");
+}
+
+
 $smarty->assign('message', $message);
 $smarty->assign('target', $target);
 $smarty->assign('videoId', $videoId);
@@ -54,6 +59,16 @@ $smarty->display('VideoPlay.tpl');
     let time = <?php echo $T; ?>;
     let newComment = <?php echo $N; ?>;
     console.log(newComment);
+
+    if(newComment != ""){
+        $.ajax({
+            url : "ajax.php",
+            type : "POST",
+            dataType:"json",
+            data : {post_data_1:"newComment", post_data_2:"count"},
+        });
+
+    }
 
     window.onload = function() {
         target = document.getElementById("output");
