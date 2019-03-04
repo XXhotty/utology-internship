@@ -54,8 +54,8 @@ $smarty->assign('videoId', $videoId);
 $smarty->assign('sub', $sub);
 $smarty->display('VideoPlay.tpl');
 ?>
-
-<script type="text/javascript">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" >
     var count = 1;
     let comment = <?php echo $C; ?>;
     let time = <?php echo $T; ?>;
@@ -64,7 +64,7 @@ $smarty->display('VideoPlay.tpl');
 
     $.ajax({
         type: 'POST',
-        url: './test.php',
+        url: 'VideoPlay.php',
         dataType:'text',
         data: {
             name1 : "a"
