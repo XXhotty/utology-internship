@@ -67,21 +67,22 @@ $smarty->display('VideoPlay.tpl');
     let newComment = <?php echo $N; ?>;
     console.log(newComment);
 
-    $.ajax({
-        url : "VideoPlay.php",
-        type : "POST",
-        dataType:"json",
-        data : {post_data_1:"newComment", post_data_2:"count"},
-        error : function(XMLHttpRequest, textStatus, errorThrown) {
-            console.log("ajax通信に失敗しました");
-        },
-        success : function(response) {
-            console.log("ajax通信に成功しました");
-            console.log(response[0]);
-            console.log(response[1]);
-        }
+    jQuery(function($) {
+        $.ajax({
+            url: "VideoPlay.php",
+            type: "POST",
+            dataType: "json",
+            data: {post_data_1: "newComment", post_data_2: "count"},
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log("ajax通信に失敗しました");
+            },
+            success: function (response) {
+                console.log("ajax通信に成功しました");
+                console.log(response[0]);
+                console.log(response[1]);
+            }
+        });
     });
-
 
     window.onload = function() {
         target = document.getElementById("output");
