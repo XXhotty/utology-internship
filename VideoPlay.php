@@ -41,8 +41,15 @@ if (isset($_POST["comment"])) {
     $N = json_encode(($_POST["comment"]));
 }
 
-if($post_data_1 = $_POST['post_data_1'] != "" && $post_data_2 = $_POST['post_data_2']!= ""){
+if($_POST['post_data_1'] != "" && $_POST['post_data_2']!= ""){
+    $post_data_1 = $_POST['post_data_1'];
+    $post_data_2 = $_POST['post_data_2'];
     echo("$post_data_1");
+//受け取ったデータを配列に格納
+    $return_array = array($post_data_1, $post_data_2);
+//「$return_array」をjson_encodeして出力
+    echo json_encode($return_array);
+
 }
 
 
@@ -65,6 +72,14 @@ $smarty->display('VideoPlay.tpl');
         type : "POST",
         dataType:"json",
         data : {post_data_1:"newComment", post_data_2:"count"},
+        error : function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log("ajax通信に失敗しました");
+        },
+        success : function(response) {
+            console.log("ajax通信に成功しました");
+            console.log(response[0]);
+            console.log(response[1]);
+        }
     });
 
 
