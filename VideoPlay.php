@@ -41,8 +41,8 @@ if (isset($_POST["comment"])) {
     $N = json_encode(($_POST["comment"]));
 }
 
-if (isset($_POST["name1"])) {
-    echo $_POST['name1'];
+if ($name1 = $_POST['name1'] != "") {
+    echo ("$name1");
 } else {
     echo "値が入力されていません";
 }
