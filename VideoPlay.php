@@ -70,8 +70,7 @@ $smarty->display('VideoPlay.tpl');
             name1 : "a"
         },
         success: function(data) {
-            alert("success");
-            //location.href = "./test.php";
+            console.log("success");
         }
     });
 
@@ -103,3 +102,10 @@ $smarty->display('VideoPlay.tpl');
         clearInterval(I);
     }
 </script>
+<?php
+
+if (isset($_POST["name1"])) {
+    echo $_POST['name1'];
+} else {
+    echo "値が入力されていません";
+}
