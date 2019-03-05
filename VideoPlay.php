@@ -64,7 +64,7 @@ $smarty->display('VideoPlay.tpl');
 
     $.ajax({
         type: 'POST',
-        url: 'VideoPlay.php',
+        url: './VideoPlay.php',
         dataType:'text',
         data: {
             name1 : "a"
