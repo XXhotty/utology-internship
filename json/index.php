@@ -17,6 +17,7 @@
     </style>
 </head>
 <body>
-<p id="respnse"></p>
+<div id="response0"></div>
+<div id="response1"></div>
 </body>
 </html>
