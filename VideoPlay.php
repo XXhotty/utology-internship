@@ -43,10 +43,10 @@ if (isset($_POST["comment"])) {
 
 if ($name1 = $_POST['name1'] != "") {
     $name1 = $_POST['name1'];
-    echo ("$name1");
+    echo json_encode($name1);
 } else {
     $name1 = $_POST['name1'];
-    echo ("ny.$name1");
+    echo json_encode($name1);
     echo "値が入力されていません";
 }
 
