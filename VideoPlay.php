@@ -41,14 +41,13 @@ if (isset($_POST["comment"])) {
     $N = json_encode(($_POST["comment"]));
 }
 
-if ($name1 = $_POST['name1'] != "") {
-    $name1 = $_POST['name1'];
-    echo json_encode($name1);
-} else {
-    $name1 = $_POST['name1'];
-    echo json_encode($name1);
-    echo "値が入力されていません";
-}
+$post_data_1 = $_POST['post_data_1'];
+$post_data_2 = $_POST['post_data_2'];
+//受け取ったデータを配列に格納
+$return_array = array($post_data_1, $post_data_2);
+//「$return_array」をjson_encodeして出力
+echo json_encode($return_array);
+
 
 
 $smarty->assign('message', $message);
@@ -66,14 +65,12 @@ $smarty->display('VideoPlay.tpl');
     console.log(newComment);
 
     $.ajax({
-        type: 'POST',
-        url: './VideoPlay.php',
-        dataType:'text',
-        data: {
-            name1 : "a"
-        },
-        success: function(data) {
-            console.log("success");
+        url : "VideoPlay.php",
+        type : "POST",
+        dataType:"json",
+        data : {post_data_1:"hoge", post_data_2:"piyo"},
+        success : function() {
+            console.log("ajax通信に成功しました");
         }
     });
 
