@@ -28,6 +28,8 @@ if (isset($_POST["sub"])) {
     $I = json_encode($id[0]);
     $C = json_encode($comment);
     $T = json_encode($time);
+    print_r($comment);
+    print_r($time);
     foreach ($result2 as $row) {
         if ($row["id"] == $id[0]) {
             $target = "files/" . $row["name"];
@@ -46,6 +48,8 @@ $smarty->display('VideoPlay.tpl');
     let id = <?php echo $I; ?>;
     let comment = <?php echo $C; ?>;
     let time = <?php echo $T; ?>;
+    console.log(comment);
+    console.log(time);
     count = 0;
     window.onload = function() {
         target = document.getElementById("output");
