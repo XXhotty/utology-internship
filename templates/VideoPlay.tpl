@@ -5,7 +5,7 @@
     <title>sample</title>
 </head>
 <body>
-<form action="" enctype="multipart/form-data" method="post">
+<form action="" enctype="multipart/form-data" method="post" name="form">
     {$message}<br/>
     {$videoname}<br/>
     <video id =video src='{$target}' width='426' height='240'></video>
