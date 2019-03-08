@@ -68,6 +68,7 @@ $smarty->display('VideoPlay.tpl');
                 }
             }
             console.log(count++);
+            console.log(CC);
             return count;
         };
         I = setInterval(countup, 1000);
