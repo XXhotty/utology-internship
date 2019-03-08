@@ -52,7 +52,6 @@ $smarty->display('VideoPlay.tpl');
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" >
-    count = 1;
     let comment = <?php echo $C; ?>;
     let time = <?php echo $T; ?>;
     let newComment = <?php echo $N; ?>;
@@ -64,6 +63,7 @@ $smarty->display('VideoPlay.tpl');
     function video_play() {
         empty = "コメントなし";
         video.play();
+        var count = 1;
         var countup = function(){
             len = comment.length;
             len++;
