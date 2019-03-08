@@ -78,27 +78,27 @@ $smarty->display('VideoPlay.tpl');
                 }
             }
             console.log(count++);
+            function comment_ajax() {
+                $.ajax({
+                    url : "VideoPlayApi.php",
+                    type : "POST",
+                    data : {post_data_1:count, post_data_2:newComment}
+                }).done(function(response, textStatus, xhr) {
+                    console.log("ajax通信に成功しました");
+                    console.log(response[0]);
+                    console.log(response[1]);
+                    $("#response0").text(response[0]);
+                    $("#response1").text(response[1]);
+                }).fail(function(xhr, textStatus, errorThrown) {
+                    console.log("ajax通信に失敗しました");
+                });
+            }
         };
         I = setInterval(countup, 1000);
     }
     function video_pause() {
         video.pause();
         clearInterval(I);
-    }
-    function comment_ajax() {
-        $.ajax({
-            url : "VideoPlayApi.php",
-            type : "POST",
-            data : {post_data_1:count, post_data_2:newComment}
-        }).done(function(response, textStatus, xhr) {
-            console.log("ajax通信に成功しました");
-            console.log(response[0]);
-            console.log(response[1]);
-            $("#response0").text(response[0]);
-            $("#response1").text(response[1]);
-        }).fail(function(xhr, textStatus, errorThrown) {
-            console.log("ajax通信に失敗しました");
-        });
     }
 
 </script>
