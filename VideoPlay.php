@@ -79,6 +79,13 @@ $smarty->display('VideoPlay.tpl');
             }
             console.log(count++);
         };
+        I = setInterval(countup, 1000);
+    }
+    function video_pause() {
+        video.pause();
+        clearInterval(I);
+    }
+    function comment_ajax() {
         $.ajax({
             url : "VideoPlayApi.php",
             type : "POST",
@@ -92,11 +99,6 @@ $smarty->display('VideoPlay.tpl');
         }).fail(function(xhr, textStatus, errorThrown) {
             console.log("ajax通信に失敗しました");
         });
-        I = setInterval(countup, 1000);
-    }
-    function video_pause() {
-        video.pause();
-        clearInterval(I);
     }
 
 </script>
