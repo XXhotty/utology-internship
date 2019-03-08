@@ -17,6 +17,7 @@ if(isset($_POST["word"])){
     $sql = "SELECT * FROM mp4 ORDER BY id;";
     $result = $db->fetch($sql);
 }
+print_r($result);
 $smarty->assign('result', $result);
 $smarty->display('VideoList.tpl');
 
