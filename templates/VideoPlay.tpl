@@ -25,7 +25,6 @@
 <li><a href="VideoList.php">動画一覧へ</a></li>
 
 <div id="response0"></div>
-<div id="response1"></div>
 
 </body>
 </html>
