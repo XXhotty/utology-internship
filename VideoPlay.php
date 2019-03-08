@@ -37,24 +37,15 @@ if (isset($_POST["sub"])) {
     $message ='動画一覧画面で動画を選択してください';
 }
 
-if (isset($_POST["comment"])) {
-    $N = json_encode(($_POST["comment"]));
-}
-else{
-    $N = json_encode("");
-}
-
 $smarty->assign('message', $message);
 $smarty->assign('target', $target);
-$smarty->assign('videoId', $videoId);
-$smarty->assign('sub', $sub);
 $smarty->display('VideoPlay.tpl');
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" >
     let comment = <?php echo $C; ?>;
     let time = <?php echo $T; ?>;
-    let newComment = <?php echo $N; ?>;
+    let newComment = document.form.comment;
     console.log(newComment);
     count = 0;
 

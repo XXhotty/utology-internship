@@ -5,7 +5,7 @@
     <title>sample</title>
 </head>
 <body>
-<form action="" enctype="multipart/form-data" method="post">
+<form name = "form">
     {$message}<br/>
     {$videoname}<br/>
     <video id =video src='{$target}' width='426' height='240'></video>
@@ -15,7 +15,6 @@
     <br/>
     コメント:<textarea name="comment" rows="1" cols="20"></textarea>
     <input type="button" value="コメントする" onclick='comment_ajax()' >
-    <input type='hidden' name='sub' value='{$sub}'>
 </form>
 
 
