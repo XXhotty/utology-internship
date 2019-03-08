@@ -55,21 +55,6 @@ $smarty->display('VideoPlay.tpl');
     let newComment = <?php echo $N; ?>;
     console.log(newComment);
 
-     $.ajax({
-         url : "VideoPlayApi.php",
-         type : "POST",
-         data : {post_data_1:count, post_data_2:newComment}
-     }).done(function(response, textStatus, xhr) {
-         console.log("ajax通信に成功しました");
-         console.log(response[0]);
-         console.log(response[1]);
-         $("#response0").text(response[0]);
-         $("#response1").text(response[1]);
-     }).fail(function(xhr, textStatus, errorThrown) {
-         console.log("ajax通信に失敗しました");
-     });
-
-
     window.onload = function() {
         target = document.getElementById("output");
     };
@@ -97,6 +82,20 @@ $smarty->display('VideoPlay.tpl');
         video.pause();
         clearInterval(I);
     }
+
+    $.ajax({
+        url : "VideoPlayApi.php",
+        type : "POST",
+        data : {post_data_1:count, post_data_2:newComment}
+    }).done(function(response, textStatus, xhr) {
+        console.log("ajax通信に成功しました");
+        console.log(response[0]);
+        console.log(response[1]);
+        $("#response0").text(response[0]);
+        $("#response1").text(response[1]);
+    }).fail(function(xhr, textStatus, errorThrown) {
+        console.log("ajax通信に失敗しました");
+    });
 </script>
 <?php
 $post_data_1 = $_POST['post_data_1'];
