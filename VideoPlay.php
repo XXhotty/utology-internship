@@ -12,8 +12,6 @@ $sql2 = "SELECT * FROM mp4 ORDER BY id;";
 $result = $db->fetch($sql);
 $result2 = $db->fetch($sql2);
 
-print_r($result);
-print_r($result2);
 $comment = array("");
 $time = array("");
 $message ='';
@@ -22,7 +20,7 @@ if (isset($_POST["sub"])) {
     $sub = $_POST["sub"];
     $id = explode(".", $sub);
     foreach ($result as $row) {
-        if ($row["id"] == $id[0]) {
+        if ($row["videoId"] == $id[0]) {
             array_push($comment, $row["comment"]);
             array_push($time, $row["time"]);
         }
