@@ -64,7 +64,7 @@ $smarty->display('VideoPlay.tpl');
         empty = "コメントなし";
         video.play();
         var count = 1;
-        var countup = function(count){
+        var countup = function(){
             len = comment.length;
             len++;
             CC = "";
@@ -78,6 +78,7 @@ $smarty->display('VideoPlay.tpl');
                 }
             }
             console.log(count++);
+            return count;
         };
         I = setInterval(countup, 1000);
     }
@@ -89,7 +90,7 @@ $smarty->display('VideoPlay.tpl');
         $.ajax({
             url : "VideoPlayApi.php",
             type : "POST",
-            data : {post_data_1:count, post_data_2:newComment}
+            data : {post_data_1:countup, post_data_2:newComment}
         }).done(function(response, textStatus, xhr) {
             console.log("ajax通信に成功しました");
             console.log(response[0]);
