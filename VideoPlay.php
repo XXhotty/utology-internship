@@ -25,6 +25,7 @@ if (isset($_POST["sub"])) {
             array_push($time, $row["time"]);
         }
     }
+    $I = json_encode($id);
     $C = json_encode($comment);
     $T = json_encode($time);
     foreach ($result2 as $row) {
@@ -42,15 +43,16 @@ $smarty->display('VideoPlay.tpl');
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" >
+    let id = <?php echo $I; ?>;
     let comment = <?php echo $C; ?>;
     let time = <?php echo $T; ?>;
-    count = -1;
+    count = 0;
     window.onload = function() {
         target = document.getElementById("output");
     };
     function video_play() {
         empty = "コメントなし";
-        console.log(++count);
+        console.log(count++);
         video.play();
         var countup = function(){
             len = comment.length;
@@ -65,7 +67,7 @@ $smarty->display('VideoPlay.tpl');
                     target.innerHTML = empty;
                 }
             }
-            console.log(++count);
+            console.log(count++);
             return count;
         };
         I = setInterval(countup, 1000);
@@ -81,13 +83,15 @@ $smarty->display('VideoPlay.tpl');
         $.ajax({
             url : "VideoPlayApi.php",
             type : "POST",
-            data : {post_data_1:count, post_data_2:newComment}
+            data : {post_data_1:id, post_data_2:newComment, post_data_3:count}
         }).done(function(response, textStatus, xhr) {
             console.log("ajax通信に成功しました");
             console.log(response[0]);
             console.log(response[1]);
+            console.log(response[2]);
             $("#response0").text(response[0]);
             $("#response1").text(response[1]);
+            $("#response2").text(response[2]);
         }).fail(function(xhr, textStatus, errorThrown) {
             console.log("ajax通信に失敗しました");
         });

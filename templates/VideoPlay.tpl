@@ -25,6 +25,7 @@
 
 <div id="response0"></div>
 <div id="response1"></div>
+<div id="response2"></div>
 
 </body>
 </html>
