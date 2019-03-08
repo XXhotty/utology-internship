@@ -101,6 +101,7 @@ $smarty->display('VideoPlay.tpl');
         console.log("ajax通信に成功しました");
         console.log(response[0]);
         $("#response0").text(response[0]);
+        $("#response1").text(response[1]);
     }).fail(function(xhr, textStatus, errorThrown) {
         console.log("ajax通信に失敗しました");
     });
