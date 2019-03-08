@@ -15,7 +15,6 @@ if ( $post_data_1 !== '' && $post_data_2 !== ''&& $post_data_3 !== '' ) {
 }
 else{
     $return_array = array("mysqlに保存失敗しました。PHPに送られたpost_data_1:".$post_data_1, "PHPに送られたpost_data_2:".$post_data_2, "PHPに送られたpost_data_3:".$post_data_3);
-
 }
 
 header('Content-type:application/json; charset=utf8');
