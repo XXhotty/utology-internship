@@ -12,6 +12,8 @@ $sql2 = "SELECT * FROM mp4 ORDER BY id;";
 $result = $db->fetch($sql);
 $result2 = $db->fetch($sql2);
 
+print_r($result);
+print_r($result2);
 $comment = array("");
 $time = array("");
 $message ='';
@@ -28,8 +30,6 @@ if (isset($_POST["sub"])) {
     $I = json_encode($id[0]);
     $C = json_encode($comment);
     $T = json_encode($time);
-    print_r($comment);
-    print_r($time);
     foreach ($result2 as $row) {
         if ($row["id"] == $id[0]) {
             $target = "files/" . $row["name"];
