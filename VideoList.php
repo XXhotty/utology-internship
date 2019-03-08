@@ -11,7 +11,7 @@ $db = new DB(localhost,hotty,hotta,board);
 if(isset($_POST["word"])){
     $word = $_POST["word"];
     echo("$word");
-    $sql = "SELECT * FROM mp4 WHERE name LIKE '%$word%';";
+    $sql = "SELECT * FROM mp4 WHERE title LIKE '%$word%';";
     $result = $db->fetch($sql);
 }else{
     $sql = "SELECT * FROM mp4 ORDER BY id;";
