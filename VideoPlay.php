@@ -49,7 +49,7 @@ $smarty->display('VideoPlay.tpl');
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" >
-    var count = 1;
+   var count = 1;
     let comment = <?php echo $C; ?>;
     let time = <?php echo $T; ?>;
     let newComment = <?php echo $N; ?>;
@@ -75,17 +75,13 @@ $smarty->display('VideoPlay.tpl');
                 }
             }
             console.log(count++);
-
             $.ajax({
                 url : "VideoPlayApi.php",
                 type : "POST",
-                data : {post_data_1:count, post_data_2:newComment}
+                data : {post_data_1:count}
             }).done(function(response, textStatus, xhr) {
                 console.log("ajax通信に成功しました");
                 console.log(response[0]);
-                console.log(response[1]);
-                $("#response0").text(response[0]);
-                $("#response1").text(response[1]);
             }).fail(function(xhr, textStatus, errorThrown) {
                 console.log("ajax通信に失敗しました");
             });
@@ -96,4 +92,16 @@ $smarty->display('VideoPlay.tpl');
         video.pause();
         clearInterval(I);
     }
+
+    $.ajax({
+        url : "VideoPlayApi.php",
+        type : "POST",
+        data : {post_data_2:newComment}
+    }).done(function(response, textStatus, xhr) {
+        console.log("ajax通信に成功しました");
+        console.log(response[0]);
+        $("#response0").text(response[0]);
+    }).fail(function(xhr, textStatus, errorThrown) {
+        console.log("ajax通信に失敗しました");
+    });
 </script>
