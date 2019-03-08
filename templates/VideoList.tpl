@@ -5,7 +5,6 @@
 </head>
 <body>
 <form action="" method="post">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <input type="text" name="word">
     <input type="submit" value="検索">
 </form>

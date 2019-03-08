@@ -92,9 +92,11 @@ $smarty->display('VideoPlay.tpl');
             console.log(response[0]);
             console.log(response[1]);
             console.log(response[2]);
+            /*
             $("#response0").text(response[0]);
             $("#response1").text(response[1]);
             $("#response2").text(response[2]);
+            */
             CC = CC + ' ' + response[1];
             target.innerHTML = CC;
         }).fail(function(xhr, textStatus, errorThrown) {
