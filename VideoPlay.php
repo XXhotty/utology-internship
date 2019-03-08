@@ -52,10 +52,6 @@ $smarty->display('VideoPlay.tpl');
    var count = 1;
     let comment = <?php echo $C; ?>;
     let time = <?php echo $T; ?>;
-    if(<?php echo $N; ?> !== "") {
-       let newComment = <?php echo $N; ?>;
-   }
-    console.log(newComment);
 
     window.onload = function() {
         target = document.getElementById("output");
@@ -95,6 +91,8 @@ $smarty->display('VideoPlay.tpl');
         clearInterval(I);
     }
 
+   let newComment = <?php echo $N; ?>;
+   console.log(newComment);
     $.ajax({
         url : "VideoPlayApi.php",
         type : "POST",
