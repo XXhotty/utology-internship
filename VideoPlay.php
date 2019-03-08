@@ -81,6 +81,7 @@ $smarty->display('VideoPlay.tpl');
             return count;
         };
         I = setInterval(countup, 1000);
+        return count;
     }
     function video_pause() {
         video.pause();
