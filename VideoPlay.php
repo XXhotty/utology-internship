@@ -30,7 +30,6 @@ if (isset($_POST["sub"])) {
     foreach ($result2 as $row) {
         if ($row["id"] == $id[0]) {
             $target = "files/" . $row["name"];
-            $videoId = $row["id"];
         }
     }
 }else {
@@ -45,7 +44,6 @@ $smarty->display('VideoPlay.tpl');
 <script type="text/javascript" >
     let comment = <?php echo $C; ?>;
     let time = <?php echo $T; ?>;
-    console.log(newComment);
     count = 0;
     window.onload = function() {
         target = document.getElementById("output");
@@ -79,6 +77,7 @@ $smarty->display('VideoPlay.tpl');
     }
     function comment_ajax() {
         let newComment = document.form.comment.value;
+        console.log(newComment);
         $.ajax({
             url : "VideoPlayApi.php",
             type : "POST",
