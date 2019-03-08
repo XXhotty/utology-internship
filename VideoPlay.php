@@ -25,7 +25,7 @@ if (isset($_POST["sub"])) {
             array_push($time, $row["time"]);
         }
     }
-    $I = json_encode($id);
+    $I = json_encode($id[0]);
     $C = json_encode($comment);
     $T = json_encode($time);
     foreach ($result2 as $row) {
