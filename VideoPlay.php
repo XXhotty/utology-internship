@@ -45,7 +45,7 @@ $smarty->display('VideoPlay.tpl');
 <script type="text/javascript" >
     let comment = <?php echo $C; ?>;
     let time = <?php echo $T; ?>;
-    let newComment = document.form.comment;
+    let newComment = document.getElementById( "comment" ).value;
     console.log(newComment);
     count = 0;
 
