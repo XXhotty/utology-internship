@@ -4,7 +4,7 @@
     <title>動画一覧</title>
 </head>
 <body>
-<form action="VideoList.php" method="post">
+<form action="VideoList.php" method="post" charset=utf-8>
     <input type="text" name="word">
     <input type="submit" value="検索">
 </form>
