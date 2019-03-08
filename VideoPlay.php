@@ -77,8 +77,8 @@ $smarty->display('VideoPlay.tpl');
         video.pause();
         clearInterval(I);
     }
-    let newComment = document.form.comment.value;
     function comment_ajax() {
+        let newComment = document.form.comment.value;
         $.ajax({
             url : "VideoPlayApi.php",
             type : "POST",
