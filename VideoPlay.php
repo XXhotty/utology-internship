@@ -52,7 +52,9 @@ $smarty->display('VideoPlay.tpl');
    var count = 1;
     let comment = <?php echo $C; ?>;
     let time = <?php echo $T; ?>;
-    let newComment = <?php echo $N; ?>;
+    if(<?php echo $N; ?> !== "") {
+       let newComment = <?php echo $N; ?>;
+   }
     console.log(newComment);
 
     window.onload = function() {
@@ -101,6 +103,7 @@ $smarty->display('VideoPlay.tpl');
         console.log("ajax通信に成功しました");
         console.log(response[0]);
         $("#response0").text(response[0]);
+        $("#response1").text(response[1]);
     }).fail(function(xhr, textStatus, errorThrown) {
         console.log("ajax通信に失敗しました");
     });
