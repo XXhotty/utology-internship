@@ -44,13 +44,13 @@ $smarty->display('VideoPlay.tpl');
 <script type="text/javascript" >
     let comment = <?php echo $C; ?>;
     let time = <?php echo $T; ?>;
-    count = 0;
+    count = -1;
     window.onload = function() {
         target = document.getElementById("output");
     };
     function video_play() {
         empty = "コメントなし";
-        console.log(count++);
+        console.log(++count);
         video.play();
         var countup = function(){
             len = comment.length;
@@ -65,7 +65,7 @@ $smarty->display('VideoPlay.tpl');
                     target.innerHTML = empty;
                 }
             }
-            console.log(count++);
+            console.log(++count);
             return count;
         };
         I = setInterval(countup, 1000);
