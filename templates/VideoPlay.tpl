@@ -14,7 +14,7 @@
     <input type='button' value='pause' onclick='video_pause()'>
     <br/>
     コメント:<textarea name="comment" rows="1" cols="20"></textarea>
-    <input type="submit" value="コメントする" />
+    <input type="button" value="コメントする" onclick='comment_ajax()' >
     <input type='hidden' name='sub' value='{$sub}'>
 </form>
 
