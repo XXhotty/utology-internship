@@ -10,7 +10,7 @@ $db = new DB(localhost,hotty,hotta,board);
 
 if(isset($_POST["word"])){
     $word = $_POST["word"];
-    $sql = "SELECT * FROM mp4 WHERE title LIKE N'%word%';";
+    $sql = "SELECT * FROM mp4 WHERE title LIKE N'%$word%';";
     $result = $db->fetch($sql);
     var_dump($result);
 }else{
