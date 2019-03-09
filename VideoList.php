@@ -10,6 +10,7 @@ $db = new DB(localhost,hotty,hotta,board);
 
 if(isset($_POST["word"])){
     $word = $_POST["word"];
+    var_dump($word);
     $result = $db->word($word);
     var_dump($result);
 }else{
