@@ -92,4 +92,23 @@ class DB
             echo 'Connection failed:'.$e->getMessage();
             exit();}
     }
+
+    /**
+     * @param $word
+     * @return null
+     */
+    function word ($word)
+    {
+        try {
+
+            $sql = 'SELECT * FROM mp4 WHERE title LIKE :word';
+            $pdo = new PDO("mysql:host=$this->host;dbname=$this->db;charset=utf8", $this->user, $this->pass);
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':word', N%$word%';', \PDO::PARAM_STR);
+            $stmt->execute();
+            return null;
+        }catch(PDOException $ei) {
+            echo 'Connection failed:'.$e->getMessage();
+            exit();}
+    }
 }
