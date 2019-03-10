@@ -107,7 +107,7 @@ class DB
             $stmt->bindValue(':word', "%$word%", \PDO::PARAM_STR);
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $data;
+            return $sql;
         }catch(PDOException $ei) {
             echo 'Connection failed:'.$e->getMessage();
             exit();}
