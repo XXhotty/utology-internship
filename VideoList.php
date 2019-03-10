@@ -10,13 +10,9 @@ $db = new DB(localhost,hotty,hotta,board);
 
 if(isset($_POST["word"])){
     $word = $_POST["word"];
-    var_dump($word);
     $result = $db->word($word);
-    var_dump($result);
 }else{
-    $sql = "SELECT * FROM mp4 ORDER BY id;";
-    $result = $db->fetch($sql);
+    $result = $db->mp4();
 }
 $smarty->assign('result', $result);
 $smarty->display('VideoList.tpl');
-
