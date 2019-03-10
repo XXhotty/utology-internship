@@ -95,7 +95,7 @@ class DB
 
     /**
      * @param $word
-     * @return null
+     * @return array
      */
     function word ($word)
     {
@@ -112,4 +112,20 @@ class DB
             echo 'Connection failed:'.$e->getMessage();
             exit();}
     }
+
+    function mp4()
+    {
+        try{
+            $pdo = new PDO ($this->dsn, $this->user, $this->pass, array(
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET 'utf8'"));
+            $sql = "SELECT * FROM mp4 ORDER BY id;";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        } catch(PDOException $ei) {
+            echo 'Connection failed:'.$e->getMessage();
+            exit();}
+    }
+
 }
