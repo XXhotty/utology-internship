@@ -101,13 +101,13 @@ class DB
     {
         try {
             //$sql = "SELECT * FROM mp4 WHERE title LIKE N'%$word%';";
-            $sql = "SELECT * FROM mp4 WHERE title LIKE (:word) ";
+            $sql = "SELECT * FROM mp4 WHERE title LIKE (:word)";
             $pdo = new PDO("mysql:host=$this->host;dbname=$this->db;charset=utf8", $this->user, $this->pass);
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':word', "N'%{$word}%'", \PDO::PARAM_STR);
+            $stmt->bindValue(':word', "%{$word}%", \PDO::PARAM_STR);
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $sql;
+            return $data;
         }catch(PDOException $ei) {
             echo 'Connection failed:'.$e->getMessage();
             exit();}
