@@ -101,7 +101,7 @@ class DB
     {
         try {
             //$sql = "SELECT * FROM mp4 WHERE title LIKE N'%$word%';";
-            $sql = "SELECT * FROM mp4 WHERE title LIKE N'(:word)' ;";
+            $sql = "SELECT * FROM mp4 WHERE title LIKE N(:word) ;";
             $pdo = new PDO("mysql:host=$this->host;dbname=$this->db;charset=utf8", $this->user, $this->pass);
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':word', "%$word%", \PDO::PARAM_STR);
