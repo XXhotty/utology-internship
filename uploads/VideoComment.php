@@ -1,5 +1,7 @@
-
 <?php
+$a = 0;
+echo("$a");
+$a = $a + 1;
 include_once __DIR__ . '/../libs/Smarty.class.php';
 $smarty = new Smarty();
 $smarty->escape_html = true;
