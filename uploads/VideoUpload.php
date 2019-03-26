@@ -1,11 +1,11 @@
 <?php
-include_once __DIR__ . '/libs/Smarty.class.php';
+include_once __DIR__ . '/../libs/Smarty.class.php';
 $smarty = new Smarty();
 $smarty->escape_html = true;
-$smarty->template_dir = __DIR__ . '/templates';
-$smarty->compile_dir = __DIR__ . '/templates_c';
+$smarty->template_dir = __DIR__ . '/../templates';
+$smarty->compile_dir = __DIR__ . '/../templates_c';
 
-require_once __DIR__ . '/libs/dao/AccessDao.php';
+require_once __DIR__ . '/../libs/dao/AccessDao.php';
 
 $messages ='';
 
