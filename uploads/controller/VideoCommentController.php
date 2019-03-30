@@ -1,14 +1,10 @@
-<?php
-$a = 0;
-echo("$a");
-$a = $a + 1;
-include_once __DIR__ . '/../libs/Smarty.class.php';
-$smarty = new Smarty();
-$smarty->escape_html = true;
-$smarty->template_dir = __DIR__ . '/../templates';
-$smarty->compile_dir = __DIR__ . '/../templates_c';
 
-require_once __DIR__ . '/../libs/dao/AccessDao.php';
+<?php
+require_once __DIR__ . '/../../libs/smarty/VideoSmarty.php';
+$sm = new VideoSmarty();
+$smarty = $sm->getSmarty();
+
+require_once __DIR__ . '/../../libs/dao/AccessDao.php';
 $db = new DB(localhost,hotty,hotta,board);
 
 $message = '';
