@@ -10,6 +10,9 @@ requireDir(__DIR__ . '/libs/service');
 requireDir(__DIR__ . '/libs/smarty');
 requireDir(__DIR__ . '/libs/util');
 
+require_once __DIR__ . '/uploads/controller/UploadsBaseController.php';
+requireDir(__DIR__ . '/uploads/controller');
+
 function requireDir($dir)
 {
     foreach (glob("$dir/*") as $file) {
