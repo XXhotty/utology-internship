@@ -1,0 +1,9 @@
+sudo su - root
+cd /var/log/
+cd httpd
+cat error_log
+
+mysql -u hotty -p
+
+sudo service httpd start
+sudo service mysqld start
