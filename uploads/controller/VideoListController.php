@@ -14,6 +14,5 @@ class VideoListController extends UploadsBaseController
         $smarty = UploadsSmarty::getSmarty();
         $result = 'm';
         $smarty->assign('result', $result);
-
     }
 }
