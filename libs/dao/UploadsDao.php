@@ -2,6 +2,7 @@
 namespace libs\dao;
 
 //use libs\entity\UploadsEntity;
+use libs\dao\Database;
 
 class UploadsDao extends Database
 {
