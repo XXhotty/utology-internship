@@ -16,10 +16,10 @@ class VideoListController extends UploadsBaseController
 
         if(isset($_POST["word"])){
             $word = $_POST["word"];
-            $result = UploadsDao::word($word);
         }else{
-            $result = UploadsDao::mp4();
+            $word = '';
         }
+        $result = UploadsDao::word($word);
         $smarty->assign('result', $result);
     }
 }
