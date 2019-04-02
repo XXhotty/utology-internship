@@ -1,5 +1,6 @@
 <?php
 namespace libs\dao;
+echo("UploadsDao.<br/>");
 
 //use libs\entity\UploadsEntity;
 use libs\dao\Database;

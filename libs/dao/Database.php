@@ -1,5 +1,6 @@
 <?php
 namespace libs\dao;
+echo("DatabaseStart.<br/>");
 abstract class Database
 {
     protected $pdo;
@@ -15,5 +16,6 @@ abstract class Database
         } catch (\Exception $e) {
             throw $e;
         }
+        echo("$dsn.<br/>");
     }
 }
