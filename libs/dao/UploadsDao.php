@@ -1,7 +1,7 @@
 <?php
 namespace libs\dao;
 
-use libs\entity\UploadEntity;
+//use libs\entity\UploadsEntity;
 
 class UploadsDao extends Database
 {
@@ -38,8 +38,6 @@ class UploadsDao extends Database
     function mp4()
     {
         try{
-            $pdo = new PDO ($this->dsn, $this->user, $this->pass, array(
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET 'utf8'"));
             $sql = "SELECT * FROM mp4 ORDER BY id;";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
@@ -49,4 +47,6 @@ class UploadsDao extends Database
             echo 'Connection failed:'.$e->getMessage();
             exit();}
     }
+
+
 }
