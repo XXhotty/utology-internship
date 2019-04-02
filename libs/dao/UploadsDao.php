@@ -1,6 +1,6 @@
 <?php
 namespace libs\dao;
-echo("UploadsDao.<br/>");
+echo("UploadsDaoStart.<br/>");
 
 //use libs\entity\UploadsEntity;
 use libs\dao\Database;
@@ -35,19 +35,4 @@ class UploadsDao extends Database
             echo 'Connection failed:'.$e->getMessage();
             exit();}
     }
-
-    public function mp4()
-    {
-        try{
-            $sql = "SELECT * FROM mp4 ORDER BY id;";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute();
-            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $data;
-        } catch(PDOException $ei) {
-            echo 'Connection failed:'.$e->getMessage();
-            exit();}
-    }
-
-
 }
