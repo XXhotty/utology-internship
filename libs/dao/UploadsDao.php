@@ -21,7 +21,7 @@ class UploadsDao extends Database
         return null;
     }
 
-    function word ($word)
+    public function word ($word)
     {
         try {
             $sql = "SELECT * FROM mp4 WHERE title LIKE (:word)";
@@ -35,7 +35,7 @@ class UploadsDao extends Database
             exit();}
     }
 
-    function mp4()
+    public function mp4()
     {
         try{
             $sql = "SELECT * FROM mp4 ORDER BY id;";
