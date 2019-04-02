@@ -2,7 +2,7 @@
 
 namespace uploads\controller;
 
-use libs\util\UploadsUtil;
+//use libs\util\UploadsUtil;
 use libs\smarty\UploadsSmarty;
 class VideoListController extends UploadsBaseController
 {
