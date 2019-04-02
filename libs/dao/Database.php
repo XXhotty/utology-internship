@@ -6,7 +6,6 @@ abstract class Database
     public function __construct()
     {
         try {
-            echo("databaseConstruct.<br/>");
             global $DBSERVER, $DBUSER, $DBPASSWD, $DBNAME;
             $dsn = 'mysql:'
                 . 'host=' . $DBSERVER . ';'
