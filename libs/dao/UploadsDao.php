@@ -34,4 +34,10 @@ class UploadsDao extends Database
             echo 'Connection failed:'.$e->getMessage();
             exit();}
     }
+
+    public function test() {
+        $A = "connect!!";
+        return($A);
+    }
+
 }
