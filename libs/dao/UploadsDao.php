@@ -3,7 +3,6 @@ namespace libs\dao;
 echo("UploadsDaoStart.<br/>");
 
 //use libs\entity\UploadsEntity;
-use libs\dao\Database;
 
 class UploadsDao extends Database
 {
