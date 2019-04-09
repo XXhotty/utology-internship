@@ -17,7 +17,7 @@ class VideoListController extends UploadsBaseController
         if(isset($_POST["word"])){
             $word = $_POST["word"];
         }else{
-            $word = '';
+            $word = 'm';
         }
         $resultDao = new UploadsDao();
         $result = $resultDao->word($word);
