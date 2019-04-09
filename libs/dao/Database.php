@@ -15,7 +15,5 @@ abstract class Database
         } catch (\Exception $e) {
             throw $e;
         }
-        echo(" $DBPASSWD.<br/>");
-        echo(" $DBUSER.<br/>");
     }
 }
