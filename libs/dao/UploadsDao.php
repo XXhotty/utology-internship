@@ -1,6 +1,5 @@
 <?php
 namespace libs\dao;
-echo("UploadsDaoStart.<br/>");
 
 //use libs\entity\UploadsEntity;
 
@@ -33,11 +32,6 @@ class UploadsDao extends Database
         }catch(PDOException $ei) {
             echo 'Connection failed:'.$e->getMessage();
             exit();}
-    }
-
-    public function test() {
-        $A = "connect!!";
-        return($A);
     }
 
 }
