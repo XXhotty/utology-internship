@@ -39,7 +39,9 @@ class UploadsDao extends Database
     {
         try{
             $sql = "SELECT * FROM mp4 ORDER BY id;";
-            $stmt = $this->pdo->prepare($sql);
+
+            $pdo = new PDO("mysql:host=localhost;dbname=board;charset=utf8", "hotty", "hotta");
+            $stmt = $pdo->prepare($sql);
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $data;
