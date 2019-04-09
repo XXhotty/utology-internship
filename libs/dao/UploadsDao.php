@@ -34,4 +34,18 @@ class UploadsDao extends Database
             exit();}
     }
 
+
+    function mp4()
+    {
+        try{
+            $sql = "SELECT * FROM mp4 ORDER BY id;";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        } catch(PDOException $ei) {
+            echo 'Connection failed:'.$e->getMessage();
+            exit();}
+    }
+
 }
