@@ -1,7 +1,6 @@
 <?php
 namespace libs\dao;
 
-include_once __DIR__ . '../Smarty.class.php';
 //use libs\entity\UploadsEntity;
 
 class UploadsDao extends Database
@@ -40,9 +39,7 @@ class UploadsDao extends Database
     {
         try{
             $sql = "SELECT * FROM mp4 ORDER BY id;";
-
-            $pdo = new PDO("mysql:host=localhost;dbname=board;charset=utf8", "hotty", "hotta");
-            $stmt = $pdo->prepare($sql);
+            $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $data;
