@@ -20,8 +20,6 @@ class VideoListController extends UploadsBaseController
             $word = '';
         }
         $resultDao = new UploadsDao();
-        $test = $resultDao->test();
-        echo("$test");
         $result = $resultDao->word($word);
         $smarty->assign('result', $result);
     }
