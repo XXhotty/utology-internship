@@ -12,7 +12,6 @@ class VideoUploadController extends UploadsBaseController
 
     protected function main()
     {
-        $smarty = UploadsSmarty::getSmarty();
         $resultDao = new UploadsDao();
         $messages ='';
 
@@ -40,6 +39,6 @@ class VideoUploadController extends UploadsBaseController
             $messages = "";
         }
 
-        $smarty->assign('messages', $messages);
+        $this->smarty->assign('result', $result);
     }
 }

@@ -12,7 +12,6 @@ class VideoPlayController extends UploadsBaseController
 
     protected function main()
     {
-        $smarty = UploadsSmarty::getSmarty();
         $resultDao = new UploadsDao();
 
         if(isset($_POST["word"])){
@@ -21,6 +20,6 @@ class VideoPlayController extends UploadsBaseController
         }else{
             $result = $resultDao->mp4();
         }
-        $smarty->assign('result', $result);
+        $this->smarty->assign('result', $result);
     }
 }
