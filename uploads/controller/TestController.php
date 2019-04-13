@@ -12,9 +12,8 @@ class TestController extends UploadsBaseController
 
     protected function main()
     {
-        $smarty = UploadsSmarty::getSmarty();
         $messages ='a';
 
-        $smarty->assign('messages', $messages);
+        $this->smarty->assign('messages', $messages);
     }
 }
