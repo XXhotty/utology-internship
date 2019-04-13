@@ -1,6 +1,7 @@
 <?php
 namespace libs\dao;
-
+use \PDO;
+use \PDOException;
 //use libs\entity\UploadsEntity;
 
 class UploadsDao extends Database
