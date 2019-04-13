@@ -7,7 +7,7 @@ use libs\dao\UploadsDao;
 class VideoPlayController extends UploadsBaseController
 {
 
-    protected $template = 'uploads/VideoList.tpl';
+    protected $template = 'uploads/VideoPlay.tpl';
 
     protected function main()
     {
