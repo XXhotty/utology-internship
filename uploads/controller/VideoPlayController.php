@@ -14,7 +14,7 @@ class VideoPlayController extends UploadsBaseController
         $resultDao = new UploadsDao();
 
         $result = $resultDao->commentGet();
-        $result2 = $resultDao->videogGet();
+        $result2 = $resultDao->videoGet();
 
         $comment = array("");
         $time = array("");
