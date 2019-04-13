@@ -1,6 +1,6 @@
  <html>
  <head></head>
  <body>
- 	<div>{$messages}</div>
+ 	<div>a</div>
  </body>
  </html>
