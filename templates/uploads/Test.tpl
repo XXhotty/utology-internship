@@ -30,6 +30,8 @@
 
         </span>
     {/if}
+
+    {$messages}
 </body>
 
 </html>
