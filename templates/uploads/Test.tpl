@@ -29,7 +29,7 @@
             {$messages}
 
         </span>
-
+    {/if}
 </body>
 
 </html>
