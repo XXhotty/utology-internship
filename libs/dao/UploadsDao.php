@@ -6,12 +6,47 @@ use \PDOException;
 
 class UploadsDao extends Database
 {
-    function fetch($sql)
+
+
+    /**
+     * @param $videoname
+     * @param $comment
+     * @param $time
+     * @return null
+     */
+    public function commentWrite ($videoId, $comment, $time)
+    {
+        try {
+            $sql = 'INSERT INTO `videocomment` (videoId, comment, time) VALUES (:videoId,:comment, :time)';
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(':videoId', $videoId, \PDO::PARAM_STR);
+            $stmt->bindValue(':comment', $comment, \PDO::PARAM_STR);
+            $stmt->bindValue(':time', $time, \PDO::PARAM_STR);
+            $stmt->execute();
+            return null;
+        }catch(PDOException $ei) {
+            echo 'Connection failed:'.$e->getMessage();
+            exit();}
+    }
+
+    public function commentGet()
     {
         try{
-            $pdo = new PDO ($this->dsn, $this->user, $this->pass, array(
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET 'utf8'"));
-            $stmt = $pdo->prepare($sql);
+            $sql = "SELECT * FROM videocomment ORDER BY id;";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        } catch(PDOException $ei) {
+            echo 'Connection failed:'.$e->getMessage();
+            exit();}
+    }
+
+    public function videoGet()
+    {
+        try{
+            $sql = "SELECT * FROM mp4 ORDER BY id;";
+            $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $data;
@@ -50,7 +85,7 @@ class UploadsDao extends Database
     }
 
 
-    function mp4()
+    public function mp4()
     {
         try{
             $sql = "SELECT * FROM mp4 ORDER BY id;";

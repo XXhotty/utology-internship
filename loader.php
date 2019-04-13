@@ -12,6 +12,9 @@ requireDir(__DIR__ . '/libs/util');
 require_once __DIR__ . '/uploads/controller/UploadsBaseController.php';
 requireDir(__DIR__ . '/uploads/controller');
 
+require_once __DIR__ . '/api/controller/ApiBaseController.php';
+requireDir(__DIR__ . '/api/controller');
+
 function requireDir($dir)
 {
     foreach (glob("$dir/*") as $file) {
