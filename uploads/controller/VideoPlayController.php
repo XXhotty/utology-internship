@@ -3,7 +3,7 @@
 namespace uploads\controller;
 
 //use libs\util\UploadsUtil;
-
+use libs\dao\UploadsDao;
 class VideoPlayController extends UploadsBaseController
 {
 
