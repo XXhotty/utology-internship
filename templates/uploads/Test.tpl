@@ -22,6 +22,8 @@
 
 <p style="text-align:center;">
 
+    a
+
     {if !empty($messages)}
 
         <span style="font:12px HiraMinProN-W3; color:#FFFFFF;">
@@ -31,7 +33,11 @@
         </span>
     {/if}
 
+    b
+
     {$messages}
+
+    c
 </body>
 
 </html>
