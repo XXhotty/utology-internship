@@ -36,6 +36,8 @@ class VideoUploadController extends UploadsBaseController
             } else {
                 $messages = "タイトルが入力されていない、もしくはファイルが選択されていません。";
             }
+        } else {
+            $messages = "";
         }
 
         $smarty->assign('messages', $messages);
