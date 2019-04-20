@@ -15,7 +15,7 @@
         window.onload = function() {
             target = document.getElementById("output");
 
-        function video_play() {
+        var video_play = function() {
             empty = "コメントなし";
             console.log(count++);
             video.play();
