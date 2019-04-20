@@ -83,7 +83,6 @@
     <input type="button" value="コメントする" onclick='comment_ajax()' >
 </form>
 
-
 <div class="contents" id="output"></div>
 
 <li><a href="VideoUpload.php">アップロード画面へ</a></li>
