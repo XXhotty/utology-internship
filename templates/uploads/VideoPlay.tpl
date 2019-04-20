@@ -15,7 +15,6 @@
         window.onload = function() {
             target = document.getElementById("output");
         };
-        {/literal}
         function video_play() {
             empty = "コメントなし";
             console.log(count++);
@@ -67,6 +66,7 @@
                 console.log("ajax通信に失敗しました");
             });
         }
+        {/literal}
     </script>
 
 </head>
@@ -82,7 +82,6 @@
     コメント:<textarea name="comment" rows="1" cols="20"></textarea>
     <input type="button" value="コメントする" onclick='comment_ajax()' >
 </form>
-
 
 <div class="contents" id="output"></div>
 
