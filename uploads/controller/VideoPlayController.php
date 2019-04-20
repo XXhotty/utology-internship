@@ -32,7 +32,7 @@ class VideoPlayController extends UploadsBaseController
            foreach ($result2 as $row) {
                if ($row["id"] == $id[0]) {
                    $target = "../files/" . $row["name"];
-                   $videoName = $row["name"];
+                   $videoName = $row["title"];
                }
            }
         }else {
