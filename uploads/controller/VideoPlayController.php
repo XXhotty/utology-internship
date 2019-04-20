@@ -39,8 +39,8 @@ class VideoPlayController extends UploadsBaseController
          $message ='動画一覧画面で動画を選択してください';
         }
 
-        var_dump("$comment");
-        var_dump("$time");
+        var_dump($comment);
+        var_dump($time);
 
         $this->smarty->assign('message', $message);
         $this->smarty->assign('target', $target);
