@@ -6,9 +6,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" >
         let id =  {$videoId};
-        let comments = {$comments};
-        let comment = comments => 'comment';
-        let time = comments => 'time';
+        var comments = {'$comments'};
+        comments = JSON.parse(comments);
+        let comment = comments.comment;
+        let time = comments.time;
         console.log(comment);
         console.log(time);
         count = 0;
