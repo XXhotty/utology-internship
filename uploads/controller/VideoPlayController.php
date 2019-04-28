@@ -25,10 +25,8 @@ class VideoPlayController extends UploadsBaseController
             foreach ($result as $row) {
                 $comments[] = [
                     'comment' => $row['comment'],
-                    'time'
+                    'time' =>  $row['time']
                 ];
-                array_push($comment, $row["comment"]);
-                array_push($time, $row["time"]);
          }
            foreach ($result2 as $row) {
                if ($row["id"] == $id[0]) {
@@ -40,15 +38,14 @@ class VideoPlayController extends UploadsBaseController
          $message ='動画一覧画面で動画を選択してください';
         }
 
+        var_dump($comments);
+
         $this->smarty->assign('message', $message);
         $this->smarty->assign('target', $target);
 
         $this->smarty->assign('videoName', $videoName);
         $this->smarty->assign('videoId', $id[0]);
-        $this->smarty->assign('comment', json_encode($result));
-        $this->smarty->assign('time', json_encode($time));
+        $this->smarty->assign('comments', json_encode($comments));
 
-
-        $this->smarty->assign('result', $result);
     }
 }
