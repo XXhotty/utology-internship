@@ -16,18 +16,19 @@ class VideoPlayController extends UploadsBaseController
         $result = $resultDao->commentGet();
         $result2 = $resultDao->videoGet();
 
-        $comment = array("");
-        $time = array("");
+        $comments = [];
         $message ='';
 
         if (isset($_POST["sub"])) {
             $sub = $_POST["sub"];
             $id = explode(".", $sub);
             foreach ($result as $row) {
-              if ($row["videoId"] == $id[0]) {
-                  array_push($comment, $row["comment"]);
-                  array_push($time, $row["time"]);
-                }
+                $comments[] = [
+                    'comment' => $row['comment'],
+                    'time'
+                ];
+                array_push($comment, $row["comment"]);
+                array_push($time, $row["time"]);
          }
            foreach ($result2 as $row) {
                if ($row["id"] == $id[0]) {
@@ -44,8 +45,8 @@ class VideoPlayController extends UploadsBaseController
 
         $this->smarty->assign('videoName', $videoName);
         $this->smarty->assign('videoId', $id[0]);
-        $this->smarty->assign('comment', $comment);
-        $this->smarty->assign('time', $time);
+        $this->smarty->assign('comment', json_encode($result));
+        $this->smarty->assign('time', json_encode($time));
 
 
         $this->smarty->assign('result', $result);
