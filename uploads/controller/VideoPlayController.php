@@ -43,7 +43,7 @@ class VideoPlayController extends UploadsBaseController
 
         $this->smarty->assign('videoName', $videoName);
         $this->smarty->assign('videoId', $id[0]);
-        $this->smarty->assign('comments', json_encode($comments));
+        $this->smarty->assign('comments', $comments);
 
     }
 }
