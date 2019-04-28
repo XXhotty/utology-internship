@@ -6,12 +6,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" >
         let id =  {$videoId};
-        console.log({$Jcomments});
-        let comments = {$comments};
-        let comment = comments.comment;
-        let time = comments.time;
-        console.log(comment);
-        console.log(time);
+        let comments = JSON.perse({$Jcomments});
+        console.log(comments);
         count = 0;
         {literal}
         window.onload = function() {
@@ -40,7 +36,7 @@
             };
             I = setInterval(countup, 1000);
             return count;
-        };
+        }
         function video_pause() {
             video.pause();
             clearInterval(I);
@@ -69,7 +65,7 @@
             });
         }
         };
-       var commentView = function () {
+       var commentView() = function () {
            count = 0;
            var nextComment = comments[0];
             while (1){
@@ -78,9 +74,7 @@
                     count++;
                 }
             }
-        };
-
-
+        }
         {/literal}
     </script>
 
