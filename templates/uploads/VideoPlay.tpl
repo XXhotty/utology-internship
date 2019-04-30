@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" >
         let id =  {$videoId};
-        let comments = JSON.perse({$Jcomments});
+        let comments = JSON.perse({$comments});
         console.log(comments);
         count = 0;
         {literal}
