@@ -40,9 +40,8 @@ class VideoPlayController extends UploadsBaseController
 
         $Jcomments = json_encode($comments);
 
-        print_r("comments");
-        print_r("Jcomments");
-
+        print_r("$comments");
+        print_r("$Jcomments");
 
         $this->smarty->assign('message', $message);
         $this->smarty->assign('target', $target);
