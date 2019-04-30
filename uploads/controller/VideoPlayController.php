@@ -38,9 +38,10 @@ class VideoPlayController extends UploadsBaseController
          $message ='動画一覧画面で動画を選択してください';
         }
 
+        print_r("$comments");
+
         $Jcomments = json_encode($comments);
 
-        print_r("$comments");
         print_r("$Jcomments");
 
         $this->smarty->assign('message', $message);
@@ -48,7 +49,7 @@ class VideoPlayController extends UploadsBaseController
 
         $this->smarty->assign('videoName', $videoName);
         $this->smarty->assign('videoId', $id[0]);
-        $this->smarty->assign('comments', $Jcomments);
+        $this->smarty->assign('comments', $comments);
         $this->smarty->assign('Jcomments', $Jcomments);
 
     }
