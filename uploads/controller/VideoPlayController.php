@@ -40,6 +40,7 @@ class VideoPlayController extends UploadsBaseController
 
         $Jcomments = json_encode($comments);
         print_r("$Jcomments");
+        echo("<br/>");
         $Jcomments = str_replace('&quot;', '"', $Jcomments);
         print_r("$Jcomments");
 
