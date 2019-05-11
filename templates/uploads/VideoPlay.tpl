@@ -37,6 +37,7 @@
             I = setInterval(countup, 1000);
             return count;
         }
+
         function video_pause() {
             video.pause();
             clearInterval(I);
@@ -65,7 +66,7 @@
             });
         }
         };
-       var commentView() = function () {
+       var commentView = function () {
            count = 0;
            var nextComment = comments[0];
             while (1){
