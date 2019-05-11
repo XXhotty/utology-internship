@@ -12,7 +12,7 @@
         {literal}
         window.onload = function() {
             target = document.getElementById("output");
-
+        };
         var video_play = function() {
             empty = "コメントなし";
             console.log(count++);
@@ -65,7 +65,6 @@
                 console.log("ajax通信に失敗しました");
             });
         }
-        };
        var commentView = function () {
            count = 0;
            var nextComment = comments[0];
