@@ -81,7 +81,7 @@
                     count++;
                 }
             }
-        */}
+        }*/
         {/literal}
     </script>
 
