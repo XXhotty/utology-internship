@@ -32,8 +32,22 @@ class UploadsDao extends Database
     public function commentGet()
     {
         try{
-            $sql = "SELECT * FROM videocomment ORDER BY id;";
+            $sql = "SELECT * FROM videocomment ORDER BY cast(time as signed);;";
             $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        } catch(PDOException $ei) {
+            echo 'Connection failed:'.$e->getMessage();
+            exit();}
+    }
+
+    public function commentGetByVideoId($videoId)
+    {
+        try{
+            $sql = "SELECT * FROM videocomment WHERE videoId = :videoId ORDER BY cast(time as signed);";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(':videoId', $videoId);
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $data;
