@@ -19,11 +19,8 @@
 
         var video_play = function() {
             empty = "コメントなし";
-            console.log(count++);
             video.play();
             var countup = function(){
-                len = comment.length;
-                len++;
                 comment = "";
                 while (1){
                     if(count > nextComment.time) {
