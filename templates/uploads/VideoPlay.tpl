@@ -22,8 +22,9 @@
             video.play();
             var countup = function(){
                 comment = "";
+                Vcount = count - 1;
                 console.log(nextComment.time);
-                while (count > nextComment.time){
+                while (Vcount > nextComment.time){
                     comment = comment + ' ' + nextComment.comment;
                     nextComment = comments[++videoTime];
                 }
