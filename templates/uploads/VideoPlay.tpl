@@ -23,11 +23,9 @@
             var countup = function(){
                 comment = "";
                 console.log(nextComment.time);
-                while (1){
-                    if(count > nextComment.time) {
-                        comment = comment + ' ' + nextComment.comment;
-                        nextComment = comments[++videoTime];
-                    }
+                while (count > nextComment.time){
+                    comment = comment + ' ' + nextComment.comment;
+                    nextComment = comments[++videoTime];
                 }
                 if(comment != ''){
                     target.innerHTML = comment;
