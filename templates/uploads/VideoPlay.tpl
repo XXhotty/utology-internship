@@ -9,10 +9,14 @@
         let comments = {$Jcomments nofilter};
         console.log(comments);
         count = 0;
+        videoTime = 0;
+        var nextComment = comments[videoTime];
+
         {literal}
         window.onload = function() {
             target = document.getElementById("output");
         };
+
         var video_play = function() {
             empty = "コメントなし";
             console.log(count++);
@@ -20,23 +24,26 @@
             var countup = function(){
                 len = comment.length;
                 len++;
-                CC = "";
-                for (var i = 0; i < len; i++){
-                    if(count == time[i]){
-                        CC = CC + ' ' + comment[i];
-                        target.innerHTML = CC;
-                    }
-                    else if(CC == ""){
-                        target.innerHTML = empty;
+                comment = "";
+                while (1){
+                    if(count > nextComment.time) {
+                        comment = comment + ' ' + nextComment.comment;
+                        nextComment = comments[++videoTime];
                     }
                 }
+                if(comment != ''){
+                    target.innerHTML = comment;
+                }
+                else {
+                    target.innerHTML = empty;
+                }
                 console.log(count++);
-                console.log(CC);
+                console.log(comment);
                 return count;
             };
             I = setInterval(countup, 1000);
             return count;
-        }
+        };
 
         function video_pause() {
             video.pause();
@@ -65,7 +72,7 @@
                 console.log("ajax通信に失敗しました");
             });
         }
-       var commentView = function () {
+      /* var commentView = function () {
            count = 0;
            var nextComment = comments[0];
             while (1){
@@ -74,7 +81,7 @@
                     count++;
                 }
             }
-        }
+        */}
         {/literal}
     </script>
 
