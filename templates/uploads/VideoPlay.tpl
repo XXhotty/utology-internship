@@ -73,6 +73,9 @@
                 target.innerHTML = comment;
             }).fail(function(xhr, textStatus, errorThrown) {
                 console.log("ajax通信に失敗しました");
+                console.log(response[0]);
+                console.log(response[1]);
+                console.log(response[2]);
             });
         }
       /* var commentView = function () {
