@@ -52,7 +52,7 @@
             clearInterval(I);
         }
         function comment_ajax() {
-            let newComment = document.form.comment.value;
+            let newComment = document.comment.comment.value;
             console.log(newComment);
             commentCount = count -1;
             $.ajax({
@@ -97,7 +97,7 @@
     <input type='button' value='play' onclick='video_play()'>
     <input type='button' value='pause' onclick='video_pause()'>
     <br/>
-    コメント:<textarea name="comment" rows="1" cols="20"></textarea>
+    コメント:<input type="text" id = "comment" name="comment" size="40" maxlength="20">
     <input type="button" value="コメントする" onclick='comment_ajax()' >
 
 <div class="contents" id="output"></div>
