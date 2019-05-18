@@ -54,10 +54,11 @@
         function comment_ajax() {
             let newComment = document.form.comment.value;
             console.log(newComment);
+            commentCount = count -1;
             $.ajax({
                 url : "/utology-internship/api/VideoPlayApi.php",
                 type : "POST",
-                data : {post_data_1:id, post_data_2:newComment, post_data_3:count}
+                data : {post_data_1:id, post_data_2:newComment, post_data_3:commentCount}
             }).done(function(response, textStatus, xhr) {
                 console.log("ajax通信に成功しました");
                 console.log(response[0]);
