@@ -18,7 +18,7 @@
         };
 
         var video_play = function() {
-            empty = "コメントなし";
+            empty = " ";
             video.play();
             var countup = function(){
                 comment = "";
