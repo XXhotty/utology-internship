@@ -23,8 +23,11 @@
             var countup = function(){
                 comment = "";
                 Vcount = count + 1;
-                console.log(nextComment.time);
+                console.log("Vcount");
+                console.log(Vcount);
                 while (Vcount > nextComment.time){
+                    console.log("nextComment");
+                    console.log(nextComment.time);
                     comment = comment + ' ' + nextComment.comment;
                     nextComment = comments[++videoTime];
                 }
@@ -34,7 +37,9 @@
                 else {
                     target.innerHTML = empty;
                 }
+                console.log("count");
                 console.log(count++);
+                console.log("comment");
                 console.log(comment);
                 return count;
             };
