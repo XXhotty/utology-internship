@@ -8,12 +8,14 @@
     <input type="text" name="word">
     <input type="submit" value="検索">
 </form>
-<form action="VideoPlay.php" enctype="multipart/form-data" method="post">
+
     {foreach from=$result item=mp}
-        <input type='submit' value='{$mp['id']}.{$mp['title']}:この動画を見る' name='sub'>
-        <br/>
-    {/foreach}
+<form action="VideoPlay.php" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="videoId" value="{$mp['id']}">
+        <input type='submit' value='{$mp['title']}:この動画を見る' name='sub'>
 </form>
+
+    {/foreach}
 <li><a href="VideoUpload.php">アップロード画面へ</a></li>
 </body>
 </html>
