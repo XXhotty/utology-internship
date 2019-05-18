@@ -93,7 +93,6 @@
 
 </head>
 <body>
-<form action="" enctype="multipart/form-data" method="post" name="form">
     {$message}<br/>
     {$videoName}<br/>
     <video id =video src='{$target}' width='426' height='240'></video>
@@ -103,7 +102,6 @@
     <br/>
     コメント:<textarea name="comment" rows="1" cols="20"></textarea>
     <input type="button" value="コメントする" onclick='comment_ajax()' >
-</form>
 
 <div class="contents" id="output"></div>
 
