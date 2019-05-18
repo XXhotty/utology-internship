@@ -97,7 +97,7 @@
     <input type='button' value='play' onclick='video_play()'>
     <input type='button' value='pause' onclick='video_pause()'>
     <br/>
-    コメント:<input type="text" id = "comment" name="comment" size="40" maxlength="20">
+    コメント:<input type="text" id = "comment">
     <input type="button" value="コメントする" onclick='comment_ajax()' >
 
 <div class="contents" id="output"></div>
