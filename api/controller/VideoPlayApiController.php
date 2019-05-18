@@ -5,7 +5,7 @@ namespace api\controller;
 //use libs\util\UploadsUtil;
 
 use libs\dao\UploadsDao;
-class VideoPlayController extends ApiBaseController
+class VideoPlayApiController extends ApiBaseController
 {
     protected function main()
     {
