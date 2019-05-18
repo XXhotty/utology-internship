@@ -52,7 +52,7 @@
             clearInterval(I);
         }
         function comment_ajax() {
-            let newComment = document.comment.comment.value;
+            let newComment = document.getElementById(comment).value;
             console.log(newComment);
             commentCount = count -1;
             $.ajax({
