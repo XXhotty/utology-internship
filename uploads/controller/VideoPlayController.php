@@ -20,7 +20,7 @@ class VideoPlayController extends UploadsBaseController
         $message ='';
 
         if (isset($_POST["sub"])) {
-            $sub = $_POST["videoId"];
+            $id = $_POST["videoId"];
             foreach ($result as $row) {
                 $comments[] = [
                     'comment' => $row['comment'],
