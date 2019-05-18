@@ -73,9 +73,6 @@
                 target.innerHTML = comment;
             }).fail(function(xhr, textStatus, errorThrown) {
                 console.log("ajax通信に失敗しました");
-                console.log(response[0]);
-                console.log(response[1]);
-                console.log(response[2]);
             });
         }
       /* var commentView = function () {
@@ -93,7 +90,6 @@
 
 </head>
 <body>
-<form action="" enctype="multipart/form-data" method="post" name="form">
     {$message}<br/>
     {$videoName}<br/>
     <video id =video src='{$target}' width='426' height='240'></video>
@@ -103,7 +99,6 @@
     <br/>
     コメント:<textarea name="comment" rows="1" cols="20"></textarea>
     <input type="button" value="コメントする" onclick='comment_ajax()' >
-</form>
 
 <div class="contents" id="output"></div>
 
