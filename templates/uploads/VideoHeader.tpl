@@ -1,7 +1,7 @@
 <html lang="ja">
 <header class="header">
     <h1 class="logo">
-        <a href="/">SAMPLE SITE</a>
+        <a>SAMPLE</a>
     </h1>
     <nav class="global-nav">
         <ul>
