@@ -1,3 +1,4 @@
+<html lang="ja">
 <header class="header">
     <h1 class="logo">
         <a href="/">SAMPLE SITE</a>
@@ -10,3 +11,4 @@
         </ul>
     </nav>
 </header>
+</html>
