@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>sample</title>
+    <title>動画再生</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" >
         let id =  {$videoId};
@@ -90,6 +90,7 @@
 
 </head>
 <body>
+
     {$message}<br/>
     {$videoName}<br/>
     <video id =video src='{$target}' width='426' height='240'></video>

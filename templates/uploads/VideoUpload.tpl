@@ -1,10 +1,9 @@
-
-<h1>アップロード画面</h1>
-
+<!DOCTYPE html>
 <html lang="ja">
+<h1>アップロード画面</h1>
 <head>
     <meta charset="utf-8">
-    <title>media</title>
+    <title>動画アップロード</title>
 </head>
 
 
