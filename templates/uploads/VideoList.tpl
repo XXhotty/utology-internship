@@ -4,7 +4,7 @@
 
     {include file='../../templates/uploads/VideoHeader.tpl'}
 
-    <link rel="stylesheet" href="../../assets/css/VideoHeader.css">
+    <link rel="stylesheet" href="../assets/css/VideoHeader.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>動画一覧</title>
 </head>
