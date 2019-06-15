@@ -1,4 +1,4 @@
-let id =  {$videoId};
+let id =  $videoId;
 let comments = {$Jcomments: nofilter};
 console.log(comments);
 count = 0;
