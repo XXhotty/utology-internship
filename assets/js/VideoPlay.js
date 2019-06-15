@@ -1,6 +1,4 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" >
-    let id =  {$videoId};
+let id =  {$videoId};
 let comments = {$Jcomments nofilter};
 console.log(comments);
 count = 0;
@@ -80,5 +78,5 @@ function comment_ajax() {
           }
       }
   }*/
+
 {/literal}
-</script>
