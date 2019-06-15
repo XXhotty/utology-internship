@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 
-    {include file='./../templates/uploads/VideoHeader.tpl'}
+    {include file='../../templates/uploads/VideoHeader.tpl'}
 
     <link rel="stylesheet" href="assets/css/upload/VideoHeader.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
