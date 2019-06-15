@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    {include file='../../templates/uploads/VideoHeader.tpl'}
+
+    <link rel="stylesheet" href="../assets/css/VideoHeader.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>動画再生</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
