@@ -1,5 +1,5 @@
 let id =  {$videoId};
-let comments = {$Jcomments nofilter};
+let comments = {$Jcomments; nofilter};
 console.log(comments);
 count = 0;
 videoTime = 0;
