@@ -5,7 +5,6 @@ class UploadsBaseController
 {
     protected $smarty;
     protected $template = '';
-    protected $header = '';
 
 
     public function __construct()
@@ -19,7 +18,6 @@ class UploadsBaseController
         $this->main();
         $this->afterMain();
         try {
-            $this->smarty->display($this->header);
             $this->smarty->display($this->template);
         } catch (\Exception $e) {
             throw $e;
