@@ -5,7 +5,6 @@ count = 0;
 videoTime = 0;
 var nextComment = comments[videoTime];
 
-{literal}
 window.onload = function() {
     target = document.getElementById("output");
 };
@@ -78,5 +77,3 @@ function comment_ajax() {
           }
       }
   }*/
-
-{/literal}
