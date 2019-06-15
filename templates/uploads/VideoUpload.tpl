@@ -22,6 +22,5 @@
     <input type="submit" name="send" value="アップロード">
 </form>
 
-<li><a href="VideoList.php">動画一覧へ</a></li>
 </body>
 </html>
