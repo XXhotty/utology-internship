@@ -1,12 +1,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript" >
-let id =  {$videoId};
+    <script type="text/javascript" >
+    let id =  {$videoId};
 let comments = {$Jcomments nofilter};
 console.log(comments);
 count = 0;
 videoTime = 0;
 var nextComment = comments[videoTime];
 
+{literal}
 window.onload = function() {
     target = document.getElementById("output");
 };
@@ -79,4 +80,5 @@ function comment_ajax() {
           }
       }
   }*/
+{/literal}
 </script>
