@@ -1,4 +1,3 @@
-<html lang="ja">
 <header class="header">
     <h1 class="logo">
         <a>SAMPLE</a>
@@ -12,4 +11,3 @@
         </ul>
     </nav>
 </header>
-</html>
