@@ -2,6 +2,9 @@
 <html lang="ja">
 <h1>アップロード画面</h1>
 <head>
+    {include file='../../templates/uploads/VideoHeader.tpl'}
+
+    <link rel="stylesheet" href="../assets/css/VideoHeader.css">
     <meta charset="utf-8">
     <title>動画アップロード</title>
 </head>
