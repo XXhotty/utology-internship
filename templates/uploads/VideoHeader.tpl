@@ -3,6 +3,7 @@
     <h1 class="logo">
         <a>SAMPLE</a>
     </h1>
+
     <nav class="global-nav">
         <ul>
             <li class="nav-item"><a href="VideoList.php">List</a></li>

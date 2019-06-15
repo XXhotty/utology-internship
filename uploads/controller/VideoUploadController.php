@@ -8,7 +8,6 @@ use libs\dao\UploadsDao;
 class VideoUploadController extends UploadsBaseController
 {
 
-    protected $header = 'uploads/VideoHeader.tpl';
     protected $template = 'uploads/VideoUpload.tpl';
 
     protected function main()
