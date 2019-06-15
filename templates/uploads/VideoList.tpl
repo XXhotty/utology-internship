@@ -21,7 +21,7 @@
 </form>
 
     {/foreach}
-<li><a href="VideoUpload.php">アップロード画面へ</a></li>
+
 </body>
 </html>
 
