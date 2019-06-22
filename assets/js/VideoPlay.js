@@ -2,7 +2,6 @@ window.onload = function() {
     var id = JSON.parse(document.getElementById('videoId').innerHTML);
     var comments = JSON.parse(document.getElementById('Jcomments').innerHTML);
     target = document.getElementById("output");
-    target.innerHTML = "Start";
 console.log(comments);
 count = 0;
 videoTime = 0;
