@@ -1,5 +1,5 @@
-id = document.getElementById('videoId').value;
-comments = document.getElementById('Jcomments').value;
+var id = document.getElementById('videoId').value;
+var comments = document.getElementById('Jcomments').value;
 console.log(comments);
 count = 0;
 videoTime = 0;
