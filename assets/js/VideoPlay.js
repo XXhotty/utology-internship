@@ -26,7 +26,7 @@ document.getElementById('video_play').onclick = function() {
             target.innerHTML = count + comment;
         }
         else {
-            target.innerHTML = empty + count;
+            target.innerHTML = empty + count + count;
         }
         console.log(count++);
         console.log(comment);
