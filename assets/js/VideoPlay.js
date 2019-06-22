@@ -1,5 +1,5 @@
-let id = document.getElementById('videoId').value;
-let comments = document.getElementById('Jcomments').value;
+id = document.getElementById('videoId').value;
+comments = document.getElementById('Jcomments').value;
 console.log(comments);
 count = 0;
 videoTime = 0;
@@ -42,7 +42,7 @@ document.getElementById('video_play').onclick = function() {
 document.getElementById('video_pause').onclick = function() {
     video.pause();
     clearInterval(I);
-}
+};
 function comment_ajax() {
     let newComment = document.getElementById('comment').value;
     console.log(newComment);
