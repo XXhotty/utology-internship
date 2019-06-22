@@ -1,14 +1,12 @@
 window.onload = function() {
-    var id = document.getElementById('videoId').innerHTML;
-    var comments = document.getElementById('Jcomments').innerHTML;
+    var id = json_decode(document.getElementById('videoId').innerHTML);
+    var comments = json_decode(document.getElementById('Jcomments').innerHTML);
     target = document.getElementById("output");
 
 console.log(comments);
 count = 0;
 videoTime = 0;
 var nextComment = comments[videoTime];
-
-
 
 document.getElementById('video_play').onclick = function() {
     empty = " ";
@@ -23,10 +21,10 @@ document.getElementById('video_play').onclick = function() {
             nextComment = comments[++videoTime];
         }
         if(comment != ''){
-            target.innerHTML = count + comment;
+            target.innerHTML = comment;
         }
         else {
-            target.innerHTML = empty + count + count;
+            target.innerHTML = "empty";
         }
         console.log(count++);
         console.log(comment);
