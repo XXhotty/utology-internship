@@ -2,7 +2,6 @@ window.onload = function() {
     var id = document.getElementById('videoId').innerHTML;
     var comments = document.getElementById('Jcomments').innerHTML;
     target = document.getElementById("output");
-};
 
 console.log(comments);
 count = 0;
@@ -79,3 +78,5 @@ function comment_ajax() {
           }
       }
   }*/
+
+};
