@@ -23,10 +23,10 @@ document.getElementById('video_play').onclick = function() {
             nextComment = comments[++videoTime];
         }
         if(comment != ''){
-            target.innerHTML = comment;
+            target.innerHTML = count + comment;
         }
         else {
-            target.innerHTML = empty;
+            target.innerHTML = empty + count;
         }
         console.log(count++);
         console.log(comment);
