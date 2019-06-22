@@ -43,3 +43,9 @@
     background-color: #d03c56;
     color: #fff;
 }
+
+.output{
+    white-space: nowrap;
+    overflow: hidden;
+    animation: flow 10s linear infinite;
+}
