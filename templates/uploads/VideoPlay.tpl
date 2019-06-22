@@ -17,8 +17,8 @@
     {$videoName}<br/>
     <video id =video src='{$target}' width='426' height='240'></video>
     <br/>
-    <input type='button' value='play' onclick='video_play()'>
-    <input type='button' value='pause' onclick='video_pause()'>
+    <input type='button' value='play' id='video_play'>
+    <input type='button' value='pause' id='video_pause'>
     <br/>
     コメント:<input type="text" id="comment">
     <input type="button" value="コメントする" onclick='comment_ajax()' >

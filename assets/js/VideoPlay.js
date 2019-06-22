@@ -9,7 +9,7 @@ window.onload = function() {
     target = document.getElementById("output");
 };
 
-var video_play = function() {
+document.getElementById('video_play').onclick = function() {
     empty = " ";
     video.play();
     var countup = function(){
@@ -39,7 +39,7 @@ var video_play = function() {
     return count;
 };
 
-function video_pause() {
+document.getElementById('video_pause').onclick = function() {
     video.pause();
     clearInterval(I);
 }
