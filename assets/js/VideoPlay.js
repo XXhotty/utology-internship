@@ -1,6 +1,6 @@
 window.onload = function() {
-    var id = JSON.decode(document.getElementById('videoId').innerHTML);
-    var comments = JSON.decode(document.getElementById('Jcomments').innerHTML);
+    var id = JSON.parse(document.getElementById('videoId').innerHTML);
+    var comments = JSON.parse(document.getElementById('Jcomments').innerHTML);
     target = document.getElementById("output");
 
 console.log(comments);
