@@ -1,3 +1,4 @@
+console.log(document.getElementById("videoId").value);
 var id = document.getElementById('videoId').value;
 var comments = document.getElementById('Jcomments').value;
 console.log(comments);
