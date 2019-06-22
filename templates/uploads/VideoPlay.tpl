@@ -11,8 +11,8 @@
 
 </head>
 <body>
-<div id="videoId" style="display: none">{$videoId}</div>
-<div id="Jcomments" style="display: none">{$Jcomments nofilter}</div>
+<div id="videoId" style="">{$videoId}</div>
+<div id="Jcomments" style="">{$Jcomments nofilter}</div>
     {$message}<br/>
     {$videoName}<br/>
     <video id =video src='{$target}' width='426' height='240'></video>
