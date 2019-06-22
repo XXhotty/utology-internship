@@ -23,9 +23,10 @@
     コメント:<input type="text" id="comment">
     <input type="button" value="コメントする" onclick='comment_ajax()' >
 
-
-<div class="telop">
-    <p id = 'output'>Start</p>
+<div class="area">
+    <div class="marquee">
+        <p id = 'output'>Start</p>
+    </div>
 </div>
 
 <div id="response0"></div>
