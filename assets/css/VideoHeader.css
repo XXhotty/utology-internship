@@ -44,19 +44,28 @@
     color: #fff;
 }
 
-.output{
+
+.telop{
+    z-index: 3;
+    width: 100%;
+    padding: 15px 0;
+    text-align: right;
+    background-color: #555;
+    color: white;
+}
+.telop p{
+    box-sizing: content-box;
+    display: inline-block;
     white-space: nowrap;
-    overflow: hidden;
-    animation: flow 10s linear infinite;
+    padding-left: 100%;
+    margin: 0;
+    animation-name: telop;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
-@keyframes flow{
-    from{
-        text-indent: 100%;
-    }
-
-    to{
-        /* 文字数に合わせて変更 */
-        text-indent: -12em;
-    }
+@keyframes telop{
+    from    { transform: translate(0%); }
+    100%,to { transform: translate(-100%); }
 }
