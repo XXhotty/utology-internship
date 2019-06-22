@@ -49,3 +49,14 @@
     overflow: hidden;
     animation: flow 10s linear infinite;
 }
+
+@keyframes flow{
+    from{
+        text-indent: 100%;
+    }
+
+    to{
+        /* 文字数に合わせて変更 */
+        text-indent: -12em;
+    }
+}
