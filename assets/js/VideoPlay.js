@@ -1,13 +1,15 @@
-var id = document.getElementById('videoId').innerHTML;
-var comments = document.getElementById('Jcomments').innerHTML;
+window.onload = function() {
+    var id = document.getElementById('videoId').innerHTML;
+    var comments = document.getElementById('Jcomments').innerHTML;
+    target = document.getElementById("output");
+};
+
 console.log(comments);
 count = 0;
 videoTime = 0;
 var nextComment = comments[videoTime];
 
-window.onload = function() {
-    target = document.getElementById("output");
-};
+
 
 document.getElementById('video_play').onclick = function() {
     empty = " ";
