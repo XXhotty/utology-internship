@@ -27,7 +27,6 @@
 <div class="telop">
     <p id = 'output'>Start</p>
 </div>
-<div class="contents" id="output"></div>
 
 <div id="response0"></div>
 <div id="response1"></div>
