@@ -1,9 +1,9 @@
-var id = document.getElementById('videoId').value;
-var comments = document.getElementById('Jcomments').value;
+id = document.getElementById('videoId');
+comments = document.getElementById('Jcomments');
 console.log(comments);
 count = 0;
 videoTime = 0;
-var nextComment = comments[videoTime];
+var nextComment = comments.value[videoTime];
 
 window.onload = function() {
     target = document.getElementById("output");
