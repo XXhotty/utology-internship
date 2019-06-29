@@ -9,7 +9,7 @@ var i;
 var j = 1;
 var mydiv = new Array();
 
-for(i = 1; i++; i < 3){
+for(i = 1; i++; i < 3) {
     var divNumber = "mydiv" + i;
     mydiv[i] = document.getElementById(divNumber);
 }
