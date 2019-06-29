@@ -6,6 +6,7 @@ console.log(comments);
 count = 0;
 videoTime = 0;
 var nextComment = comments[videoTime];
+var div;
 
 document.getElementById('video_play').onclick = function() {
     empty = " ";
@@ -20,10 +21,14 @@ document.getElementById('video_play').onclick = function() {
             nextComment = comments[++videoTime];
         }
         if(comment != ''){
-            target.innerHTML = comment;
+            div['count'] = document.createElement('p');
+            div['count'].appendChild(comment);
+            target.appendChild(div['count'])
         }
         else {
-            target.innerHTML = empty;
+            div['count'] = document.createElement('p');
+            div['count'].appendChild(empty);
+            target.appendChild(div['count'])
         }
         console.log(count++);
         console.log(comment);
