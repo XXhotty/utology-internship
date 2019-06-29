@@ -7,9 +7,11 @@ videoTime = 0;
 var nextComment = comments[videoTime];
 var i;
 var j = 1;
+var mydiv = new Array();
+
 for(i = 1; i++; i < 3){
     var divNumber = "mydiv" + i;
-    var mydiv[i] = document.getElementById(divNumber);
+    mydiv[i] = document.getElementById(divNumber);
 }
 
 
