@@ -21,13 +21,13 @@ document.getElementById('video_play').onclick = function() {
             nextComment = comments[++videoTime];
         }
         if(comment != ''){
-            div['count'] = document.createElement('p');
-            div['count'].appendChild(comment);
+            div['Vcount'] = document.createElement('p');
+            div['Vcount'].appendChild(comment);
             target.appendChild(div['count'])
         }
         else {
-            div['count'] = document.createElement('p');
-            div['count'].appendChild(empty);
+            div['Vcount'] = document.createElement('p');
+            div['Vcount'].appendChild(empty);
             target.appendChild(div['count'])
         }
         console.log(count++);
