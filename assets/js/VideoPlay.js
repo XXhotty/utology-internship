@@ -21,14 +21,10 @@ document.getElementById('video_play').onclick = function() {
             nextComment = comments[++videoTime];
         }
         if(comment != ''){
-            div['Vcount'] = document.createElement('p');
-            div['Vcount'].appendChild(comment);
-            target.appendChild(div['count'])
+            target.appendChild(comment);
         }
         else {
-            div['Vcount'] = document.createElement('p');
-            div['Vcount'].appendChild(empty);
-            target.appendChild(div['count'])
+            target.appendChild(empty)
         }
         console.log(count++);
         console.log(comment);
