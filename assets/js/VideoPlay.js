@@ -1,12 +1,11 @@
 window.onload = function() {
     var id = JSON.parse(document.getElementById('videoId').innerHTML);
     var comments = JSON.parse(document.getElementById('Jcomments').innerHTML);
-    target = document.getElementById("output");
+    var mydiv = document.getElementById("mydiv");
 console.log(comments);
 count = 0;
 videoTime = 0;
 var nextComment = comments[videoTime];
-var div;
 
 document.getElementById('video_play').onclick = function() {
     empty = " ";
@@ -21,10 +20,16 @@ document.getElementById('video_play').onclick = function() {
             nextComment = comments[++videoTime];
         }
         if(comment != ''){
-            target.appendChild(comment);
+            var myp = document.createElement("p");
+            var text = document.createTextNode(comment);
+            myp.appendChild(text);
+            mydiv.appendChild(myp);
         }
         else {
-            target.appendChild(empty)
+            var myp = document.createElement("p");
+            var text = document.createTextNode(empty);
+            myp.appendChild(text);
+            mydiv.appendChild(myp);
         }
         console.log(count++);
         console.log(comment);
