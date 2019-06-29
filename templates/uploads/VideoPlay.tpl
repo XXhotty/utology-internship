@@ -25,9 +25,7 @@
     <input type="button" value="コメントする" onclick='comment_ajax()' >
 
 <div class="area">
-    <div class="marquee">
-        <p id = 'output'>Start</p>
-    </div>
+    <div id="mydiv" class="marquee">Start</div>
 </div>
 
 <div id="response0"></div>
