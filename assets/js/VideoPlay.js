@@ -7,12 +7,6 @@ videoTime = 0;
 var nextComment = comments[videoTime];
 var i;
 var j = 1;
-var mydiv = new Array();
-
-for(i = 1; i++; i < 3) {
-    var divNumber = "mydiv" + i;
-    mydiv[i] = document.getElementById(divNumber);
-}
 
 
 document.getElementById('video_play').onclick = function() {
@@ -28,22 +22,12 @@ document.getElementById('video_play').onclick = function() {
             nextComment = comments[++videoTime];
         }
         if(comment != ''){
-            if(j < 3){
-                j++
-            }
-            else{
-                j = 1
-            }
-            var myp = document.createElement("p");
+            var myp = document.createElement("div");
             var text = document.createTextNode(comment);
+            var divClass = document.getElementsByClassName('marquee');
             myp.appendChild(text);
-            mydiv[j].appendChild(myp);
-        }
-        else {
-            var myp = document.createElement("p");
-            var text = document.createTextNode(empty);
-            myp.appendChild(text);
-            mydiv.appendChild(myp);
+            myp.appendChild(divClass);
+            mydiv.appendChild(area);
         }
         console.log(count++);
         console.log(comment);
