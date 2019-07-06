@@ -26,6 +26,9 @@
 
 <div id="area" class="area">
     <div class="marquee">Start</div>
+    <div id="space1" class="marquee"></div>
+    <div id="space2" class="marquee"></div>
+    <div id="space3" class="marquee"></div>
 </div>
 
 <div id="response0"></div>
