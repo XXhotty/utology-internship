@@ -5,9 +5,7 @@ console.log(comments);
 count = 0;
 videoTime = 0;
 var nextComment = comments[videoTime];
-var i;
-var j = 1;
-
+var area = document.getElementById('area');
 
 document.getElementById('video_play').onclick = function() {
     empty = " ";
@@ -22,12 +20,11 @@ document.getElementById('video_play').onclick = function() {
             nextComment = comments[++videoTime];
         }
         if(comment != ''){
-            var area = document.getElementById('area');
             var myp = document.createElement("div");
             var text = document.createTextNode(comment);
             myp.classList.add("marquee");
             myp.appendChild(text);
-            area.appendChild(myp);
+            area.appendChild();
         }
         console.log(count++);
         console.log(comment);
