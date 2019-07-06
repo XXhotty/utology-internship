@@ -5,15 +5,10 @@ console.log(comments);
 count = 0;
 videoTime = 0;
 var nextComment = comments[videoTime];
-var area = document.getElementById('area');
-var i;
+var space1 = document.getElementById('space1');
+var space2 = document.getElementById('space2');
+var space3 = document.getElementById('space3');
 var j = 1;
-var space = new Array();
-    for(i = 1; i++; i < 3) {
-        var spaceName = "space" + i;
-        space[i] = document.getElementById(spaceName);
-    }
-
 
 document.getElementById('video_play').onclick = function() {
     empty = " ";
@@ -28,22 +23,22 @@ document.getElementById('video_play').onclick = function() {
             nextComment = comments[++videoTime];
         }
         if(comment != ''){
-            if(j < 3){
-                var myp = document.createElement("div");
-                var text = document.createTextNode(comment);
-                myp.classList.add("marquee");
-                myp.appendChild(text);
-                space[j].appendChild(myp);
+            var myp = document.createElement("div");
+            var text = document.createTextNode(comment);
+            myp.classList.add("marquee");
+            myp.appendChild(text);
+            if(j == 1){
+                space1.appendChild(myp);
+                j++;
+            }
+            else if(j == 2){
+                space2.appendChild(myp);
+                j++;
             }
             else{
+                space3.appendChild(myp);
                 j = 1;
-                var myp = document.createElement("div");
-                var text = document.createTextNode(comment);
-                myp.classList.add("marquee");
-                myp.appendChild(text);
-                space[j].appendChild(myp);
             }
-            j++;
         }
         console.log(count++);
         console.log(comment);
