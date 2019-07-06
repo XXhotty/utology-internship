@@ -24,7 +24,7 @@ document.getElementById('video_play').onclick = function() {
             var text = document.createTextNode(comment);
             myp.classList.add("marquee");
             myp.appendChild(text);
-            area.appendChild();
+            area.appendChild(myp);
         }
         console.log(count++);
         console.log(comment);
