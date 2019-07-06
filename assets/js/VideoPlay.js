@@ -22,11 +22,12 @@ document.getElementById('video_play').onclick = function() {
             nextComment = comments[++videoTime];
         }
         if(comment != ''){
+            var area = document.getElementById('area');
             var myp = document.createElement("div");
             var text = document.createTextNode(comment);
             var divClass = document.getElementsByClassName('marquee');
-            myp.appendChild(text);
             myp.appendChild(divClass);
+            myp.appendChild(text);
             mydiv.appendChild(area);
         }
         console.log(count++);
