@@ -28,14 +28,17 @@ document.getElementById('video_play').onclick = function() {
             myp.classList.add("marquee");
             myp.appendChild(text);
             if(j == 1){
+                space1.removeChild(space1.firstChild);
                 space1.appendChild(myp);
                 j++;
             }
             else if(j == 2){
+                space2.removeChild(space2.firstChild);
                 space2.appendChild(myp);
                 j++;
             }
             else{
+                space3.removeChild(space3.firstChild);
                 space3.appendChild(myp);
                 j = 1;
             }
