@@ -24,9 +24,18 @@
     コメント:<input type="text" id="comment">
     <input type="button" value="コメントする" onclick='comment_ajax()' >
 
-    <div id="space1" class="area"></div>
-    <div id="space2" class="area"></div>
-    <div id="space3" class="area"></div>
+    <div id="space1" class="area">
+        <div class = "marquee">start</div>
+        <div class = "marquee">start</div>
+    </div>
+    <div id="space2" class="area">
+        <div class = "marquee">start</div>
+        <div class = "marquee">start</div>
+    </div>
+    <div id="space3" class="area">
+        <div class = "marquee">start</div>
+        <div class = "marquee">start</div>
+    </div>
 
 <div id="response0"></div>
 <div id="response1"></div>
