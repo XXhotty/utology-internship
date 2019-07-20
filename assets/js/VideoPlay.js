@@ -8,6 +8,8 @@ var nextComment = comments[videoTime];
 var space1 = document.getElementById('space1');
 var space2 = document.getElementById('space2');
 var space3 = document.getElementById('space3');
+var space4 = document.getElementById('space4');
+var space5 = document.getElementById('space5');
 var j = 1;
 
 document.getElementById('video_play').onclick = function() {
@@ -22,27 +24,38 @@ document.getElementById('video_play').onclick = function() {
             comment = comment + ' ' + nextComment.comment;
             nextComment = comments[++videoTime];
         }
-        if(comment != ''){
+        //if(comment != ''){
+            /*
             var myp = document.createElement("div");
             var text = document.createTextNode(comment);
             myp.classList.add("marquee");
             myp.appendChild(text);
-            if(j == 1){
+            */
+            if(j < 2){
+                /*
                 space1.removeChild(space1.firstChild);
                 space1.appendChild(myp);
+                */
+                space1.innerText = comment;
                 j++;
             }
-            else if(j == 2){
-                space2.removeChild(space2.firstChild);
-                space2.appendChild(myp);
+            else if(j < 3){
+                space2.innerText = comment;
+                j++;
+            }
+            else if(j < 4){
+                space3.innerText = comment;
+                j++;
+            }
+            else if(j < 5){
+                space4.innerText = comment;
                 j++;
             }
             else{
-                space3.removeChild(space3.firstChild);
-                space3.appendChild(myp);
+                space5.innerText = comment;
                 j = 1;
             }
-        }
+        //}
         console.log(count++);
         console.log(comment);
         return count;
