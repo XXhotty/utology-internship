@@ -29,10 +29,12 @@
     <div id="space1" class="marquee">
         <div>start</div>
     </div>
-    <div id="space2" class="marquee"></div>
-    <div>start</div>
-    <div id="space3" class="marquee"></div>
-    <div>start</div>
+    <div id="space2" class="marquee">
+        <div>start</div>
+    </div>
+    <div id="space3" class="marquee">
+        <div>start</div>
+    </div>
 </div>
 
 <div id="response0"></div>
