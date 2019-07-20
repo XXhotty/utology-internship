@@ -14,28 +14,23 @@
 <body>
 <div id="videoId" style="display: none">{$videoId}</div>
 <div id="Jcomments" style="display: none">{$Jcomments nofilter}</div>
-    {$message}<br/>
-    {$videoName}<br/>
-    <video id =video src='{$target}' width='426' height='240'></video>
-    <br/>
-    <input type='button' value='play' id='video_play'>
-    <input type='button' value='pause' id='video_pause'>
-    <br/>
-    コメント:<input type="text" id="comment">
-    <input type="button" value="コメントする" onclick='comment_ajax()' >
+{$message}<br/>
+{$videoName}<br/>
+<video id =video src='{$target}' width='426' height='240'></video>
+<br/>
+<input type='button' value='play' id='video_play'>
+<input type='button' value='pause' id='video_pause'>
+<br/>
+コメント:<input type="text" id="comment">
+<input type="button" value="コメントする" onclick='comment_ajax()' >
 
-    <div id="space1" class="area">
-        <div class = "marquee">start</div>
-        <div class = "marquee">start</div>
-    </div>
-    <div id="space2" class="area">
-        <div class = "marquee">start</div>
-        <div class = "marquee">start</div>
-    </div>
-    <div id="space3" class="area">
-        <div class = "marquee">start</div>
-        <div class = "marquee">start</div>
-    </div>
+<div id="area" class="area">
+    <div id="space1" class="marquee"></div>
+    <div id="space2" class="marquee"></div>
+    <div id="space3" class="marquee"></div>
+    <div id="space4" class="marquee"></div>
+    <div id="space5" class="marquee"></div>
+</div>
 
 <div id="response0"></div>
 <div id="response1"></div>
