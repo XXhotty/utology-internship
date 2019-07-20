@@ -8,6 +8,7 @@
     width: 300px;
     padding-left: 300px;
     white-space: nowrap;
+    display:none;
 
     animation-name: marquee;
     animation-duration: 5s;
@@ -16,5 +17,5 @@
 }
 @keyframes marquee {
     from    { transform: translate(0%); }
-    100%,to { display:none; }
+    100%,to { transform: translate(-100%); }
 }
