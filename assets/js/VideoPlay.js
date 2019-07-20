@@ -23,17 +23,20 @@ document.getElementById('video_play').onclick = function() {
             nextComment = comments[++videoTime];
         }
         if(comment != ''){
+            var myp = document.createElement("div");
             var text = document.createTextNode(comment);
+            myp.classList.add("marquee");
+            myp.appendChild(text);
             if(j == 1){
-                space1.appendChild(text);
+                space1.appendChild(myp);
                 j++;
             }
             else if(j == 2){
-                space2.appendChild(text);
+                space2.appendChild(myp);
                 j++;
             }
             else{
-                space3.appendChild(text);
+                space3.appendChild(myp);
                 j = 1;
             }
         }
