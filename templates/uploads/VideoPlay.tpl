@@ -27,12 +27,12 @@
 <div id="area" class="area">
     <div class="marquee"></div>
     <div id="space1" class="marquee">
-        <div></div>
+        <div>start</div>
     </div>
     <div id="space2" class="marquee"></div>
-    <div></div>
+    <div>start</div>
     <div id="space3" class="marquee"></div>
-    <div></div>
+    <div>start</div>
 </div>
 
 <div id="response0"></div>
