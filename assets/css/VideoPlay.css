@@ -14,7 +14,7 @@
     animation-name: marquee;
     animation-duration: 7.5s;
     animation-timing-function: linear;
-    animation-iteration-count: 1;
+    animation-iteration-count: 2;
 }
 @keyframes marquee {
     from    { transform: translate(0%); }
