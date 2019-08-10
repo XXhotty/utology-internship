@@ -32,7 +32,9 @@ window.onload = function() {
                 myp.classList.add("marquee");
                 myp.appendChild(text);
                 area.appendChild(myp);
-                area.removeChild(area.firstChild);
+                if(Vcount > 5) {
+                    area.removeChild(area.firstChild);
+                }
             }
             console.log(count++);
             console.log(comment);
