@@ -21,7 +21,6 @@ document.getElementById('video_play').onclick = function() {
         while (Vcount > nextComment.time){
             console.log("nextComment");
             console.log(nextComment.time);
-            comment = '';
             comment = comment + ' ' + nextComment.comment;
             nextComment = comments[++videoTime];
         }
