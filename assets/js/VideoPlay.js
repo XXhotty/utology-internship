@@ -6,7 +6,7 @@ count = 0;
 videoTime = 0;
 var nextComment = comments[videoTime];
 var commentsLength = comments.length;
-console.log(commentsLength);
+console.log(commentsLength--);
 
 var lastTime = comments[commentsLength].time;
 console.log(lastTime);
