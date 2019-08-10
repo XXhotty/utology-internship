@@ -10,7 +10,11 @@ window.onload = function() {
     var lastTime = comments[commentsLength].time;
     console.log(lastTime);
     var j = 1;
-    var area = document.getElementById('area');
+    var area1 = document.getElementById('area1');
+    var area2 = document.getElementById('area2');
+    var area3 = document.getElementById('area3');
+    var area4 = document.getElementById('area4');
+    var area5 = document.getElementById('area5');
 
     document.getElementById('video_play').onclick = function () {
         empty = '<br/>';
@@ -31,9 +35,30 @@ window.onload = function() {
                 var text = document.createTextNode(comment);
                 myp.classList.add("marquee");
                 myp.appendChild(text);
-                area.appendChild(myp);
-                if(Vcount > 5) {
-                    area.removeChild(area.firstChild);
+                if(j < 2) {
+                    area1.removeChild(area1.firstChild);
+                    area1.appendChild(myp);
+                    j++;
+                }
+                else if(j < 3){
+                    area2.removeChild(area2.firstChild);
+                    area2.appendChild(myp);
+                    j++;
+                }
+               else  if(j < 4) {
+                    area3.removeChild(area3.firstChild);
+                    area3.appendChild(myp);
+                    j++;
+                }
+                else if(j < 5) {
+                    area4.removeChild(area4.firstChild);
+                    area4.appendChild(myp);
+                    j++;
+                }
+                else{
+                    area5.removeChild(area5.firstChild);
+                    area5.appendChild(myp);
+                    j = 1;
                 }
             }
             console.log(count++);
