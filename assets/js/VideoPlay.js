@@ -18,7 +18,7 @@ var space5 = document.getElementById('space5');
 var j = 1;
 
 document.getElementById('video_play').onclick = function() {
-    empty = " ";
+    empty = '\\n';
     video.play();
     var countup = function(){
         comment = "";
