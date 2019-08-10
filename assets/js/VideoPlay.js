@@ -37,52 +37,60 @@ document.getElementById('video_play').onclick = function() {
                 space1.appendChild(myp);
                 */
                 if(comment != ''){
+                    console.log("comment:" + comment);
                     space1.innerText = comment;
                 }
                 else{
+                    console.log("empty");
                     space1.innerText = empty;
                 }
                 j++;
             }
             else if(j < 3){
                 if(comment != ''){
+                    console.log("comment" + comment);
                     space2.innerText = comment;
                 }
                 else{
+                    console.log("empty");
                     space2.innerText = empty;
                 }
                 j++;
             }
             else if(j < 4){
                 if(comment != ''){
+                    console.log("comment" + comment);
                     space3.innerText = comment;
                 }
                 else{
+                    console.log("empty");
                     space3.innerText = empty;
                 }
                 j++;
             }
             else if(j < 5){
                 if(comment != ''){
+                    console.log("comment" + comment);
                     space4.innerText = comment;
                 }
                 else{
+                    console.log("empty");
                     space4.innerText = empty;
                 }
                 j++;
             }
             else{
                 if(comment != ''){
+                    console.log("comment" + comment);
                     space5.innerText = comment;
                 }
                 else{
+                    console.log("empty");
                     space5.innerText = empty;
                 }
                 j = 1;
             }
         //}
-        console.log(count++);
-        console.log(comment);
         return count;
     };
     I = setInterval(countup, 1000);
