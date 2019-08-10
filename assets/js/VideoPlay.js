@@ -6,6 +6,7 @@ count = 0;
 videoTime = 0;
 var nextComment = comments[videoTime];
 var commentsLength = comments.length;
+console.log(commentsLength);
 var space1 = document.getElementById('space1');
 var space2 = document.getElementById('space2');
 var space3 = document.getElementById('space3');
@@ -19,7 +20,7 @@ document.getElementById('video_play').onclick = function() {
     var countup = function(){
         comment = "";
         Vcount = count + 1;
-        if(commentsLength < Vcount) {
+        if(commentsLength > Vcount) {
             while (Vcount > nextComment.time) {
                 console.log("nextComment");
                 console.log(nextComment.time);
