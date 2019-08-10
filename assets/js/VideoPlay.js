@@ -36,23 +36,48 @@ document.getElementById('video_play').onclick = function() {
                 space1.removeChild(space1.firstChild);
                 space1.appendChild(myp);
                 */
-                space1.innerText = comment;
+                if(comment != ''){
+                    space1.innerText = comment;
+                }
+                else{
+                    space1.innerText = empty;
+                }
                 j++;
             }
             else if(j < 3){
-                space2.innerText = comment;
+                if(comment != ''){
+                    space2.innerText = comment;
+                }
+                else{
+                    space2.innerText = empty;
+                }
                 j++;
             }
             else if(j < 4){
-                space3.innerText = comment;
+                if(comment != ''){
+                    space3.innerText = comment;
+                }
+                else{
+                    space3.innerText = empty;
+                }
                 j++;
             }
             else if(j < 5){
-                space4.innerText = comment;
+                if(comment != ''){
+                    space4.innerText = comment;
+                }
+                else{
+                    space4.innerText = empty;
+                }
                 j++;
             }
             else{
-                space5.innerText = comment;
+                if(comment != ''){
+                    space5.innerText = comment;
+                }
+                else{
+                    space5.innerText = empty;
+                }
                 j = 1;
             }
         //}
