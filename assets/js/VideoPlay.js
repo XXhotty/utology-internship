@@ -36,61 +36,28 @@ document.getElementById('video_play').onclick = function() {
                 space1.removeChild(space1.firstChild);
                 space1.appendChild(myp);
                 */
-                if(comment != ''){
-                    console.log("comment:" + comment);
-                    space1.innerText = comment;
-                }
-                else{
-                    console.log("empty");
-                    space1.innerText = empty;
-                }
+                space1.innerText = comment;
                 j++;
             }
             else if(j < 3){
-                if(comment != ''){
-                    console.log("comment" + comment);
-                    space2.innerText = comment;
-                }
-                else{
-                    console.log("empty");
-                    space2.innerText = empty;
-                }
+                space2.innerText = comment;
                 j++;
             }
             else if(j < 4){
-                if(comment != ''){
-                    console.log("comment" + comment);
-                    space3.innerText = comment;
-                }
-                else{
-                    console.log("empty");
-                    space3.innerText = empty;
-                }
+                space3.innerText = comment;
                 j++;
             }
             else if(j < 5){
-                if(comment != ''){
-                    console.log("comment" + comment);
-                    space4.innerText = comment;
-                }
-                else{
-                    console.log("empty");
-                    space4.innerText = empty;
-                }
+                space4.innerText = comment;
                 j++;
             }
             else{
-                if(comment != ''){
-                    console.log("comment" + comment);
-                    space5.innerText = comment;
-                }
-                else{
-                    console.log("empty");
-                    space5.innerText = empty;
-                }
+                space5.innerText = comment;
                 j = 1;
             }
         //}
+        console.log(count++);
+        console.log(comment);
         return count;
     };
     I = setInterval(countup, 1000);
