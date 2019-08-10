@@ -1,6 +1,6 @@
 /* 表示領域 */
 .area {
-    width: 300px;
+    width: 600px;
     border: 1px solid #ddd;
     overflow: hidden;
 }
@@ -11,7 +11,7 @@
     white-space: nowrap;
 
     animation-name: marquee;
-    animation-duration: 6s;
+    animation-duration: 10s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
