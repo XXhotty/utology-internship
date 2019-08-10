@@ -36,7 +36,6 @@ window.onload = function() {
                 myp.classList.add("marquee");
                 myp.appendChild(text);
                 if(j < 2) {
-                    area1.removeChild(area1.firstChild);
                     area1.appendChild(myp);
                     j++;
                 }
