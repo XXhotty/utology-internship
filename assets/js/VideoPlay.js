@@ -13,6 +13,7 @@ window.onload = function() {
 
     //var area = document.getElementById('area');
 
+
     var area1 = document.getElementById('area1');
     var area2 = document.getElementById('area2');
     var area3 = document.getElementById('area3');
