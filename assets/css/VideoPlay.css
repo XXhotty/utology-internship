@@ -12,7 +12,7 @@
     white-space: nowrap;
 
     animation-name: marquee;
-    animation-duration: 7.5s;
+    animation-duration: 5.0s;
     animation-timing-function: linear;
     animation-iteration-count: 1;
 }
