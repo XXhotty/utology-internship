@@ -24,7 +24,10 @@
 コメント:<input type="text" id="comment">
 <input type="button" value="コメントする" onclick='comment_ajax()' >
 
-<div id="area1" class="area">
+<div id="area" class="area">
+    <a></a>
+
+/*<div id="area1" class="area">
     <a></a>
 </div>
 <div id="area2" class="area">
@@ -39,6 +42,7 @@
 <div id="area5" class="area">
     <a></a>
 </div>
+*/
 
 <div id="response0"></div>
 <div id="response1"></div>

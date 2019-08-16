@@ -1,7 +1,7 @@
 /* 表示領域 */
 .area {
     width: 600px;
-    height:3.0em;
+    height:15.0em;
     border: 1px solid #ddd;
     overflow: hidden;
 }
@@ -14,7 +14,7 @@
     animation-name: marquee;
     animation-duration: 7.5s;
     animation-timing-function: linear;
-    animation-iteration-count: 2;
+    animation-iteration-count: 1;
 }
 @keyframes marquee {
     from    { transform: translate(0%); }
