@@ -1,7 +1,7 @@
 /* 表示領域 */
 .area {
-    width: 600px;
-    height:15.0em;
+    width: 300px;
+    height:10.0em;
     border: 1px solid #ddd;
     overflow: hidden;
 }
@@ -18,7 +18,5 @@
 }
 @keyframes marquee {
     from    { transform: translate(0%); }
-    100%{
-        left:calc(100% + 83px);
-    }
+    100%,to { transform: translate(-100%); }
 }
