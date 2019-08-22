@@ -18,5 +18,5 @@
 }
 @keyframes marquee {
     from    { transform: translate(0%); }
-    100%,to { transform: translate(-200%); }
+    100%,to { transform: translate(0%); }
 }
