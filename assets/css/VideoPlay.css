@@ -1,13 +1,13 @@
 /* 表示領域 */
 .area {
-    width: 300px;
-    height:10.0em;
+    width: 600px;
+    height:8.0em;
     border: 1px solid #ddd;
     overflow: hidden;
 }
 /* 表示領域に合わせてサイズと余白を設定 */
 .marquee {
-    width: 300px;
+    width: 600px;
     padding-left: 600px;
     white-space: nowrap;
 
