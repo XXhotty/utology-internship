@@ -13,7 +13,7 @@
 
     animation-name: marquee;
     animation-duration: 5.0s;
-    animation-timing-function: step-end;
+    animation-timing-function: linear;
     animation-iteration-count: 1;
 }
 @keyframes marquee {
