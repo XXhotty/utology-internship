@@ -44,7 +44,7 @@ window.onload = function() {
                 //area.appendChild(myp);
 
                 if(j < 2) {
-                    area1.removeChild(area1.firstChild);
+                    while (area1.firstChild) area1.removeChild(area1.firstChild);
                     area1.appendChild(myp);
                     j++;
                 }
