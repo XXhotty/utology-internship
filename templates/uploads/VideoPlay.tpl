@@ -25,19 +25,19 @@
 <input type="button" value="コメントする" onclick='comment_ajax()' >
 
 <div id="area" class="area">
-    <div id="area1" class="marquee">
+    <div id="area1" >
         <a></a>
     </div>
-    <div id="area2" class="marquee">
+    <div id="area2">
         <a></a>
     </div>
-    <div id="area3" class="marquee">
+    <div id="area3">
         <a></a>
     </div>
-    <div id="area4" class="marquee">
+    <div id="area4">
         <a></a>
     </div>
-    <div id="area5" class="marquee">
+    <div id="area5">
         <a></a>
 </div>
     <!--
