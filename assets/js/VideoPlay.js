@@ -37,7 +37,7 @@ window.onload = function() {
             if (comment != '') {
                 var myp = document.createElement("div");
                 var text = document.createTextNode(comment);
-                myp.classList.add("marquee");
+                //myp.classList.add("marquee");
                 myp.appendChild(text);
 
 
