@@ -49,22 +49,22 @@ window.onload = function() {
                     j++;
                 }
                 else if(j < 3){
-                    area2.removeChild(area2.firstChild);
+                    while (area2.firstChild) area2.removeChild(area2.firstChild);
                     area2.appendChild(myp);
                     j++;
                 }
                else  if(j < 4) {
-                    area3.removeChild(area3.firstChild);
+                    while (area3.firstChild) area3.removeChild(area3.firstChild);
                     area3.appendChild(myp);
                     j++;
                 }
                 else if(j < 5) {
-                    area4.removeChild(area4.firstChild);
+                    while (area4.firstChild) area4.removeChild(area4.firstChild);
                     area4.appendChild(myp);
                     j++;
                 }
                 else{
-                    area5.removeChild(area5.firstChild);
+                    while (area5.firstChild) area5.removeChild(area5.firstChild);
                     area5.appendChild(myp);
                     j = 1;
                 }
