@@ -5,10 +5,6 @@
     border: 1px solid #ddd;
     overflow: hidden;
 }
-video.video{
-    position: relative;
-    left:100px;
-}
 /* 表示領域に合わせてサイズと余白を設定 */
 .marquee {
     width: 600px;
