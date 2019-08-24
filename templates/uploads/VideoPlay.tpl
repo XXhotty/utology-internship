@@ -15,14 +15,6 @@
 <div id="videoId" style="display: none">{$videoId}</div>
 <div id="Jcomments" style="display: none">{$Jcomments nofilter}</div>
 {$message}<br/>
-{$videoName}<br/>
-<video id =video src='{$target}' width='426' height='240'></video>
-<br/>
-<input type='button' value='play' id='video_play'>
-<input type='button' value='pause' id='video_pause'>
-<br/>
-コメント:<input type="text" id="comment">
-<input type="button" value="コメントする" onclick='comment_ajax()' >
 
 <div id="area" class="area">
     <div id="area1" >
@@ -39,7 +31,18 @@
     </div>
     <div id="area5">
         <a></a>
+    </div>
 </div>
+
+{$videoName}<br/>
+<video id =video src='{$target}' width='426' height='240'></video>
+<br/>
+<input type='button' value='play' id='video_play'>
+<input type='button' value='pause' id='video_pause'>
+<br/>
+コメント:<input type="text" id="comment">
+<input type="button" value="コメントする" onclick='comment_ajax()' >
+
     <!--
 <div id="area1" class="area">
     <a></a>
