@@ -7,7 +7,7 @@
 }
 div.area{
     position: relative;
-    top: 300px;
+    left:10px;
 }
 /* 表示領域に合わせてサイズと余白を設定 */
 .marquee {
