@@ -4,6 +4,8 @@
     height: 8.0em;
     border: 1px solid #ddd;
     overflow: hidden;
+}
+div.area{
     position: relative;
     top: 300px;
 }
