@@ -1,7 +1,7 @@
 /* 表示領域 */
 .area {
     width: 50px;
-    height: 10.0px;
+    height: 10px;
     border: 1px solid #ddd;
     overflow: hidden;
 }
