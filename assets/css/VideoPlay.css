@@ -1,5 +1,6 @@
 /* 表示領域 */
 .area {
+    backGround-color: rgba(255,255,255,0);
     width: 50px;
     height: 10px;
     border: 1px solid #ddd;
