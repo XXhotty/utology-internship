@@ -1,15 +1,15 @@
 /* 表示領域 */
 .area {
     backGround-color: rgba(255,255,255,0);
-    width: 50px;
-    height: 10px;
+    width: 300px;
+    height: 200px;
     border: 1px solid #ddd;
     overflow: hidden;
 }
 /* 表示領域に合わせてサイズと余白を設定 */
 .marquee {
-    width: 600px;
-    padding-left: 600px;
+    width: 300px;
+    padding-left: 300px;
     white-space: nowrap;
 
     animation-name: marquee;
