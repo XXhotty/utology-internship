@@ -21,11 +21,9 @@
 @keyframes marquee {
     from    {
         transform: translate(0%);
-        opacity:1;
     }
     100%,to {
         transform: translate(-100%);
-        opacity:0;
     }
 
 }
