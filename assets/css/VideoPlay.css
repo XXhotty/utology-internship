@@ -10,7 +10,6 @@
 .marquee {
     display:inline-block;
     width: 300px;
-    padding-left: 300px;
     white-space: nowrap;
 
     animation-name: marquee;
