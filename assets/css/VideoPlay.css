@@ -1,5 +1,6 @@
 /* 表示領域 */
 .area {
+    display:inline;
     backGround-color: rgba(255,255,255,0);
     width: 300px;
     height: 200px;
@@ -7,12 +8,13 @@
 }
 /* 表示領域に合わせてサイズと余白を設定 */
 .marquee {
+    display:inline;
     width: 300px;
     padding-left: 300px;
     white-space: nowrap;
 
     animation-name: marquee;
-    animation-duration: 5.0s;
+    animation-duration: 4.0s;
     animation-timing-function: linear;
     animation-iteration-count: 1;
 }
