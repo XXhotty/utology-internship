@@ -8,10 +8,11 @@
 }
 /* 表示領域に合わせてサイズと余白を設定 */
 .marquee {
-    display:inline;
+    display:inline-block;
     width: 300px;
     padding-left: 300px;
     white-space: nowrap;
+
 
     animation-name: marquee;
     animation-duration: 4.0s;
@@ -20,4 +21,5 @@
 }
 @keyframes marquee {
     from    { transform: translate(0%); }
+
 }
