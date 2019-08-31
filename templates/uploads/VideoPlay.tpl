@@ -24,7 +24,7 @@
 <input type="button" value="コメントする" onclick='comment_ajax()' >
 
 
-<div style="backGround-color: rgba(255,255,255,0); position: relative; top: -300px; left: 52px;">
+<div style="backGround-color: rgba(255,255,255,0); position: relative; top: -290px; left: 52px;">
 <div id="area" class="area">
     <div id="area1" >
         <a></a>
