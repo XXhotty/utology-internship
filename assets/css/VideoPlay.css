@@ -1,6 +1,5 @@
 /* 表示領域 */
 .area {
-    display:inline;
     backGround-color: rgba(255,255,255,0);
     width: 300px;
     height: 200px;
@@ -12,7 +11,6 @@
     width: 300px;
     padding-left: 300px;
     white-space: nowrap;
-
 
     animation-name: marquee;
     animation-duration: 4.0s;
