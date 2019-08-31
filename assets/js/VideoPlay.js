@@ -42,27 +42,22 @@ window.onload = function() {
                 //area.appendChild(myp);
 
                 if(j < 2) {
-                    while (area1.firstChild) area1.removeChild(area1.firstChild);
                     area1.appendChild(myp);
                     j++;
                 }
                 else if(j < 3){
-                    while (area2.firstChild) area2.removeChild(area2.firstChild);
                     area2.appendChild(myp);
                     j++;
                 }
                else  if(j < 4) {
-                    while (area3.firstChild) area3.removeChild(area3.firstChild);
                     area3.appendChild(myp);
                     j++;
                 }
                 else if(j < 5) {
-                    while (area4.firstChild) area4.removeChild(area4.firstChild);
                     area4.appendChild(myp);
                     j++;
                 }
                 else{
-                    while (area5.firstChild) area5.removeChild(area5.firstChild);
                     area5.appendChild(myp);
                     j = 1;
                 }
