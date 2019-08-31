@@ -27,19 +27,19 @@
 <div style="backGround-color: rgba(255,255,255,0); position: relative; top: -290px; left: 52px;">
 <div id="area" class="area">
     <div id="area1" >
-        <a></a>
+        <a>a</a>
     </div>
     <div id="area2">
-        <a></a>
+        <a>a</a>
     </div>
     <div id="area3">
-        <a></a>
+        <a>a</a>
     </div>
     <div id="area4">
-        <a></a>
+        <a>a</a>
     </div>
     <div id="area5">
-        <a></a>
+        <a>a</a>
 
     </div>
 </div>
