@@ -24,24 +24,24 @@
 <input type="button" value="コメントする" onclick='comment_ajax()' >
 
 
-<div style="backGround-color: rgba(255,255,255,0); position: relative; top: -310px; left: 52px;">
+<div style="backGround-color: rgba(255,255,255,0); position: relative; top: -300px; left: 52px;">
 <div id="area" class="area">
-    <div id="area1" >
+    <span id="area1" >
         <a></a>
-    </div>
-    <div id="area2">
+    </span>
+    <span id="area2">
         <a></a>
-    </div>
-    <div id="area3">
+    </span>
+    <span id="area3">
         <a></a>
-    </div>
-    <div id="area4">
+    </span>
+    <span id="area4">
         <a></a>
-    </div>
-    <div id="area5">
+    </span>
+    <span id="area5">
         <a></a>
 
-    </div>
+    </span>
 </div>
 </div>
     <!--
