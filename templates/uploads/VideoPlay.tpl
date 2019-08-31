@@ -26,22 +26,22 @@
 
 <div style="backGround-color: rgba(255,255,255,0); position: relative; top: -300px; left: 52px;">
 <div id="area" class="area">
-    <span id="area1" >
+    <div id="area1" >
         <a></a>
-    </span>
-    <span id="area2">
+    </div>
+    <div id="area2">
         <a></a>
-    </span>
-    <span id="area3">
+    </div>
+    <div id="area3">
         <a></a>
-    </span>
-    <span id="area4">
+    </div>
+    <div id="area4">
         <a></a>
-    </span>
-    <span id="area5">
+    </div>
+    <div id="area5">
         <a></a>
 
-    </span>
+    </div>
 </div>
 </div>
     <!--
