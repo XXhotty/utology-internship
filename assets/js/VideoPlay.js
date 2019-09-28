@@ -35,7 +35,11 @@ window.onload = function() {
                 }
             }
             if (comment != '') {
-                var myp = document.createTextNode(comment);
+                var myp = document.createElement("p");
+                var text = document.createTextNode(comment);
+                myp.classList.add("marquee");
+                myp.appendChild(text);
+                //area.appendChild(myp);
 
                 if(j < 2) {
                     area1.appendChild(myp);
