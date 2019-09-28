@@ -9,8 +9,8 @@
 /* 表示領域に合わせてサイズと余白を設定 */
 .marquee {
     display:inline-block;
-    width: 300px;
-    padding-left: 300px;
+    width: 200px;
+    padding-left: 320px;
     white-space: nowrap;
 
     animation-name: marquee;
@@ -23,7 +23,7 @@
         transform: translate(0%);
     }
     100%,to {
-
+        transform: translate(-100%);
     }
 
 }
