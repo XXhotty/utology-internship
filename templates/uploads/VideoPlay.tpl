@@ -23,7 +23,6 @@
 コメント:<input type="text" id="comment">
 <input type="button" value="コメントする" onclick='comment_ajax()' >
 
-<div id='hideMe'>Wait for it...<div>
 <div style="backGround-color: rgba(255,255,255,0); position: relative; top: -290px; left: 52px;">
     <div id="area" class="area">
         <div id="area1" ></div>
