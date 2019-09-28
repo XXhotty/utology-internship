@@ -1,5 +1,6 @@
 /* 表示領域 */
 .area {
+    position: relative;
     display:inline;
     backGround-color: rgba(255,255,255,0);
     width: 320px;
