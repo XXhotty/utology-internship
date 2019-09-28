@@ -26,11 +26,11 @@
 
 <div style="backGround-color: rgba(255,255,255,0); position: relative; top: -290px; left: 52px;">
     <div id="area" class="area">
-        <div id="area1" ></div>
-        <div id="area2"></div>
-        <div id="area3"></div>
-        <div id="area4"></div>
-        <div id="area5"></div>
+        <div id="area1" class="marquee"></div>
+        <div id="area2" class="marquee"></div>
+        <div id="area3" class="marquee"></div>
+        <div id="area4" class="marquee"></div>
+        <div id="area5" class="marquee"></div>
     </div>
 </div>
     <!--
