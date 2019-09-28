@@ -2,15 +2,15 @@
 .area {
     display:inline;
     backGround-color: rgba(255,255,255,0);
-    width: 100px;
+    width: 300px;
     height: 200px;
     overflow: hidden;
 }
 /* 表示領域に合わせてサイズと余白を設定 */
 .marquee {
     display:inline-block;
-    width: 100px;
-    padding-left: 400px;
+    width: 300px;
+    padding-left: 300px;
     white-space: nowrap;
 
     animation-name: marquee;
