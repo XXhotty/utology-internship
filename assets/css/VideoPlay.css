@@ -1,6 +1,5 @@
 /* 表示領域 */
 .area {
-    position: relative;
     display:inline;
     backGround-color: rgba(255,255,255,0);
     width: 320px;
@@ -9,7 +8,7 @@
 }
 /* 表示領域に合わせてサイズと余白を設定 */
 .marquee {
-    display:inline-block;
+    display:inline;
     width: 320px;
     padding-left: 320px;
     white-space: nowrap;
