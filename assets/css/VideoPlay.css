@@ -1,0 +1,25 @@
+/* 表示領域 */
+.area {
+    display:inline;
+    backGround-color: rgba(255,255,255,0);
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+}
+/* 表示領域に合わせてサイズと余白を設定 */
+.marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: flow 10s linear infinite;
+}
+
+@keyframes marquee {
+    from{
+        text-indent: 100%;
+    }
+
+    to{
+        /* 文字数に合わせて変更 */
+        text-indent: -12em;
+    }
+}
