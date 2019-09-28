@@ -8,18 +8,22 @@
 }
 /* 表示領域に合わせてサイズと余白を設定 */
 .marquee {
+    display:inline-block;
+    width: 300px;
+    padding-left: 300px;
     white-space: nowrap;
-    overflow: hidden;
-    animation: flow 10s linear infinite;
+
+    animation-name: marquee;
+    animation-duration: 4.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
 }
 
 @keyframes marquee {
-    from{
-        text-indent: 100%;
+    from    {
+        transform: translate(0%);
     }
-
-    to{
-        /* 文字数に合わせて変更 */
-        text-indent: -12em;
+    100%,to {
+        transform: translate(-100%);
     }
 }
